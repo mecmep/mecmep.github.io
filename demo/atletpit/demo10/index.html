@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<title>Индивидуальная программа питания</title>
+	<meta charset="utf-8">
+	<meta name="description" content="Индивидуальная (персональная) программа питания">
+	<meta name="keywords" content="программа питания, спортивное питание, план питания, программа тренировок">
+	<meta name="theme-color" content="#574640">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style>
+@import url('https://fonts.googleapis.com/css2?family=Exo+2&family=Oswald:wght@200;300&family=Play&family=Righteous&display=swap');
+:root {--header-footer-bgcolor: #574640;--header-footer-color: #eae3e1;}
+body {margin: 0;padding: 0;}
+form {text-align: center;}
+hr {border: 0;border-top: 1px solid #4c3d38;margin: 15px 0 0;}
+img {max-width: 100%;}
+ul {margin: 0;padding: 0 0 0 20px;}
+li::marker {color: #4c3d38;}
+.hidden {display: none;}
+#modal-overlay {background: #00000099;height: 100%;left: 0;position: fixed;top: 0;width: 100%;}
+header {background: var(--header-footer-bgcolor);color: var(--header-footer-color);padding: 30px 20px;}
+header > div {margin: 0 auto;overflow: hidden;width: 300px;}
+header img {float: left;height: 75px;width: 51px;}
+header > div > div {color: #e4dcda;float: right;font: 50px/40px Righteous, cursive;}
+header h3 {float: right;font: 300 19px/25px Oswald, sans-serif;margin: 10px 0 0;}
+main {background: #cbbdb8;color: #130f0e;font: 200 16px Oswald, sans-serif;}
+main > div {padding: 20px;}
+main > div.pict {background-size: cover !important;padding: 0;}
+main > div.shadow {box-shadow: inset 0 25px 20px -20px;}
+h2 {color: #4c3d38;font: 20px 'Exo 2', sans-serif;margin: 0;text-align: center;}
+p {margin: 15px 0 0;text-align: justify;}
+p.readmore {text-align: right;}
+p.readmore button {background: none;border: 0;border-bottom: 1px solid #4c3d38;color: #130f0e;font: 200 16px Oswald, sans-serif;outline: none;padding: 0;}
+div.readmore {background: #cbbdb8;height: 100%;left: 0;position: fixed;top: 0;width: 100%;}
+div.readmore > div {background: #cbbdb8;height: calc(100% - 60px);overflow: scroll;margin: 30px 20px;}
+div.readmore > div > h2:first-child {margin-top: 24px;}
+div.readmore p.order {text-align: center;}
+div.readmore p.order button {background: #e4dcda;border: 0;border-radius: 5px;color: #2a221f;font: 16px/20px Play, sans-serif;outline: none;padding: 10px 15px;}
+div.readmore button.close {background: #dbd2ce;border: 0;border-radius: 50%;height: 30px;outline: none;padding: 0;position: fixed;right: 10px;top: 15px;width: 30px;}
+div.readmore button.close span {border: 0 solid #4c3d38;border-width: 0 1px 1px 0;display: block;height: 7px;margin: auto;transform: rotate(45deg);width: 7px;}
+div.readmore button.close span:last-child {border-width: 1px 0 0 1px;margin-top: 2px;}
+footer {background: var(--header-footer-bgcolor);color: var(--header-footer-color);font: 200 16px Oswald, sans-serif;padding: 25px 20px;text-align: center;}
+footer button {background: #e4dcda;border: 0;border-radius: 5px;color: #2a221f;font: 16px/20px Play, sans-serif;outline: none;padding: 10px 15px;}
+.modal {background: #cbbdb8;left: 50%;max-height: 100%;max-width: 100%;overflow: auto;padding: 30px 20px;position: fixed;top: 50%;transform: translate(-50%, -50%);width: 160px;}
+.modal select {background: #e4dcda;border: 0;font: 200 16px/30px Oswald, sans-serif;width: 160px;}
+.modal input {background: #e4dcda;border: 0;color: #130f0e;display: block;font: 200 16px/30px Oswald, sans-serif;margin: 15px 0 0;padding: 0 10px;width: 140px;}
+.modal button {background: #e4dcda;border: 0;border-radius: 5px;color: #2a221f;font: 16px/20px Play, sans-serif;margin: 15px 0 0;outline: none;padding: 10px 15px;}
+#contacts {margin-top: 10px;}
+#contacts a {margin: 5px 5px 0;}
+#operator {background: url(../img/operator.png);background-size: cover;display: inline-block;height: 30px;width: 30px;}
+#whatsapp {background: url(../img/wa.svg);background-size: cover;display: inline-block;height: 30px;width: 30px;}
+@media (max-width: 339px) {
+	header {padding: 30px 10px;}
+	header > div {width: 220px;}
+	header img {height: 57px;width: 39px;}
+	header > div > div {font: 37px/30px Righteous, cursive;}
+	header h3 {font: 300 13px/17px Oswald, sans-serif;}
+}
+	</style>
+</head>
+<body>
+	<div class="hidden" id="modal-overlay" onclick="document.getElementById('modal-overlay').classList.add('hidden');document.querySelectorAll('.modal').forEach(function(element){element.classList.add('hidden');});"></div>
+	<header>
+		<div>
+			<img alt="" src="../img/runningman.png">
+			<div>atletpit.ru</div>
+			<h3>индивидуальная программа питания</h3>
+		</div>
+	</header>
+	<main>
+		<div class="pict" style="background: url(../img/pitanie.jpg) 50%;height: 42vmin;"></div>
+		<div>
+			<h2>Программы спортивного питания</h2>
+			<p>Независимо от того, какую ты преследуешь цель: набор мышечной массы, похудение, восстановление после тренировки, увеличение выносливости во время тренировки или просто хорошее самочувствие – с учётом многих факторов разрабатывается индивидуальная программа применения спортивного питания и добавок.</p>
+			<p class="readmore"><button onclick="pspmore.classList.remove('hidden');">подробнее »</button></p>
+			<div class="readmore hidden" id="pspmore">
+				<div>
+<h2>Программы спортивного питания</h2>
+<p>Несомненно, многие имеют определенные цели и задачи при занятиях конкретными видами спортивной активности. Применение спортивного питания и добавок – неотъемлемая часть для достижения многих результатов. Это большая область, требующая углубленного изучения и серьезного подхода. Благодаря 15-летнему опыту работы в этой сфере, появилась идея «Составление индивидуальной программы спортивного питания», учитывающая множество факторов таких, как: пол, возраст, вес, род деятельности, режим сна, виды активности и многое другое.</p>
+<p>Программа спортивного питания разрабатывается на каждый день, в которой указывается точное количество конкретной добавки, когда применять и с чем комбинировать.</p>
+<p>Индивидуальная программа разработана до мельчайших подробностей с учетом всех личных особенностей и потребностей. Особо подчеркивается слово «индивидуальная». В течение семи дней специально для тебя будет продумана и разработана программа. Тебе ни о чем не придется заботиться, тебе не нужно выяснять сколько, когда и что класть. Для тебя всё будет разработано максимально понятно и доступно. Каждый хочет видеть и чувствовать результат.</p>
+<p>Про условия:</p>
+<ul>
+	<li>Стоимость программы – 5000 рублей.</li>
+	<li>После 100% предоплаты на электронную почту направляется анкета для заполнения.</li>
+	<li>После того, как ты пришлешь обратно заполненную анкету, в течение семи календарных дней тебе на почту поступит программа.</li>
+	<li>В программе будет список конкретных рекомендуемых продуктов (наименование и бренд), а также альтернативный список на тот случай, если не удалось приобрести определенный продукт.</li>
+</ul>
+<p>Обрати внимание. Весь перечень рекомендуемых продуктов будет доставлен в течение 10 дней, если ты этого захочешь. Услуга предоставляется после 100% предоплаты счета за весь комплект продукции. Это удобно и надежно. Не нужно никуда ходить или искать в Интернете. Вся продукция американских и европейских брендов от официальных поставщиков в России, с которыми работа осуществляется на протяжении 15 лет.</p>
+<hr>
+<p>Отказаться от программы и вернуть деньги без удержания возможно только до отправки анкеты. После того, как анкета отправлена тебе, отказаться еще можно, но удерживается 1000 рублей. После того, как ты отправил обратно заполненную анкету, возврат средств невозможен.</p>
+<p class="order"><button onclick="pspmore.classList.add('hidden');orderprogrambutton.click();">Заказать</button></p>
+				</div>
+				<button class="close" onclick="pspmore.classList.add('hidden');"><span></span><span></span></button>
+			</div>
+		</div>
+		<div class="pict shadow" style="background: url(../img/consulting2.jpg) 50%;height: 52vmin;"></div>
+		<div>
+			<h2>Консалтинг</h2>
+			<p>Существует широкое изобилие спортивного питания и добавок. Безусловно, хочется понимать, что ты приобретаешь и принимаешь. Ты получишь подробную консультацию по соответствующим добавкам.</p>
+			<p class="readmore"><button onclick="consmore.classList.remove('hidden');">подробнее »</button></p>
+			<div class="readmore hidden" id="consmore">
+				<div>
+<h2>Консалтинг</h2>
+<p>Чрезвычайно непросто самому разобраться в области спортивного питания и добавках, но, безусловно, хочется и нужно. Хочется разбираться и понимать, какие существуют добавки, что нужно именно тебе, как выбрать, когда и сколько принимать, чтобы получить желаемый результат.</p>
+<p>На самом деле, многие не подозревают, что существует огромное разнообразие важнейших добавок для здоровья и улучшения качества жизни. Ты сможешь узнать много нового и полезного, воспользовавшись данной услугой. Заказать услугу консультации возможно, как по составленной программе, так и независимо от нее. То есть можно просто получить консультацию по добавкам, не заказывая себе программу. Предварительно обговаривается направленность консультации.</p>
+<p>Услуга консультации доступна в следующих вариантах по предоплате:</p>
+<ul>
+	<li>Устная консультации по телефону/WhatsApp - 3000 рублей. Продолжительность составляет не более двух часов. Предварительно обговаривается день и время.</li>
+	<li>Письменная консультация – 4000 рублей. В течение пяти дней тебе на почту придет консультация в электронном виде.</li>
+	<li>Устная и письменная консультация – 6000 рублей.</li>
+	<li>Личная встреча – 5000 рублей. Продолжительность составляет не более двух часов. Доступно только в пределах г. Казани после предварительной согласованности даты, времени и месте. Стоимость каждого последующего часа составляет 2000 рублей.</li>
+	<li>Личная встреча и письменная консультация – 8000 рублей.</li>
+</ul>
+<hr>
+<p>Отказаться от услуги/перенести дату и время без удержаний возможно не позднее, чем за сутки до обговоренной даты и времени. Удержание составляет 1000 рублей, если отказ/изменение произошло менее, чем за сутки до обговоренной даты и времени.</p>
+<p>Отказаться от письменной консультации возможно только в течение суток после поступления денежных средств, далее возврат средств невозможен.</p>
+<p class="order"><button onclick="consmore.classList.add('hidden');orderprogrambutton.click();ordertype.selectedIndex = 1;">Заказать</button></p>
+				</div>
+				<button class="close" onclick="consmore.classList.add('hidden');"><span></span><span></span></button>
+			</div>
+		</div>
+	</main>
+	<footer>
+		<button id="orderprogrambutton" onclick="document.getElementById('modal-overlay').classList.remove('hidden');orderprogram.classList.remove('hidden');ordertype.selectedIndex = 0;">Заказать программу</button>
+		<div class="hidden modal" id="orderprogram">
+			<form method="post">
+				<select id="ordertype" name="ordertype">
+					<option value="Программа спортивного питания">Программа питания</option>
+					<option value="Консалтинг">Консалтинг</option>
+				</select>
+				<input maxlength="256" name="fio" placeholder="Имя" type="text">
+				<input maxlength="18" name="tel" placeholder="Телефон для связи" type="tel">
+				<input maxlength="256" name="email" placeholder="E-mail для связи" type="email">
+				<button>Заказать</button>
+			</form>
+		</div>
+		<div id="contacts">
+			<div>Контакты для оперативной связи:</div>
+			<a href="tel:+79600433479" id="operator"></a>
+			<a href="https://wa.me/79600433479" id="whatsapp"></a>
+		</div>
+	</footer>
+</body>
+</html>
