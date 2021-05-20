@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<title>Индивидуальная программа питания</title>
+	<meta charset="utf-8">
+	<meta name="description" content="Индивидуальная (персональная) программа питания">
+	<meta name="keywords" content="программа питания, спортивное питание, план питания, программа тренировок">
+	<meta name="theme-color" content="#574640">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style>
+@import url('https://fonts.googleapis.com/css2?family=Exo+2&family=Fira+Sans+Condensed:wght@200&family=Oswald:wght@200;300&family=Play&family=Righteous&display=swap');
+:root {--header-footer-bgcolor: #574640;--header-footer-color: #eae3e1;}
+body {margin: 0;padding: 0;}
+form {text-align: center;}
+hr {border: 0;border-top: 1px solid #4c3d38;margin: 15px 0 0;}
+img {max-width: 100%;}
+ul {margin: 0;padding: 0 0 0 20px;text-align: justify;}
+ul li {margin: 10px 0 0;}
+li::marker {color: #4c3d38;}
+.strike {text-decoration: line-through;}
+#modaloverlay {background: #00000099;height: 100%;left: 0;position: fixed;top: 0;width: 100%;}
+#modaloverlay.hidden {display: none;}
+header {background: var(--header-footer-bgcolor);color: var(--header-footer-color);padding: 30px 20px;}
+header > div {margin: 0 auto;overflow: hidden;width: 300px;}
+header img {float: left;height: 75px;width: 51px;}
+header > div > div {color: #e4dcda;float: right;font: 50px/40px Righteous, cursive;}
+header h3 {float: right;font: 300 19px/25px Oswald, sans-serif;margin: 10px 0 0;}
+main {background: #cbbdb8;color: #130f0e;font: 200 16px Oswald, sans-serif;}
+main > div > div > div {padding: 20px;}
+main > div > div > div.pict {background-size: cover !important;padding: 0;}
+main > div > div > div.shadow {box-shadow: inset 0 25px 20px -20px;}
+h2 {color: #4c3d38;font: 20px 'Exo 2', sans-serif;margin: 0;text-align: center;}
+p {margin: 15px 0 0;text-align: justify;}
+div.preview, div.readmore {overflow: auto;transition: 1.5s linear;}
+div.preview {transition: .5s linear;}
+div.preview.hidden, div.readmore.hidden {max-height: 0 !important;}
+div.readmore p.order {text-align: center;}
+div.readmore p.order button {background: #e4dcda;border: 0;border-radius: 5px;color: #2a221f;font: 16px/20px Play, sans-serif;outline: none;padding: 10px 15px;}
+span.rub {font: 200 19px/23px 'Fira Sans Condensed', sans-serif;}
+button.previewbutton, button.readmorebutton {background: #cbbdb8;border: 1px solid #4c3d38;border-radius: 50%;display: block;height: 22px;margin: 15px auto 0;width: 22px;}
+button.previewbutton:focus, button.readmorebutton:focus {box-shadow: 0 0 4px #574640;outline: none;}
+button.previewbutton span, button.readmorebutton span {border: 0 solid #4c3d38;border-width: 1px 0 0 1px;display: block;height: 5px;margin: 4px auto 0;transform: rotate(45deg);width: 5px;}
+button.previewbutton span:last-child {margin-top: -2px;}
+button.readmorebutton span {border-width: 0 1px 1px 0;margin-top: -2px;}
+footer {background: var(--header-footer-bgcolor);color: var(--header-footer-color);font: 300 16px Oswald, sans-serif;padding: 25px 20px;text-align: center;}
+footer button {background: #e4dcda;border: 0;border-radius: 5px;color: #2a221f;font: 16px/20px Play, sans-serif;outline: none;padding: 10px 15px;}
+.modal {background: #cbbdb8;color: #130f0e;font: 200 16px/30px Oswald, sans-serif;left: 50%;max-height: 100%;max-width: calc(100% - 80px);overflow: auto;padding: 30px 20px;position: fixed;top: 50%;transform: translate(-50%, -50%);transition: 1s linear;width: 70%;}
+.modal.hidden {padding: 0;top: -50%;}
+.modal .hidden {max-height: 0;}
+.modal form > div {max-height: 420px;overflow: hidden;position: relative;transition: 1s linear;}
+.modal form > div > *:first-child {margin-top: 0;}
+.modal input {background: #e4dcda;border: 0;color: #130f0e;display: block;font: 200 16px/30px Oswald, sans-serif;margin: 15px 0 0;padding: 0 10px;text-align: center;width: calc(100% - 20px);}
+.modal input:focus {box-shadow: inset 0 0 4px 1px #574640;outline: none;}
+.modal label {align-items: flex-start;display: flex;line-height: 20px;margin-top: 20px;text-align: justify;}
+.modal input[type="checkbox"] {clip: rect(0 0 0 0);height: 1px;margin: 0;overflow: hidden;position: absolute;width: 1px;}
+.modal input[type="checkbox"] + span {background: #e4dcda;height: 20px;margin-right: 10px;min-width: 20px;}
+.modal input[type="checkbox"]:checked + span:before {border: 0 solid #130f0e;border-width: 0 2px 2px 0;content: '';display: block;height: 13px;margin-left: 5px;transform: scaleX(.7) rotate(45deg);width: 7px;}
+.modal input[type="checkbox"]:focus + span {box-shadow: 2px 2px 2px #574640;}
+.modal button {background: #e4dcda;border: 0;border-radius: 5px;color: #2a221f;font: 16px/20px Play, sans-serif;margin: 15px 0 0;outline: none;padding: 10px 15px;}
+#contacts {align-items: center;display: flex;flex-wrap: wrap;justify-content: center;}
+#contacts a, #contacts span {margin: 10px 5px 0;outline: none;}
+#contacts a:focus {filter: drop-shadow(0 0 2px #0f0);}
+#phone {background: url(../img/phone.png);background-size: cover;display: inline-block;height: 30px;width: 30px;}
+#whatsapp {background: url(../img/wa.png);background-size: cover;display: inline-block;height: 30px;width: 30px;}
+div.readmore p.order button:focus, .modal button:focus {box-shadow: inset 0 0 4px 1px #574640;}
+footer button:focus {box-shadow: inset 0 0 4px 1px #2a221f, 0 0 5px #e4dcda;}
+#closemodal {background: #dbd2ce;border: 0;border-radius: 50%;height: 30px;outline: none;padding: 0;position: fixed;right: 10px;top: 15px;width: 30px;}
+#closemodal:focus {box-shadow: 0 0 4px 1px #e4dcda;}
+#closemodal.hidden {display: none;}
+#closemodal span {border: 0 solid #4c3d38;border-width: 0 1px 1px 0;display: block;height: 7px;margin: auto;transform: rotate(45deg);width: 7px;}
+#closemodal span:last-child {border-width: 1px 0 0 1px;margin-top: 2px;}
+@media (max-height: 299px) {
+	.modal label {margin-top: 15px;}
+	#services button {margin-top: 15px;}
+}
+@media (max-height: 279px) {
+	.modal label {line-height: 16px;margin-top: 10px;}
+	.modal input[type="checkbox"] + span {height: 15px;margin-right: 10px;min-width: 15px;}
+	.modal input[type="checkbox"]:checked + span:before {border-width: 0 2px 2px 0;height: 10px;margin-left: 4px;width: 5px;}
+	#services {font-size: 15px;}
+	#services span.rub {font-size: 17px;line-height: 13px;}
+	#services button {font-size: 15px;line-height: 16px;margin-top: 10px;padding: 6px 12px;}
+}
+@media (max-width: 339px) {
+	header {padding: 30px 10px;}
+	header > div {width: 220px;}
+	header img {height: 57px;width: 39px;}
+	header > div > div {font: 37px/30px Righteous, cursive;}
+	header h3 {font: 300 13px/17px Oswald, sans-serif;}
+}
+@media (max-width: 279px) {
+	.modal label {line-height: 16px;margin-top: 14px;}
+	.modal input[type="checkbox"] + span {height: 15px;margin-right: 10px;min-width: 15px;}
+	.modal input[type="checkbox"]:checked + span:before {border-width: 0 2px 2px 0;height: 10px;margin-left: 4px;width: 5px;}
+	#services {font-size: 15px;}
+	#services span.rub {font-size: 17px;line-height: 13px;}
+	#services button {font-size: 15px;line-height: 16px;margin-top: 14px;padding: 6px 12px;}
+}
+@media (min-height: 280px) and (min-width: 280px) {
+	.modal input {line-height: 40px;margin: 20px 0 0;}
+	.modal button {margin: 20px 0 0;}
+}
+@media (min-width: 500px) {
+	.modal {width: 350px;}
+}
+@media (min-width: 600px) {
+	main {background: url(../img/main.jpg) 50%;background-size: cover;}
+	main > div {background: #baa8a1cc;display: flex;flex-wrap: wrap;justify-content: center;padding-top: 30px;}
+	main > div > div {background: #cbbdb8;margin: 0 10px 30px;width: 400px;}
+	main > div > div > div.pict {height: 200px !important;}
+}
+@media (min-width: 800px) {
+	main > div > div {width: 740px;}
+	main > div > div > div.pict {height: 300px !important;}
+	div.preview.hidden, div.readmore.hidden {max-height: none !important;}
+	button.previewbutton, button.readmorebutton {display: none;}
+}
+@media (min-width: 1200px) {
+	main > div > div {width: 1000px;}
+	main > div > div > div.pict {height: 440px !important;}
+}
+	</style>
+</head>
+<body>
+	<div class="hidden" id="modaloverlay"></div>
+	<header>
+		<div>
+			<img alt="" src="../img/runningman.png">
+			<div>atletpit.ru</div>
+			<h3>индивидуальная программа питания</h3>
+		</div>
+	</header>
+	<main>
+		<div>
+			<div>
+				<div class="pict" style="background: url(../img/pitanie.jpg) 50%;height: 42vmin;"></div>
+				<div>
+					<h2>Программы спортивного питания</h2>
+					<div class="preview">
+						<p>Независимо от того, какую ты преследуешь цель: набор мышечной массы, похудение, восстановление после тренировки, увеличение выносливости, концентрации во время тренировки или просто хорошее самочувствие – с учётом многих факторов разрабатывается индивидуальная программа применения спортивного питания и добавок.</p>
+					</div>
+					<div class="readmore hidden">
+<p>Несомненно, многие имеют определённые цели и задачи при занятиях конкретными видами спортивной активности. Применение спортивного питания и добавок – неотъемлемая часть для достижения многих результатов. Это большая область, требующая углублённого изучения и серьёзного подхода. Благодаря 15-летнему опыту работы в этой сфере, появилась идея «Составление индивидуальной программы спортивного питания», учитывающая множество факторов таких, как: пол, возраст, вес, род деятельности, режим сна, виды физической активности и многое другое.</p>
+<p>Программа спортивного питания разрабатывается на каждый день с рекомендациями применения определенного количества конкретной добавки (пример, протеины, гейнеры, аминокислоты, витамины и&nbsp;т.&nbsp;д.), когда применять и с чем комбинировать.</p>
+<p>Индивидуальная программа разрабатывается до мельчайших подробностей с учётом всех личных особенностей и потребностей. Особо подчёркивается слово «индивидуальная». В течение семи дней специально для тебя будет продумана и разработана программа. Тебе ни о чём не придётся заботиться, тебе не нужно выяснять сколько, когда и что класть. Для тебя всё будет разработано максимально понятно и доступно. Каждый хочет видеть и чувствовать результат.</p>
+<p>Про условия:</p>
+<ul>
+	<li>Стоимость программы – <span class="strike">7000&nbsp;<span class="rub">₽</span></span> 6000&nbsp;<span class="rub">₽</span>.</li>
+	<li>После 100% предоплаты на электронную почту направляется анкета для заполнения.</li>
+	<li>После того, как ты пришлёшь обратно заполненную анкету, в течение семи календарных дней тебе на почту поступит программа.</li>
+	<li>К программе будет приложен список конкретных рекомендуемых продуктов (наименование и бренд), а также альтернативный список на тот случай, если не удалось приобрести определённый продукт.</li>
+</ul>
+<hr>
+<p>Отказаться от программы и вернуть деньги без удержания возможно только до отправки анкеты. После того, как анкета отправлена тебе, отказаться ещё можно, но удерживается 1000&nbsp;<span class="rub">₽</span>. После того, как ты отправил обратно заполненную анкету, возврат средств невозможен.</p>
+<p class="order"><button onclick="orderprogrambutton.click()">Заказать</button></p>
+					</div>
+					<button class="readmorebutton" onclick="readmorePreview(this)"><span></span><span></span></button>
+				</div>
+			</div>
+			<div>
+				<div class="pict" style="background: url(../img/consulting2.jpg) 50%;height: 52vmin;"></div>
+				<div>
+					<h2>Консалтинг</h2>
+					<div class="preview" id="conspreview">
+						<p>Существует широкое изобилие спортивного питания и добавок. Безусловно, хочется понимать, что ты приобретаешь и принимаешь. Ты получишь подробную консультацию по соответствующим добавкам.</p>
+					</div>
+					<div class="readmore hidden">
+<p>Чрезвычайно непросто самому разобраться в области спортивного питания и добавках, но, безусловно, хочется и нужно. Хочется разбираться и понимать, какие существуют добавки, что нужно именно тебе, как выбрать, когда и сколько принимать, чтобы получить желаемый результат.</p>
+<p>На самом деле, многие не подозревают, что существует огромное разнообразие важнейших добавок для здоровья и улучшения качества жизни. Ты сможешь узнать много нового и полезного, воспользовавшись данной услугой. Заказать услугу консультации возможно, как по составленной программе, так и независимо от неё. То есть можно просто получить консультацию по добавкам, не заказывая себе программу. Предварительно обговаривается направленность консультации.</p>
+<p>Услуга консультации доступна в следующих вариантах по предоплате:</p>
+<ul>
+	<li>Устная консультация по телефону/WhatsApp - 3000&nbsp;<span class="rub">₽</span>. Продолжительность составляет не более двух часов. Предварительно обговаривается день и время.</li>
+	<li>Письменная консультация – 5000&nbsp;<span class="rub">₽</span>. В течение пяти дней тебе на почту придёт консультация в электронном виде.</li>
+	<li>Устная и письменная консультация – 7000&nbsp;<span class="rub">₽</span>.</li>
+	<li>Личная встреча – 7000&nbsp;<span class="rub">₽</span>. Продолжительность составляет не более двух часов. Доступно только в пределах г. Казани после предварительной согласованности даты, времени и месте. Стоимость каждого последующего часа составляет 2000&nbsp;<span class="rub">₽</span>.</li>
+	<li>Личная встреча и письменная консультация – 10000&nbsp;<span class="rub">₽</span>.</li>
+</ul>
+<hr>
+<p>Отказаться от услуги/перенести дату и время без удержаний возможно не позднее, чем за сутки до обговорённой даты и времени. Удержание составляет 1000&nbsp;<span class="rub">₽</span>, если отказ/изменение произошло менее, чем за сутки до обговорённой даты и времени.</p>
+<p>Отказаться от письменной консультации возможно только в течение суток после поступления денежных средств, далее возврат средств невозможен.</p>
+<p class="order"><button onclick="orderprogrambutton.click()">Заказать</button></p>
+					</div>
+					<button class="readmorebutton" onclick="readmorePreview(this)"><span></span><span></span></button>
+				</div>
+			</div>
+		</div>
+	</main>
+	<footer>
+		<button id="orderprogrambutton">Заказать программу</button>
+		<div class="hidden modal" id="orderprogram">
+			<form method="post">
+				<div id="ordermain">
+					<input id="service" name="ordertype" placeholder="Выберите услуги" readonly type="text">
+					<input maxlength="256" name="fio" placeholder="Имя" required type="text">
+					<input maxlength="18" name="tel" pattern="[0-9() +-]{11,18}" placeholder="Телефон" required type="tel">
+					<input maxlength="256" name="email" pattern="[^@\s]+@[^@\s]+\.[^@\s]{2,}" placeholder="E-mail" required type="email">
+					<button>Заказать</button>
+				</div>
+				<div class="hidden" id="services">
+					<label><input name="servicecheckbox" type="checkbox" value="Программа спортивного питания"><span></span><span>Программа спортивного питания, 6000&nbsp;<span class="rub">₽</span></span></label>
+					<label><input name="servicecheckbox" type="checkbox" value="Устная консультация по телефону/WhatsApp"><span></span><span>Устная консультация, 3000&nbsp;<span class="rub">₽</span></span></label>
+					<label><input name="servicecheckbox" type="checkbox" value="Письменная консультация"><span></span><span>Письменная консультация, 5000&nbsp;<span class="rub">₽</span></span></label>
+					<label><input name="servicecheckbox" type="checkbox" value="Устная и письменная консультация"><span></span><span>Устная и письменная консультация, 7000&nbsp;<span class="rub">₽</span></span></label>
+					<label><input name="servicecheckbox" type="checkbox" value="Личная встреча"><span></span><span>Личная встреча, 7000&nbsp;<span class="rub">₽</span></span></label>
+					<label><input name="servicecheckbox" type="checkbox" value="Личная встреча и письменная консультация"><span></span><span>Личная встреча и письменная консультация, 10000&nbsp;<span class="rub">₽</span></span></label>
+					<button id="servicesbutton" type="button">Продолжить</button>
+				</div>
+			</form>
+		</div>
+		<div id="contacts">
+			<span>Контакты:</span>
+			<a href="tel:+79600433479" id="phone" title="+7 960 043-34-79"></a>
+			<a href="https://wa.me/79600433479" id="whatsapp"></a>
+		</div>
+	</footer>
+	<button class="hidden" id="closemodal"><span></span><span></span></button>
+	<script>
+let servicesCount = 0;
+
+function setHeight() {
+	document.querySelectorAll('.preview').forEach(function (item) {
+		item.style.maxHeight = `${item.scrollHeight + 50}px`;
+	});
+	document.querySelectorAll('.readmore').forEach(function (item) {
+		item.style.maxHeight = `${item.scrollHeight + 100}px`;
+	});
+}
+setHeight();
+window.addEventListener('resize', function windowResize() {
+	setHeight();
+});
+
+function readmorePreview(obj) {
+	let parent = obj.parentElement,
+		preview = parent.querySelector('.preview');
+	preview.classList.toggle('hidden');
+	preview.addEventListener('transitionend', function handler() {
+		preview.removeEventListener('transitionend', handler);
+		parent.querySelector('.readmore').classList.toggle('hidden');
+	});
+	obj.classList.toggle('readmorebutton');
+	obj.classList.toggle('previewbutton');
+}
+
+function openOrderProgram() {
+	modaloverlay.classList.remove('hidden');
+	closemodal.classList.remove('hidden');
+	orderprogram.classList.remove('hidden');
+}
+orderprogrambutton.addEventListener('click', function () {
+	openOrderProgram();
+});
+
+function closeModal() {
+	document.querySelectorAll('.modal').forEach(function (element) {
+		element.classList.add('hidden');
+		element.addEventListener('transitionend', function handler() {
+			element.removeEventListener('transitionend', handler);
+			closemodal.classList.add('hidden');
+			modaloverlay.classList.add('hidden');
+		});
+	});
+}
+modaloverlay.addEventListener('click', closeModal);
+closemodal.addEventListener('click', closeModal);
+
+function openServices() {
+	ordermain.classList.add('hidden');
+	services.classList.remove('hidden');
+}
+service.addEventListener('focus', openServices);
+function closeServices() {
+	services.classList.add('hidden');
+	ordermain.classList.remove('hidden');
+}
+servicesbutton.addEventListener('click', closeServices);
+
+function checkServices() {
+	if (this.checked) {
+		servicesCount++;
+	} else {
+		servicesCount--;
+	}
+	if (servicesCount > 0) {
+		service.value = 'Выбрано услуг: ' + servicesCount;
+	} else {
+		service.value = '';
+	}
+}
+services.querySelectorAll('label input[type="checkbox"]').forEach(function (item) {
+	item.addEventListener('click', checkServices);
+});
+	</script>
+</body>
+</html>
