@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Individual sport nutrition program snprogram.com</title>
+	<meta charset="utf-8">
+	<meta name="description" content="Individual (personal) sport nutrition program">
+	<meta name="keywords" content="sport nutrition, sport program, nutrition program">
+	<meta name="theme-color" content="#235">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style>
+@import url('https://fonts.googleapis.com/css2?family=Exo+2&family=Fira+Sans+Condensed:wght@200&family=Kanit:wght@700&family=Lato&family=Oswald:wght@200;300&family=Play&display=swap');
+:root {--header-footer-bgcolor: #2b3955;--header-footer-bgcolor: #235;--header-footer-color: #eae3e1;--header-footer-color: #fff;}
+body {margin: 0;padding: 0;}
+form {text-align: center;}
+hr {border: 0;border-top: 1px solid #4c3d38;margin: 15px 0 0;}
+img {max-width: 100%;}
+ul {margin: 0;padding: 0 0 0 20px;text-align: justify;}
+ul li {margin: 10px 0 0;}
+li::marker {color: #4c3d38;}
+.strike {text-decoration: line-through;}
+#modaloverlay {background: #00000099;height: 100%;left: 0;position: fixed;top: 0;width: 100%;}
+#modaloverlay.hidden {display: none;}
+header {background: var(--header-footer-bgcolor);color: var(--header-footer-color);padding: 30px 20px;}
+header > div {margin: 0 auto;overflow: hidden;width: 316px;}
+header img {float: left;height: 75px;width: 50px;}
+header > div > div {color: #e4dcda;color: #fff;font: 42px/40px Righteous, cursive;font: 44px/12px 'Kanit', sans-serif;/*font-family: 'Iceland', cursive;*/text-align: center;}
+header > div > div > span {float: right;font: 32px/22px 'Exo 2', sans-serif;}
+header h3 {font: 300 20px/24px Oswald, sans-serif;font: 200 18px/20px 'Fira Sans Condensed', sans-serif;/*letter-spacing: 0.16px;*/margin: 30px 0 0;text-align: center;}
+main {background: #cbbdb8;background: #fbd;color: #130f0e;color: #000;font: 200 16px Oswald, sans-serif;}
+main > div > div > div {padding: 20px;}
+main > div > div > div.pict {background-size: cover !important;padding: 0;}
+main > div > div > div.shadow {box-shadow: inset 0 25px 20px -20px;}
+h2 {color: #000;font: 20px 'Exo 2', sans-serif;margin: 0;text-align: center;}
+p {margin: 15px 0 0;text-align: justify;}
+div.preview, div.readmore {overflow: auto;transition: 1.5s linear;}
+div.preview {transition: .5s linear;}
+div.preview.hidden, div.readmore.hidden {max-height: 0 !important;}
+div.preview strong {font-weight: 200;}
+div.readmore p.order {text-align: center;}
+div.readmore p.order button {background: #e4dcda;background: #fff;border: 0;border-radius: 5px;color: #2a221f;color: #000;font: 16px/20px Play, sans-serif;outline: none;padding: 10px 15px;}
+div.readmore strong {font-weight: 300;}
+span.rub {font: 200 19px/23px 'Fira Sans Condensed', sans-serif;}
+button.previewbutton, button.readmorebutton {background: #cbbdb8;background: #22335540;border: 1px solid #4c3d38;border: 0;border-radius: 50%;display: block;height: 22px;margin: 15px auto 0;padding: 0;width: 22px;}
+button.previewbutton:focus, button.readmorebutton:focus {box-shadow: 0 0 4px #574640;outline: none;}
+button.previewbutton span, button.readmorebutton span {border: 0 solid #4c3d38;border: 0 solid #000;border-width: 1px 0 0 1px;display: block;height: 5px;margin: 4px auto 0;transform: rotate(45deg);width: 5px;}
+button.previewbutton span:last-child {margin-top: -2px;}
+button.readmorebutton span {border-width: 0 1px 1px 0;margin-top: -2px;}
+footer {background: var(--header-footer-bgcolor);color: var(--header-footer-color);font: 300 16px Oswald, sans-serif;padding: 25px 20px;text-align: center;}
+footer button {background: #e4dcda;background: #fff;border: 0;border-radius: 5px;color: #2a221f;color: #000;font: 16px/20px Play, sans-serif;outline: none;padding: 10px 15px;}
+.modal {background: #cbbdb8;background: #9eb1d8;color: #130f0e;color: #000;font: 200 16px/30px Oswald, sans-serif;left: 50%;max-height: 100%;max-width: calc(100% - 80px);overflow: auto;padding: 30px 20px;position: fixed;top: 50%;transform: translate(-50%, -50%);transition: 1s linear;width: 70%;}
+.modal.hidden {padding: 0;top: -50%;}
+.modal .hidden {max-height: 0;}
+.modal form > div {max-height: 420px;overflow: hidden;position: relative;transition: 1s linear;}
+.modal form > #ordermain, .modal form > #services {transition: none;}
+.modal form > div > *:first-child {margin-top: 0;}
+.modal input {background: #e4dcda;background: #c8d3e9;background: #fff;border: 0;color: #130f0e;color: #000;display: block;font: 200 16px/30px Oswald, sans-serif;margin: 15px 0 0;padding: 0 10px;text-align: center;width: calc(100% - 20px);}
+.modal input:focus {box-shadow: inset 0 0 4px 1px #574640;outline: none;}
+.modal label {align-items: flex-start;display: flex;line-height: 20px;margin-top: 20px;text-align: justify;}
+.modal input[type="checkbox"] {clip: rect(0 0 0 0);height: 1px;margin: 0;overflow: hidden;position: absolute;width: 1px;}
+.modal input[type="checkbox"] + span {background: #e4dcda;background: #fff;height: 20px;margin-right: 10px;min-width: 20px;}
+.modal input[type="checkbox"]:checked + span:before {content: '\2713';display: block;margin: -1px 0 0 4px;}
+.modal input[type="checkbox"]:focus + span {box-shadow: 2px 2px 2px #574640;}
+.modal button {background: #e4dcda;background: #fff;border: 0;border-radius: 5px;color: #2a221f;color: #000;font: 16px/20px Play, sans-serif;margin: 15px 0 0;outline: none;padding: 10px 15px;}
+.modal button:disabled {background: #e4dcda66;background: #c8d3e966;color: #0c111d66;}
+#ordered {background: #33691e;color: #eae3e1;font: 16px 'Exo 2', sans-serif;}
+#ordered.error {background: #b71c1c;}
+#contacts {align-items: center;display: flex;flex-wrap: wrap;justify-content: center;}
+#contacts a, #contacts span {margin: 10px 5px 0;outline: none;}
+#phone {background: url(../img/phone.svg);background-size: cover;display: inline-block;height: 30px;width: 30px;}
+#phone:focus {filter: drop-shadow(0 0 2px #fff);}
+#whatsapp {background: url(../img/wa.svg);background-size: cover;display: inline-block;height: 30px;width: 30px;}
+#whatsapp:focus {filter: drop-shadow(0 0 2px #0f0);}
+#telegram {background: url(../img/tg.svg);background-size: cover;display: inline-block;height: 30px;width: 30px;}
+#telegram:focus {filter: drop-shadow(0 0 2px #0ff);}
+div.readmore p.order button:focus, .modal button:focus {box-shadow: inset 0 0 4px 1px #574640;}
+footer button:focus {box-shadow: inset 0 0 4px 1px #2a221f, 0 0 5px #e4dcda;}
+#closemodal {background: #dbd2ce;background: #fff;border: 0;border-radius: 50%;height: 30px;outline: none;padding: 0;position: fixed;right: 10px;top: 15px;width: 30px;}
+#closemodal:focus {box-shadow: 0 0 4px 1px #e4dcda;}
+#closemodal.hidden {display: none;}
+#closemodal span {border: 0 solid #4c3d38;border: 0 solid #000;border-width: 0 1px 1px 0;display: block;height: 7px;margin: auto;transform: rotate(45deg);width: 7px;}
+#closemodal span:last-child {border-width: 1px 0 0 1px;margin-top: 2px;}
+@media (max-height: 299px) {
+	.modal label {margin-top: 15px;}
+	#services button {margin-top: 15px;}
+}
+@media (max-height: 279px) {
+	.modal label {line-height: 16px;margin-top: 10px;}
+	.modal input[type="checkbox"] + span {height: 15px;margin-right: 10px;min-width: 15px;}
+	.modal input[type="checkbox"]:checked + span:before {margin: -2px 0 0 2px;}
+	#services {font-size: 15px;}
+	#services span.rub {font-size: 17px;line-height: 13px;}
+	#services button {font-size: 15px;line-height: 16px;margin-top: 10px;padding: 6px 12px;}
+}
+@media (max-width: 359px) {
+	header {padding: 30px 5px;}
+	header > div {width: 310px;}
+	header > div > div {letter-spacing: -0.3px;}
+	header h3 {letter-spacing: 0.05px;}
+}
+@media (max-width: 339px) {
+	header > div {width: 230px;}
+	header img {height: 57px;width: 38px;}
+	header > div > div {font: 37px/30px Righteous, cursive;letter-spacing: -0.5px;}
+	header > div > div > span {font-size: 28px;line-height: 18px;}
+	header h3 {font: 300 14px/17px Oswald, sans-serif;letter-spacing: 0.35px;}
+}
+@media (max-width: 279px) {
+	.modal label {line-height: 16px;margin-top: 14px;}
+	.modal input[type="checkbox"] + span {height: 15px;margin-right: 10px;min-width: 15px;}
+	.modal input[type="checkbox"]:checked + span:before {margin: -2px 0 0 2px;}
+	#services {font-size: 15px;}
+	#services span.rub {font-size: 17px;line-height: 13px;}
+	#services button {font-size: 15px;line-height: 16px;margin-top: 14px;padding: 6px 12px;}
+}
+@media (min-height: 280px) and (min-width: 280px) {
+	.modal input {line-height: 40px;margin: 20px 0 0;}
+	.modal button {margin: 20px 0 0;}
+}
+@media (min-width: 500px) {
+	.modal {width: 350px;}
+}
+@media (min-width: 600px) {
+	main {background: url(../img/main.jpg) 50%;background-size: cover;}
+	main > div {background: #baa8a1cc;background: #90a6d3cc;display: flex;flex-wrap: wrap;justify-content: center;padding-top: 30px;}
+	main > div > div {background: #cbbdb8;background: #fbd;margin: 0 10px 30px;width: 400px;}
+	main > div > div > div.pict {height: 200px !important;}
+}
+@media (min-width: 800px) {
+	main > div > div {width: 740px;}
+	main > div > div > div.pict {height: 300px !important;}
+	div.preview.hidden, div.readmore.hidden {max-height: none !important;}
+	div.preview strong {font-weight: 300;}
+	button.previewbutton, button.readmorebutton {display: none;}
+}
+@media (min-width: 1200px) {
+	main {font-size: 17px;}
+	main > div > div {width: 1000px;}
+	main > div > div > div.pict {height: 440px !important;}
+	span.rub {font-size: 20px;}
+}
+	</style>
+</head>
+<body>
+	<div class="hidden" id="modaloverlay"></div>
+	<header>
+		<div>
+			<div>snprogram.com</div>
+			<h3>sport nutritinon & supplements program</h3>
+		</div>
+	</header>
+	<main>
+		<div>
+			<div>
+				<div class="pict" style="background: url(../img/pitanie.webp) 50%;height: 42vmin;"></div>
+				<div>
+					<h2>Sport nutrition programs</h2>
+					<div class="preview">
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. <strong>Ut enim ad minim veniam</strong>, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+					</div>
+					<div class="readmore hidden">
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco <strong>laboris nisi ut aliquip ex ea commodo consequat</strong>. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+<p>Lorem ipsum dolor sit amet, <strong>consectetur adipiscing elit</strong>, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+<p><strong>Lorem ipsum:</strong></p>
+<ul>
+	<li>Lorem ipsum dolor sit – $100.</li>
+	<li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</li>
+	<li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.</li>
+	<li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</li>
+</ul>
+<hr>
+<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+<p class="order"><button onclick="orderprogrambutton.click()">Order</button></p>
+					</div>
+					<button aria-label="Подробнее про программы спортивного питания" class="readmorebutton" onclick="readmorePreview(this)"><span></span><span></span></button>
+				</div>
+			</div>
+			<div>
+				<div class="pict" style="background: url(../img/consulting.webp) 50%;height: 52vmin;"></div>
+				<div>
+					<h2>Consulting</h2>
+					<div class="preview" id="conspreview">
+						<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+					</div>
+					<div class="readmore hidden">
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco <strong>laboris nisi ut aliquip ex ea commodo consequat</strong>. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+<p class="order"><button onclick="orderprogrambutton.click()">Order</button></p>
+					</div>
+					<button aria-label="More about consulting" class="readmorebutton" onclick="readmorePreview(this)"><span></span><span></span></button>
+				</div>
+			</div>
+		</div>
+	</main>
+	<footer>
+		<button id="orderprogrambutton">Order program</button>
+		<div class="hidden modal" id="orderprogram">
+			<form id="orderform" method="post">
+				<div id="ordermain">
+					<input id="service" name="ordertype" placeholder="Выберите услуги ≫" readonly type="text">
+					<input maxlength="256" name="fio" placeholder="Имя*" required type="text">
+					<input maxlength="18" minlength="11" name="tel" pattern="[0-9() +-]{11,18}" placeholder="Телефон*" required type="tel">
+					<input maxlength="256" name="email" pattern="[^@\s]+@[^@\s]+\.[^@\s]{2,}" placeholder="E-mail*" required type="email">
+					<button id="submitbutton">Заказать</button>
+				</div>
+				<div class="hidden" id="services">
+					<label><input id="service1" name="servicecheckbox[0]" type="checkbox" value="Программа спортивного питания, 7000 ₽"><span></span><span>Программа спортивного питания, 7000&nbsp;<span class="rub">₽</span></span></label>
+					<label><input id="service2" name="servicecheckbox[1]" type="checkbox" value="Устная консультация по телефону/WhatsApp, 3000 ₽"><span></span><span>Устная консультация, 3000&nbsp;<span class="rub">₽</span></span></label>
+					<label><input id="service3" name="servicecheckbox[2]" type="checkbox" value="Письменная консультация, 5000 ₽"><span></span><span>Письменная консультация, 5000&nbsp;<span class="rub">₽</span></span></label>
+					<label><input id="service4" name="servicecheckbox[3]" type="checkbox" value="Устная и письменная консультация, 7000 ₽"><span></span><span>Устная и письменная консультация, 7000&nbsp;<span class="rub">₽</span></span></label>
+					<label><input id="service5" name="servicecheckbox[4]" type="checkbox" value="Личная встреча, 7000 ₽"><span></span><span>Личная встреча, 7000&nbsp;<span class="rub">₽</span></span></label>
+					<label><input id="service6" name="servicecheckbox[5]" type="checkbox" value="Личная встреча и письменная консультация, 10000 ₽"><span></span><span>Личная встреча и письменная консультация, 10000&nbsp;<span class="rub">₽</span></span></label>
+					<button disabled id="servicesbutton" type="button">Продолжить</button>
+				</div>
+			</form>
+		</div>
+		<div class="hidden modal" id="ordered"></div>
+		<div id="contacts">
+			<span>Contacts:</span>
+			<a href="tel:+79600433479" id="phone" title="+7 960 043-34-79"></a>
+			<a href="https://wa.me/79600433479" id="whatsapp" title="WhatsApp"></a>
+			<a href="https://t.me/atletpit" id="telegram" title="Telegram"></a>
+		</div>
+	</footer>
+	<button class="hidden" id="closemodal"><span></span><span></span></button>
+	<script>
+let servicesCount = 0,
+	firstTime = true;
+
+function setHeight() {
+	document.querySelectorAll('.preview').forEach(function (item) {
+		item.style.maxHeight = `${item.scrollHeight + 50}px`;
+	});
+	document.querySelectorAll('.readmore').forEach(function (item) {
+		item.style.maxHeight = `${item.scrollHeight + 100}px`;
+	});
+}
+setHeight();
+window.addEventListener('resize', function windowResize() {
+	setHeight();
+});
+
+function readmorePreview(obj) {
+	let parent = obj.parentElement,
+		preview = parent.querySelector('.preview');
+	preview.addEventListener('transitionend', function handler() {
+		preview.removeEventListener('transitionend', handler);
+		parent.querySelector('.readmore').classList.toggle('hidden');
+	});
+	preview.classList.toggle('hidden');
+	obj.classList.toggle('readmorebutton');
+	obj.classList.toggle('previewbutton');
+	obj.blur();
+}
+
+function openOrderProgram() {
+	if (firstTime) {
+		firstTime = false;
+		service.focus();
+		ordermain.style.transition = '1s linear';
+		services.style.transition = '1s linear';
+	}
+	modaloverlay.classList.remove('hidden');
+	closemodal.classList.remove('hidden');
+	orderprogram.classList.remove('hidden');
+}
+orderprogrambutton.addEventListener('click', function () {
+	openOrderProgram();
+});
+
+function closeModal() {
+	document.querySelectorAll('.modal:not(.hidden)').forEach(function (element) {
+		element.addEventListener('transitionend', function handler() {
+			element.removeEventListener('transitionend', handler);
+			closemodal.classList.add('hidden');
+			modaloverlay.classList.add('hidden');
+		});
+		element.classList.add('hidden');
+	});
+}
+modaloverlay.addEventListener('click', closeModal);
+closemodal.addEventListener('click', closeModal);
+
+function openServices() {
+	ordermain.classList.add('hidden');
+	services.classList.remove('hidden');
+}
+service.addEventListener('focus', openServices);
+function closeServices() {
+	services.classList.add('hidden');
+	ordermain.classList.remove('hidden');
+}
+servicesbutton.addEventListener('click', closeServices);
+
+function checkServices() {
+	if (this.checked) {
+		servicesCount++;
+	} else {
+		servicesCount--;
+	}
+	if (servicesCount > 0) {
+		service.value = 'Выбрано услуг: ' + servicesCount;
+		servicesbutton.disabled = false;
+	} else {
+		service.value = '';
+		servicesbutton.disabled = true;
+	}
+	this.blur();
+}
+services.querySelectorAll('label input[type="checkbox"]').forEach(function (item) {
+	item.addEventListener('click', checkServices);
+});
+
+function openOrdered() {
+	orderprogram.classList.add('hidden');
+	ordered.classList.remove('hidden');
+}
+function submitForm(event) {
+	(async () => {
+		event.preventDefault();
+
+		let formData = new FormData(event.target);
+
+		let data = {};
+		formData.forEach((value, key) => data[key] = value);
+
+		try {
+			let response = await fetch('ajax.php', {
+				method: 'POST',
+				body: JSON.stringify(data),
+				headers: {
+					'Content-Type': 'application/json; charset=utf-8'
+				}
+			});
+			if (response.ok) {
+				let json = await response.json();
+				if (json.error) {
+					ordered.classList.add('error');
+				} else {
+					ordered.classList.remove('error');
+				}
+				ordered.innerHTML = json.message;
+				openOrdered();
+			} else {
+				throw new Error(`Ошибка HTTP! Статус: ${response.status}`);
+			}
+		} catch (error) {
+			ordered.classList.add('error');
+			ordered.innerHTML = 'При отправке запроса возникла ошибка';
+			openOrdered();
+			console.error('Ошибка:', error);
+		}
+	})()
+}
+orderform.addEventListener('submit', submitForm);
+
+
+
+function CustomValidation() { }
+
+CustomValidation.prototype = {
+    invalidities: [], // Установим пустой массив сообщений об ошибках
+
+    // Метод, проверяющий валидность
+    checkValidity: function(input) {
+        var validity = input.validity;
+        if (validity.patternMismatch) {
+            this.addInvalidity('Значение не удовлетворяет установленному шаблону');
+        }
+        if (validity.rangeOverflow) {
+            var max = getAttributeValue(input, 'max');
+            this.addInvalidity('Значение не должно превышать ' + max);
+        }
+        if (validity.rangeUnderflow) {
+            var min = getAttributeValue(input, 'min');
+            this.addInvalidity('Значение не должно быть меньше, чем ' + min);
+        }
+        if (validity.tooLong) {
+            var maxlength = getAttributeValue(input, 'maxlength');
+            this.addInvalidity('Длина текста не должна превышать ' + maxlength + ' симв. (сейчас ' + input.value.length + ' симв.)');
+        }
+        if (validity.tooShort) {
+            var minlength = getAttributeValue(input, 'minlength');
+            this.addInvalidity('Длина текста не должна быть меньше ' + minlength + 'симв. (сейчас ' + input.value.length + ' симв.)');
+        }
+        if (validity.typeMismatch) {
+            this.addInvalidity('Значение не соответствует типу поля');
+        }
+        if (validity.valueMissing) {
+            this.addInvalidity('Отсутствует обязательное значение');
+        }
+    },
+
+    // Добавляем сообщение об ошибке в массив ошибок
+    addInvalidity: function(message) {
+        this.invalidities.push(message);
+    },
+
+    // Получаем общий текст сообщений об ошибках
+    getInvalidities: function() {
+        return this.invalidities.join('.\n');
+    }
+};
+
+// Добавляем обработчик клика на кнопку отправки формы
+if (false) {
+submitbutton.addEventListener('click', function(e) {
+    var inputs = document.getElementById('orderform').getElementsByTagName('input');
+
+    // Пройдёмся по всем полям
+    for (var i = 0; i < inputs.length; i++) {
+        var input = inputs[i];
+
+        // Проверим валидность поля, используя встроенную в JavaScript функцию checkValidity()
+        if (input.checkValidity() == false) {
+            var inputCustomValidation = new CustomValidation(); // Создадим объект CustomValidation
+            inputCustomValidation.checkValidity(input); // Выявим ошибки
+            var customValidityMessage = inputCustomValidation.getInvalidities(); // Получим все сообщения об ошибках
+            input.setCustomValidity(customValidityMessage); // Установим специальное сообщение об ошибке
+        }
+    }
+});
+}
+	</script>
+</body>
+</html>
