@@ -193,7 +193,7 @@ footer button:focus {box-shadow: inset 0 0 4px 1px #2a221f, 0 0 5px #e4dcda;}
 					<input id="service" name="ordertype" placeholder="Выберите услуги" readonly type="text">
 					<input maxlength="256" name="fio" placeholder="Имя" required type="text">
 					<input maxlength="18" name="tel" pattern="[0-9() +-]{11,18}" placeholder="Телефон" required type="tel">
-					<input maxlength="256" name="email" pattern="[^@\s]+@[^@\s]+\.[^@\s]{2,}" placeholder="E-mail" required type="email">
+					<input id="email" maxlength="256" name="email" pattern="[^@\s]+@[^@\s]+\.[^@\s]{2,}" placeholder="E-mail" required type="email">
 					<button>Заказать</button>
 				</div>
 				<div class="hidden" id="services">
@@ -290,6 +290,16 @@ function checkServices() {
 }
 services.querySelectorAll('label input[type="checkbox"]').forEach(function (item) {
 	item.addEventListener('click', checkServices);
+});
+
+const email = document.getElementById('email');
+
+email.addEventListener('input', function (event) {
+	if (email.validity.typeMismatch) {
+		email.setCustomValidity("I am expecting an e-mail address!");
+	} else {
+		email.setCustomValidity("");
+	}
 });
 	</script>
 </body>
