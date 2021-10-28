@@ -305,6 +305,13 @@ fio.addEventListener('input', function (event) {
 		fio.setCustomValidity('');
 	}
 });
+tel.addEventListener('input', function (event) {
+	if (tel.validity.valueMissing) {
+		tel.setCustomValidity('Пожалуйста, заполните это поле');
+	} else {
+		tel.setCustomValidity('');
+	}
+});
 email.addEventListener('input', function (event) {
 	if (email.validity.valueMissing) {
 		email.setCustomValidity('Пожалуйста, заполните это поле');
