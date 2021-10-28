@@ -296,6 +296,8 @@ const	fio = document.getElementById('fio'),
 		tel = document.getElementById('tel'),
 		email = document.getElementById('email');
 
+fio.setCustomValidity('Пожалуйста, заполните это поле');
+email.setCustomValidity('Пожалуйста, заполните это поле');
 fio.addEventListener('input', function (event) {
 	if (fio.validity.valueMissing) {
 		fio.setCustomValidity('Пожалуйста, заполните это поле');
