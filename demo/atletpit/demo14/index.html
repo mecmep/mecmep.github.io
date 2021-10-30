@@ -296,29 +296,31 @@ const	fio = document.getElementById('fio'),
 		tel = document.getElementById('tel'),
 		email = document.getElementById('email');
 
-fio.setCustomValidity('Пожалуйста, заполните это поле');
-tel.setCustomValidity('Пожалуйста, заполните это поле');
-email.setCustomValidity('Пожалуйста, заполните это поле');
+fio.setCustomValidity('Пожалуйста, заполните поле с именем');
+tel.setCustomValidity('Пожалуйста, заполните поле с номером телефона');
+email.setCustomValidity('Пожалуйста, заполните поле с имейлом');
 
 fio.addEventListener('input', function (event) {
 	if (fio.validity.valueMissing) {
-		fio.setCustomValidity('Пожалуйста, заполните это поле');
+		fio.setCustomValidity('Пожалуйста, заполните поле с именем');
 	} else {
 		fio.setCustomValidity('');
 	}
 });
 tel.addEventListener('input', function (event) {
 	if (tel.validity.valueMissing) {
-		tel.setCustomValidity('Пожалуйста, заполните это поле');
+		tel.setCustomValidity('Пожалуйста, заполните поле с номером телефона');
+	} else if (tel.validity.patternMismatch) {
+		tel.setCustomValidity('Номер телефона заполнен в неправильном формате');
 	} else {
 		tel.setCustomValidity('');
 	}
 });
 email.addEventListener('input', function (event) {
 	if (email.validity.valueMissing) {
-		email.setCustomValidity('Пожалуйста, заполните это поле');
-	} else if (email.validity.typeMismatch) {
-		email.setCustomValidity('I am expecting an e-mail address!');
+		email.setCustomValidity('Пожалуйста, заполните поле с имейлом');
+	} else if (email.validity.patternMismatch) {
+		email.setCustomValidity('Введён не адрес электронной почты');
 	} else {
 		email.setCustomValidity('');
 	}
