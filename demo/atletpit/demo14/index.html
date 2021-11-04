@@ -191,9 +191,9 @@ footer button:focus {box-shadow: inset 0 0 4px 1px #2a221f, 0 0 5px #e4dcda;}
 			<form method="post">
 				<div id="ordermain">
 					<input id="service" name="ordertype" placeholder="Выберите услуги" readonly type="text">
-					<input id="fio" maxlength="256" name="fio" placeholder="Имя" required type="text">
-					<input id="tel" maxlength="12" name="tel" pattern="[0-9+]{12}" placeholder="Телефон" required type="tel">
-					<input id="email" maxlength="256" name="email" pattern="[^@\s]+@[^@\s]+\.[^@\s]{2,}" placeholder="E-mail" required type="email">
+					<input id="fio" maxlength="256" name="fio" placeholder="Имя*" required type="text">
+					<input id="tel" maxlength="12" minlength="12" name="tel" pattern="[0-9+]{12}" placeholder="Телефон*" required type="tel">
+					<input id="email" maxlength="256" name="email" pattern="[^@\s]+@[^@\s]+\.[^@\s]{2,}" placeholder="E-mail*" required type="email">
 					<button>Заказать</button>
 				</div>
 				<div class="hidden" id="services">
