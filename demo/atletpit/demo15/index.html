@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<title>Индивидуальная программа спортивного питания Atletpit.ru®</title>
+	<meta charset="utf-8">
+	<meta name="description" content="Разработаем под ваши потребности индивидуальную программу приёма спортивного питания и проконсультируем по применению добавок">
+	<meta name="keywords" content="спортивное питание, спорт питание, спортпит, программа питания, бад, купить спортивное питание, план питания, программа тренировок, программа спортивного питания, атлетпит, atletpit">
+	<meta name="theme-color" content="#574640">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="../img/favicon.svg" rel="icon">
+	<link href="../img/apple-touch-icon.png" rel="apple-touch-icon">
+	<!--link href="../manifest.json" rel="manifest"-->
+	<style>
+@font-face {
+	font-display: swap;
+	font-family: 'Exo 2';
+	font-style: normal;
+	font-weight: 400;
+	src: url(../fonts/exo-2-v10-cyrillic-regular.eot); /* IE9 Compat Modes */
+	src: local('Exo 2'),
+		url(../fonts/exo-2-v10-cyrillic-regular.eot?#iefix) format('embedded-opentype'), /* IE6-IE8 */
+		url(../fonts/exo-2-v10-cyrillic-regular.woff2) format('woff2'), /* Super Modern Browsers */
+		url(../fonts/exo-2-v10-cyrillic-regular.woff) format('woff'), /* Modern Browsers */
+		url(../fonts/exo-2-v10-cyrillic-regular.ttf) format('truetype'), /* Safari, Android, iOS */
+		url(../fonts/exo-2-v10-cyrillic-regular.svg#Exo2) format('svg'); /* Legacy iOS */
+}
+@font-face {
+	font-display: swap;
+	font-family: 'Fira Sans Condensed';
+	font-style: normal;
+	font-weight: 200;
+	src: url(../fonts/fira-sans-condensed-v5-latin-ext-200.eot);
+	src: local('Fira Sans Condensed ExtraLight'),
+		url(../fonts/fira-sans-condensed-v5-latin-ext-200.eot?#iefix) format('embedded-opentype'),
+		url(../fonts/fira-sans-condensed-v5-latin-ext-200.woff2) format('woff2'),
+		url(../fonts/fira-sans-condensed-v5-latin-ext-200.woff) format('woff'),
+		url(../fonts/fira-sans-condensed-v5-latin-ext-200.ttf) format('truetype'),
+		url(../fonts/fira-sans-condensed-v5-latin-ext-200.svg#FiraSansCondensed) format('svg');
+}
+@font-face {
+	font-display: swap;
+	font-family: Oswald;
+	font-style: normal;
+	font-weight: 200;
+	src: url(../fonts/oswald-v36-cyrillic-200.eot);
+	src: local('Oswald ExtraLight'),
+		url(../fonts/oswald-v36-cyrillic-200.eot?#iefix) format('embedded-opentype'),
+		url(../fonts/oswald-v36-cyrillic-200.woff2) format('woff2'),
+		url(../fonts/oswald-v36-cyrillic-200.woff) format('woff'),
+		url(../fonts/oswald-v36-cyrillic-200.ttf) format('truetype'),
+		url(../fonts/oswald-v36-cyrillic-200.svg#Oswald) format('svg');
+}
+@font-face {
+	font-display: swap;
+	font-family: Oswald;
+	font-style: normal;
+	font-weight: 300;
+	src: url(../fonts/oswald-v36-cyrillic-300.eot);
+	src: local('Oswald Light'),
+		url(../fonts/oswald-v36-cyrillic-300.eot?#iefix) format('embedded-opentype'),
+		url(../fonts/oswald-v36-cyrillic-300.woff2) format('woff2'),
+		url(../fonts/oswald-v36-cyrillic-300.woff) format('woff'),
+		url(../fonts/oswald-v36-cyrillic-300.ttf) format('truetype'),
+		url(../fonts/oswald-v36-cyrillic-300.svg#Oswald) format('svg');
+}
+@font-face {
+	font-display: swap;
+	font-family: Play;
+	font-style: normal;
+	font-weight: 400;
+	src: url(../fonts/play-v12-cyrillic-regular.eot);
+	src: local(Play),
+		url(../fonts/play-v12-cyrillic-regular.eot?#iefix) format('embedded-opentype'),
+		url(../fonts/play-v12-cyrillic-regular.woff2) format('woff2'),
+		url(../fonts/play-v12-cyrillic-regular.woff) format('woff'),
+		url(../fonts/play-v12-cyrillic-regular.ttf) format('truetype'),
+		url(../fonts/play-v12-cyrillic-regular.svg#Play) format('svg');
+}
+@font-face {
+	font-display: swap;
+	font-family: Righteous;
+	font-style: normal;
+	font-weight: 400;
+	src: url(../fonts/righteous-v9-latin-regular.eot);
+	src: local(Righteous),
+		url(../fonts/righteous-v9-latin-regular.eot?#iefix) format('embedded-opentype'),
+		url(../fonts/righteous-v9-latin-regular.woff2) format('woff2'),
+		url(../fonts/righteous-v9-latin-regular.woff) format('woff'),
+		url(../fonts/righteous-v9-latin-regular.ttf) format('truetype'),
+		url(../fonts/righteous-v9-latin-regular.svg#Righteous) format('svg');
+}
+:root {--header-footer-bgcolor: #574640;--header-footer-color: #eae3e1;}
+body {margin: 0;padding: 0;}
+button:not([disabled]) {cursor: pointer;}
+form {text-align: center;}
+hr {border: 0;border-top: 1px solid #4c3d38;margin: 15px 0 0;}
+img {max-width: 100%;}
+img[alt="www.000webhost.com"] {display: none;}
+ol, ul {margin: 0;padding: 0 0 0 20px;text-align: justify;}
+li {margin: 10px 0 0;}
+li::marker {color: #4c3d38;}
+li ol {counter-reset: item;list-style: none;padding: 0;}
+li ol > li:before {content: counter(item) ')';counter-increment: item;float: left;margin-right: 5px;}
+.strike {text-decoration: line-through;}
+#modaloverlay {background: #00000099;height: 100%;left: 0;position: fixed;top: 0;width: 100%;}
+#modaloverlay.hidden {display: none;}
+header {background: var(--header-footer-bgcolor);color: var(--header-footer-color);padding: 30px 20px;}
+header > div {margin: 0 auto;overflow: hidden;width: 316px;}
+header img {float: left;height: 75px;width: 50px;}
+header > div > div {color: #e4dcda;float: right;font: 50px/40px Righteous, cursive;}
+header > div > div > span {float: right;font: 32px/22px 'Exo 2', sans-serif;}
+header h3 {float: right;font: 300 20px/25px Oswald, sans-serif;letter-spacing: 0.16px;margin: 10px 0 0;}
+main {background: #cbbdb8;color: #130f0e;font: 200 16px Oswald, sans-serif;}
+main > div > div > div {padding: 20px;}
+main > div > div > div.pict {background-size: cover !important;padding: 0;}
+main > div > div > div.pict > h2 {align-items: center;background: #57464099;color: #fff;display: flex;height: 100%;justify-content: center;text-shadow: 0 0 5px #000;text-transform: uppercase;}
+h2 {color: #4c3d38;font: 20px 'Exo 2', sans-serif;margin: 0;text-align: center;}
+p {margin: 15px 0 0;text-align: justify;}
+div.preview, div.readmore {overflow: auto;transition: 1.5s linear;}
+div.preview {transition: .5s linear;}
+div.preview.hidden, div.readmore.hidden {max-height: 0 !important;}
+div.preview strong {font-weight: 200;}
+div.readmore p.order {text-align: center;}
+div.readmore p.order button {background: #e4dcda;border: 0;border-radius: 5px;color: #2a221f;font: 16px/20px Play, sans-serif;outline: none;padding: 10px 15px;}
+div.readmore strong {font-weight: 300;}
+span.rub {font: 200 19px/23px 'Fira Sans Condensed', sans-serif;}
+button.previewbutton, button.readmorebutton {background: #cbbdb8;border: 1px solid #4c3d38;border-radius: 50%;display: block;height: 22px;margin: 15px auto 0;padding: 0;width: 22px;}
+button.previewbutton:focus, button.readmorebutton:focus {box-shadow: 0 0 4px #574640;outline: none;}
+button.previewbutton span, button.readmorebutton span {border: 0 solid #4c3d38;border-width: 1px 0 0 1px;display: block;height: 5px;margin: 4px auto 0;transform: rotate(45deg);width: 5px;}
+button.previewbutton span:last-child {margin-top: -2px;}
+button.readmorebutton span {border-width: 0 1px 1px 0;margin-top: -2px;}
+footer {background: var(--header-footer-bgcolor);color: var(--header-footer-color);font: 300 16px Oswald, sans-serif;padding: 25px 20px;text-align: center;}
+footer button {background: #e4dcda;border: 0;border-radius: 5px;color: #2a221f;font: 16px/20px Play, sans-serif;outline: none;padding: 10px 15px;}
+.modal {background: #cbbdb8;color: #130f0e;font: 200 16px/30px Oswald, sans-serif;left: 50%;max-height: 100%;max-width: calc(100% - 80px);overflow: auto;padding: 30px 20px;position: fixed;top: 50%;transform: translate(-50%, -50%);transition: 1s linear;width: 70%;}
+.modal.hidden {padding: 0;top: -50%;}
+.modal .hidden {max-height: 0;}
+.modal form > div {max-height: 420px;overflow: hidden;position: relative;transition: 1s linear;}
+.modal form > #ordermain, .modal form > #services {transition: none;}
+.modal form > div > *:first-child {margin-top: 0;}
+.modal input {background: #e4dcda;border: 0;color: #130f0e;display: block;font: 200 16px/30px Oswald, 'Fira Sans Condensed', sans-serif;margin: 10px 0 0;padding: 0 10px;text-align: center;width: calc(100% - 20px);}
+.modal input:focus {box-shadow: inset 0 0 4px 1px #574640;outline: none;}
+.modal label {align-items: flex-start;display: flex;line-height: 20px;margin-top: 20px;text-align: justify;}
+.modal input[type="checkbox"] {clip: rect(0 0 0 0);height: 1px;margin: 0;overflow: hidden;position: absolute;width: 1px;}
+.modal input[type="checkbox"] + span {background: #e4dcda;height: 20px;margin-right: 10px;min-width: 20px;}
+.modal input[type="checkbox"]:checked + span:before {content: '\2713';display: block;margin: -1px 0 0 4px;}
+.modal input[type="checkbox"]:focus + span {box-shadow: 2px 2px 2px #574640;}
+.modal button {background: #e4dcda;border: 0;border-radius: 5px;color: #2a221f;font: 16px/20px Play, sans-serif;margin: 10px 0 0;outline: none;padding: 10px 15px;}
+.modal button:disabled {background: #e4dcda66;color: #2a221f66;}
+#ordered {background: #33691e;color: #eae3e1;font: 16px 'Exo 2', sans-serif;}
+#ordered.error {background: #b71c1c;}
+#contacts {align-items: center;display: flex;flex-wrap: wrap;justify-content: center;}
+#contacts a, #contacts span {margin: 10px 5px 0;outline: none;}
+#phone {background: url(../img/phone.svg);background-size: cover;display: inline-block;height: 30px;width: 30px;}
+#phone:focus {filter: drop-shadow(0 0 2px #fff);}
+#whatsapp {background: url(../img/wa.svg);background-size: cover;display: inline-block;height: 30px;width: 30px;}
+#whatsapp:focus {filter: drop-shadow(0 0 2px #0f0);}
+#telegram {background: url(../img/tg.svg);background-size: cover;display: inline-block;height: 30px;width: 30px;}
+#telegram:focus {filter: drop-shadow(0 0 2px #0ff);}
+div.readmore p.order button:focus, .modal button:focus {box-shadow: inset 0 0 4px 1px #574640;}
+footer button:focus {box-shadow: inset 0 0 4px 1px #2a221f, 0 0 5px #e4dcda;}
+#closemodal {background: #dbd2ce;border: 0;border-radius: 50%;height: 30px;outline: none;padding: 0;position: fixed;right: 10px;top: 15px;width: 30px;}
+#closemodal:focus {box-shadow: 0 0 4px 1px #e4dcda;}
+#closemodal.hidden {display: none;}
+#closemodal span {border: 0 solid #4c3d38;border-width: 0 1px 1px 0;display: block;height: 7px;margin: auto;transform: rotate(45deg);transition: .3s linear;width: 7px;}
+#closemodal span:last-child {border-width: 1px 0 0 1px;margin-top: 2px;}
+#closemodal:hover span {transform: rotate(405deg);}
+@media (max-height: 299px) {
+	.modal label {margin-top: 15px;}
+	#services button {margin-top: 15px;}
+}
+@media (max-height: 279px) {
+	.modal label {line-height: 16px;margin-top: 10px;}
+	.modal input[type="checkbox"] + span {height: 15px;margin-right: 10px;min-width: 15px;}
+	.modal input[type="checkbox"]:checked + span:before {margin: -2px 0 0 2px;}
+	#services {font-size: 15px;}
+	#services span.rub {font-size: 17px;line-height: 13px;}
+	#services button {font-size: 15px;line-height: 16px;margin-top: 10px;padding: 6px 12px;}
+}
+@media (max-width: 359px) {
+	header {padding: 30px 5px;}
+	header > div {width: 310px;}
+	header > div > div {letter-spacing: -0.3px;}
+	header h3 {letter-spacing: 0.05px;}
+}
+@media (max-width: 339px) {
+	header > div {width: 230px;}
+	header img {height: 57px;width: 38px;}
+	header > div > div {font: 37px/30px Righteous, cursive;letter-spacing: -0.5px;}
+	header > div > div > span {font-size: 28px;line-height: 18px;}
+	header h3 {font: 300 14px/17px Oswald, sans-serif;letter-spacing: 0.35px;}
+}
+@media (max-width: 279px) {
+	.modal label {line-height: 16px;margin-top: 14px;}
+	.modal input[type="checkbox"] + span {height: 15px;margin-right: 10px;min-width: 15px;}
+	.modal input[type="checkbox"]:checked + span:before {margin: -2px 0 0 2px;}
+	#services {font-size: 15px;}
+	#services span.rub {font-size: 17px;line-height: 13px;}
+	#services button {font-size: 15px;line-height: 16px;margin-top: 14px;padding: 6px 12px;}
+}
+@media (min-height: 280px) and (min-width: 280px) {
+	.modal input {line-height: 40px;margin: 20px 0 0;}
+	.modal input[name="coupon"] {float: left;margin-right: 20px;width: calc(100% - 137px);}
+	.modal button {margin: 20px 0 0;}
+	#submitbutton {width: 97px;}
+}
+@media (min-width: 500px) {
+	.modal {width: 350px;}
+}
+@media (min-width: 600px) {
+	main {background: url(../img/main.jpg) 50%;background-size: cover;}
+	main > div {background: #baa8a1cc;display: flex;flex-wrap: wrap;justify-content: center;padding-top: 30px;}
+	main > div > div {background: #cbbdb8;margin: 0 10px 30px;width: 400px;}
+	main > div > div > div.pict {height: 200px !important;}
+}
+@media (min-width: 800px) {
+	main > div > div {width: 740px;}
+	main > div > div > div.pict {height: 330px !important;}
+	div.preview.hidden, div.readmore.hidden {max-height: none !important;}
+	div.preview strong {font-weight: 300;}
+	button.previewbutton, button.readmorebutton {display: none;}
+}
+@media (min-width: 1200px) {
+	main {font-size: 17px;}
+	main > div > div {width: 1000px;}
+	main > div > div > div.pict {height: 440px !important;}
+	span.rub {font-size: 20px;}
+}
+	</style>
+</head>
+<body>
+	<div class="hidden" id="modaloverlay"></div>
+	<header>
+		<div>
+			<img alt="" src="../img/runner.svg">
+			<div>atletpit.ru<span>®</span></div>
+			<h3>индивидуальная программа питания</h3>
+		</div>
+	</header>
+	<main>
+		<div>
+			<div>
+				<div class="pict" style="background: url(../img/pitanie.webp) 50%;height: 42vmin;"></div>
+				<div>
+					<h2>Программы спортивного питания</h2>
+					<div class="preview">
+						<p>Независимо от того, какую ты преследуешь цель: набор мышечной массы, похудение, восстановление после тренировки, увеличение выносливости, концентрации во время тренировки или просто хорошее самочувствие – <strong>с учётом многих факторов разрабатывается индивидуальная программа</strong> применения спортивного питания и биологически активных добавок (БАД).</p>
+					</div>
+					<div class="readmore hidden">
+<p>Несомненно, большинство людей имеют определённые цели и задачи при занятиях конкретными видами спортивной активности. Для их достижения существенно влияют тренировки, основной рацион питания, спортивное питание и БАД. Безусловно, <strong>неотъемлемой частью является применение спортивного питания и БАД</strong>. Это большая область, требующая углублённого изучения и серьёзного подхода. Благодаря 15-летнему опыту работы в этой сфере, появилась идея «Составление индивидуальной программы спортивного питания», учитывающая множество факторов таких, как: пол, возраст, вес, род деятельности, режим сна, виды физической активности и многое другое.</p>
+<p>Программа спортивного питания разрабатывается на каждый день, с понедельника по воскресенье. <strong>В состав программы входит</strong>:</p>
+<ul>
+	<li>рекомендации применения определённого количества конкретной добавки (например, протеины, гейнеры, аминокислоты, витамины, омега-3 и&nbsp;т.&nbsp;д.);</li>
+	<li>наилучшее время приёма (например, до/во время/после тренировки, еды, перед сном, после пробуждения);</li>
+	<li>комбинация различных добавок (например, сывороточный протеин и BCAA, аргинин и бета-аланин, жиросжигатель и коэнзим Q10).</li>
+</ul>
+<p><strong>Индивидуальная программа разрабатывается до мельчайших подробностей</strong> с учётом всех личных особенностей и потребностей. Особо подчёркивается слово «индивидуальная». В течение семи дней специально для тебя будет продумана и разработана программа. Тебе ни о чём не придётся заботиться, тебе не нужно выяснять, сколько, когда и что класть. <strong>Для тебя всё будет разработано максимально понятно и доступно</strong>. Каждый хочет видеть и чувствовать результат.</p>
+<p><strong>Про условия:</strong></p>
+<ul>
+	<li>Стоимость программы – <span class="strike">7000&nbsp;<span class="rub">₽</span></span> 3900&nbsp;<span class="rub">₽</span>.</li>
+	<li>После 100% предоплаты на электронную почту направляется анкета для заполнения.</li>
+	<li>После того, как ты пришлёшь обратно заполненную анкету, в течение семи календарных дней тебе на почту поступит:
+		<ol>
+			<li>Программа спортивного питания.</li>
+			<li>Список рекомендуемых добавок и спортивного питания с указанием наименования и бренда, а также альтернативный список на тот случай, если не удалось приобрести определённый продукт.</li>
+			<li>Расчёт индивидуального коридора КБЖУ (калории, белки, жиры и углеводы). На расчёт влияет пол, вес, рост, возраст и уровень физической активности. Коридор КБЖУ – это минимальное и максимальное количество калорий, белков, жиров и углеводов, которое необходимо для похудения, набора или поддержания веса. Рекомендации по удобному и лёгкому их подсчёту.</li>
+			<li>Перечень продуктов, которые следует включить и исключить из рациона питания.</li>
+		</ol>
+	</li>
+</ul>
+<hr>
+<p>Отказаться от программы и вернуть деньги без удержания возможно только до отправки анкеты. После того, как анкета отправлена тебе, отказаться ещё можно, но удерживается 1000&nbsp;<span class="rub">₽</span>. После того, как ты отправил обратно заполненную анкету, возврат средств невозможен.</p>
+<p class="order"><button onclick="orderprogrambutton.click()" tabindex="1">Заказать</button></p>
+					</div>
+					<button aria-label="Подробнее про программы спортивного питания" class="readmorebutton" onclick="readmorePreview(this)" tabindex="1"><span></span><span></span></button>
+				</div>
+			</div>
+			<div>
+				<div class="pict" style="background: url(../img/consulting.webp) 50%;height: 44vmin;"></div>
+				<div>
+					<h2>Консалтинг</h2>
+					<div class="preview" id="conspreview">
+						<p>Существует широкое изобилие спортивного питания и добавок. Безусловно, хочется понимать, что ты приобретаешь и принимаешь. <strong>Ты получишь подробную консультацию</strong> по соответствующим добавкам.</p>
+					</div>
+					<div class="readmore hidden">
+<p>Чрезвычайно непросто самому разобраться в области спортивного питания и добавках, но, безусловно, хочется и нужно. Хочется разбираться и понимать, какие существуют добавки, что нужно именно тебе, как выбрать, когда и сколько принимать, чтобы получить желаемый результат.</p>
+<p>На самом деле, многие не подозревают, что <strong>существует огромное разнообразие важнейших добавок для здоровья и улучшения качества жизни</strong>. Ты сможешь узнать много нового и полезного, воспользовавшись данной услугой. Заказать услугу консультации возможно как по составленной программе, так и независимо от неё. То есть можно просто получить консультацию по добавкам, не заказывая себе программу. Предварительно обговаривается направленность консультации.</p>
+<p><strong>Услуга консультации доступна в следующих вариантах по предоплате:</strong></p>
+<ul>
+	<li>Устная консультация по телефону/WhatsApp – <span class="strike">1000&nbsp;<span class="rub">₽</span></span> 800&nbsp;<span class="rub">₽</span>. Продолжительность составляет 30 минут. Предварительно обговаривается день и время.</li>
+	<li>Письменная консультация – <span class="strike">3500&nbsp;<span class="rub">₽</span></span> 2100&nbsp;<span class="rub">₽</span>. В течение пяти дней тебе на почту придёт консультация в электронном виде.</li>
+	<li>Устная и письменная консультация – <span class="strike">4000&nbsp;<span class="rub">₽</span></span> 2400&nbsp;<span class="rub">₽</span>.</li>
+	<li>Личная встреча – <span class="strike">6000&nbsp;<span class="rub">₽</span></span> 3500&nbsp;<span class="rub">₽</span>. Продолжительность составляет не более двух часов. Доступно только в пределах г. Казани после предварительного согласования даты, времени и места. Стоимость каждого последующего часа составляет 1000&nbsp;<span class="rub">₽</span>.</li>
+	<li>Личная встреча и письменная консультация – <span class="strike">8000&nbsp;<span class="rub">₽</span></span> 4800&nbsp;<span class="rub">₽</span>.</li>
+</ul>
+<hr>
+<p>Отказаться от услуги/перенести дату и время без удержаний возможно не позднее, чем за сутки до обговорённой даты и времени. Удержание составляет 1000&nbsp;<span class="rub">₽</span>, если отказ/изменение произошло менее, чем за сутки до обговорённой даты и времени.</p>
+<p>Отказаться от письменной консультации возможно только в течение суток после поступления денежных средств, далее возврат средств невозможен.</p>
+<p class="order"><button onclick="orderprogrambutton.click()" tabindex="1">Заказать</button></p>
+					</div>
+					<button aria-label="Подробнее про консалтинг" class="readmorebutton" onclick="readmorePreview(this)" tabindex="1"><span></span><span></span></button>
+				</div>
+			</div>
+		</div>
+	</main>
+	<footer>
+		<button id="orderprogrambutton" tabindex="1">Заказать программу</button>
+		<div class="hidden modal" id="orderprogram">
+			<form id="orderform" method="post">
+				<div id="ordermain">
+					<input id="service" name="ordertype" placeholder="Выберите услуги ≫" readonly tabindex="-1" type="text">
+					<input id="fio" maxlength="256" name="fio" placeholder="Имя*" required tabindex="3" type="text">
+					<input id="tel" maxlength="12" minlength="12" name="tel" pattern="[0-9+]{12}" placeholder="Телефон*" required tabindex="3" type="tel">
+					<input id="email" maxlength="256" name="email" pattern="[^@\s]+@[^@\s]+\.[^@\s]{2,}" placeholder="E-mail*" required tabindex="3" type="email">
+					<input id="coupon" maxlength="32" name="coupon" placeholder="Промокод" tabindex="3" type="text">
+					<button id="submitbutton" tabindex="3">Заказать</button>
+				</div>
+				<div class="hidden" id="services">
+					<label><input data-price="3900" id="service1" name="servicecheckbox[0]" tabindex="2" type="checkbox" value="Программа спортивного питания, 3900 ₽"><span></span><span>Программа спортивного питания, 3900&nbsp;<span class="rub">₽</span></span></label>
+					<label><input data-price="800" id="service2" name="servicecheckbox[1]" tabindex="2" type="checkbox" value="Устная консультация по телефону/WhatsApp, 800 ₽"><span></span><span>Устная консультация, 800&nbsp;<span class="rub">₽</span></span></label>
+					<label><input data-price="2100" id="service3" name="servicecheckbox[2]" tabindex="2" type="checkbox" value="Письменная консультация, 2100 ₽"><span></span><span>Письменная консультация, 2100&nbsp;<span class="rub">₽</span></span></label>
+					<label><input data-price="2400" id="service4" name="servicecheckbox[3]" tabindex="2" type="checkbox" value="Устная и письменная консультация, 2400 ₽"><span></span><span>Устная и письменная консультация, 2400&nbsp;<span class="rub">₽</span></span></label>
+					<label><input data-price="3500" id="service5" name="servicecheckbox[4]" tabindex="2" type="checkbox" value="Личная встреча, 3500 ₽"><span></span><span>Личная встреча, 3500&nbsp;<span class="rub">₽</span></span></label>
+					<label><input data-price="4800" id="service6" name="servicecheckbox[5]" tabindex="2" type="checkbox" value="Личная встреча и письменная консультация, 4800 ₽"><span></span><span>Личная встреча и письменная консультация, 4800&nbsp;<span class="rub">₽</span></span></label>
+					<button disabled id="servicesbutton" tabindex="2" type="button">Продолжить</button>
+				</div>
+			</form>
+		</div>
+		<div class="hidden modal" id="ordered"></div>
+		<div id="contacts">
+			<span>Контакты:</span>
+			<a href="tel:+79600433479" id="phone" tabindex="1" title="+7 960 043-34-79"></a>
+			<a href="https://wa.me/79600433479" id="whatsapp" tabindex="1" title="WhatsApp"></a>
+			<a href="https://t.me/atletpit" id="telegram" tabindex="1" title="Telegram"></a>
+		</div>
+	</footer>
+	<button class="hidden" id="closemodal" tabindex="2"><span></span><span></span></button>
+
+	<!-- import the webpage's javascript file -->
+	<!--script src="/script.js" defer></script-->
+
+	<script>
+let servicesCount = 0,
+	servicesPrice = 0,
+	firstTime = true;
+
+function setHeight() {
+	document.querySelectorAll('.preview').forEach(function (item) {
+		item.style.maxHeight = `${item.scrollHeight + 50}px`;
+	});
+	document.querySelectorAll('.readmore').forEach(function (item) {
+		item.style.maxHeight = `${item.scrollHeight + 100}px`;
+	});
+}
+setHeight();
+window.addEventListener('resize', function windowResize() {
+	setHeight();
+});
+
+function readmorePreview(obj) {
+	let parent = obj.parentElement,
+		preview = parent.querySelector('.preview');
+	preview.addEventListener('transitionend', function handler() {
+		preview.removeEventListener('transitionend', handler);
+		parent.querySelector('.readmore').classList.toggle('hidden');
+	});
+	preview.classList.toggle('hidden');
+	obj.classList.toggle('readmorebutton');
+	obj.classList.toggle('previewbutton');
+	obj.blur();
+}
+
+function openOrderProgram() {
+	if (firstTime) {
+		firstTime = false;
+		service.focus();
+		ordermain.style.transition = '1s linear';
+		services.style.transition = '1s linear';
+	}
+	modaloverlay.classList.remove('hidden');
+	closemodal.classList.remove('hidden');
+	orderprogram.classList.remove('hidden');
+}
+orderprogrambutton.addEventListener('click', function () {
+	openOrderProgram();
+});
+
+function closeModal() {
+	document.querySelectorAll('.modal:not(.hidden)').forEach(function (element) {
+		element.addEventListener('transitionend', function handler() {
+			element.removeEventListener('transitionend', handler);
+			closemodal.classList.add('hidden');
+			modaloverlay.classList.add('hidden');
+		});
+		element.classList.add('hidden');
+	});
+}
+modaloverlay.addEventListener('click', closeModal);
+closemodal.addEventListener('click', closeModal);
+
+function openServices() {
+	ordermain.classList.add('hidden');
+	services.classList.remove('hidden');
+}
+service.addEventListener('focus', openServices);
+function closeServices() {
+	couponCheck();
+	services.classList.add('hidden');
+	ordermain.classList.remove('hidden');
+}
+servicesbutton.addEventListener('click', closeServices);
+
+function checkServices() {
+	let serviceId = this.id,
+		servicePrice = Number(this.dataset.price);
+	//ym(********,'reachGoal',serviceId);
+	if (this.checked) {
+		servicesCount++;
+		servicesPrice += servicePrice;
+	} else {
+		servicesCount--;
+		servicesPrice -= servicePrice;
+	}
+	if (servicesCount > 0) {
+		service.value = 'Выбрано услуг: ' + servicesCount + ' (' + servicesPrice + ' ₽)';
+		servicesbutton.disabled = false;
+	} else {
+		service.value = '';
+		servicesbutton.disabled = true;
+	}
+	this.blur();
+}
+services.querySelectorAll('label input[type="checkbox"]').forEach(function (item) {
+	item.addEventListener('click', checkServices);
+});
+
+fio.setCustomValidity('Пожалуйста, заполните поле с именем');
+tel.setCustomValidity('Пожалуйста, заполните поле с номером телефона');
+email.setCustomValidity('Пожалуйста, заполните поле с имейлом');
+fio.addEventListener('input', function (event) {
+	if (fio.validity.valueMissing) {
+		fio.setCustomValidity('Пожалуйста, заполните поле с именем');
+	} else {
+		fio.setCustomValidity('');
+	}
+});
+tel.addEventListener('input', function (event) {
+	let phoneNumber = this.value.replace(/[^0-9]/g,'');
+	if (phoneNumber == '') {
+		this.value = '';
+	} else {
+		this.value = '+' + phoneNumber;
+	}
+	if (tel.validity.valueMissing) {
+		tel.setCustomValidity('Пожалуйста, заполните поле с номером телефона');
+	} else if (tel.validity.patternMismatch) {
+		tel.setCustomValidity('Номер телефона заполнен в неправильном формате');
+	} else {
+		tel.setCustomValidity('');
+	}
+});
+email.addEventListener('input', function (event) {
+	if (email.validity.valueMissing) {
+		email.setCustomValidity('Пожалуйста, заполните поле с имейлом');
+	} else if (email.validity.patternMismatch) {
+		email.setCustomValidity('Введён не адрес электронной почты');
+	} else {
+		email.setCustomValidity('');
+	}
+});
+
+function couponCheck() {
+	(async () => {
+		let couponUpperCase = coupon.value.toUpperCase(),
+			data = {coupon: couponUpperCase},
+			serviceValueDefault = 'Выбрано услуг: ' + servicesCount + ' (' + servicesPrice + ' ₽)';
+
+		try {
+			let response = await fetch('coupon.php', {
+				method: 'POST',
+				body: JSON.stringify(data),
+				headers: {
+					'Content-Type': 'application/json; charset=utf-8'
+				}
+			});
+			if (response.ok) {
+				let json = await response.json();
+				if (json.error) {
+					service.value = serviceValueDefault;
+				} else if (json.message === 'abc') { // Промокод на скидку в 15%
+					service.value = 'Выбрано услуг: ' + servicesCount + ' (' + servicesPrice * 0.85 + ' ₽)';
+				} else {
+					service.value = serviceValueDefault;
+				}
+			} else {
+				throw new Error(`Ошибка HTTP! Статус: ${response.status}`);
+				service.value = serviceValueDefault;
+			}
+		} catch (error) {
+			service.value = serviceValueDefault;
+			console.error('Ошибка:', error);
+		}
+	})()
+}
+coupon.addEventListener('keyup', couponCheck);
+
+function openOrdered() {
+	orderprogram.classList.add('hidden');
+	ordered.classList.remove('hidden');
+}
+function submitForm(event) {
+	(async () => {
+		event.preventDefault();
+
+		let formData = new FormData(event.target);
+
+		let data = {};
+		formData.forEach((value, key) => data[key] = value);
+
+		try {
+			let response = await fetch('ajax.php', {
+				method: 'POST',
+				body: JSON.stringify(data),
+				headers: {
+					'Content-Type': 'application/json; charset=utf-8'
+				}
+			});
+			if (response.ok) {
+				let json = await response.json();
+				if (json.error) {
+					ordered.classList.add('error');
+				} else {
+					ordered.classList.remove('error');
+				}
+				ordered.innerHTML = json.message;
+				openOrdered();
+			} else {
+				throw new Error(`Ошибка HTTP! Статус: ${response.status}`);
+			}
+		} catch (error) {
+			ordered.classList.add('error');
+			ordered.innerHTML = 'При отправке запроса возникла ошибка (GitHub Pages не работает с PHP)';
+			openOrdered();
+			console.error('Ошибка:', error);
+		}
+	})()
+}
+orderform.addEventListener('submit', submitForm);
+	</script>
+</body>
+</html>
