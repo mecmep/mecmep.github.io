@@ -95,7 +95,6 @@ button:not([disabled]) {cursor: pointer;}
 form {text-align: center;}
 hr {border: 0;border-top: 1px solid #4c3d38;margin: 15px 0 0;}
 img {max-width: 100%;}
-img[alt="www.000webhost.com"] {display: none;}
 ol, ul {margin: 0;padding: 0 0 0 20px;text-align: justify;}
 li {margin: 10px 0 0;}
 li::marker {color: #4c3d38;}
@@ -163,7 +162,7 @@ footer button:focus {box-shadow: inset 0 0 4px 1px #2a221f, 0 0 5px #e4dcda;}
 #closemodal.hidden {display: none;}
 #closemodal span {border: 0 solid #4c3d38;border-width: 0 1px 1px 0;display: block;height: 7px;margin: auto;transform: rotate(45deg);transition: .3s linear;width: 7px;}
 #closemodal span:last-child {border-width: 1px 0 0 1px;margin-top: 2px;}
-#closemodal:hover span {transform: rotate(405deg);}
+#closemodal:focus span, #closemodal:hover span {transform: rotate(405deg);}
 @media (max-height: 299px) {
 	.modal label {margin-top: 15px;}
 	#services button {margin-top: 15px;}
@@ -269,9 +268,9 @@ footer button:focus {box-shadow: inset 0 0 4px 1px #2a221f, 0 0 5px #e4dcda;}
 </ul>
 <hr>
 <p>Отказаться от программы и вернуть деньги без удержания возможно только до отправки анкеты. После того, как анкета отправлена тебе, отказаться ещё можно, но удерживается 1000&nbsp;<span class="rub">₽</span>. После того, как ты отправил обратно заполненную анкету, возврат средств невозможен.</p>
-<p class="order"><button onclick="orderprogrambutton.click()" tabindex="1">Заказать</button></p>
+<p class="order"><button onclick="orderprogrambutton.click()">Заказать</button></p>
 					</div>
-					<button aria-label="Подробнее про программы спортивного питания" class="readmorebutton" onclick="readmorePreview(this)" tabindex="1"><span></span><span></span></button>
+					<button aria-label="Подробнее про программы спортивного питания" class="readmorebutton" onclick="readmorePreview(this)"><span></span><span></span></button>
 				</div>
 			</div>
 			<div>
@@ -295,49 +294,46 @@ footer button:focus {box-shadow: inset 0 0 4px 1px #2a221f, 0 0 5px #e4dcda;}
 <hr>
 <p>Отказаться от услуги/перенести дату и время без удержаний возможно не позднее, чем за сутки до обговорённой даты и времени. Удержание составляет 1000&nbsp;<span class="rub">₽</span>, если отказ/изменение произошло менее, чем за сутки до обговорённой даты и времени.</p>
 <p>Отказаться от письменной консультации возможно только в течение суток после поступления денежных средств, далее возврат средств невозможен.</p>
-<p class="order"><button onclick="orderprogrambutton.click()" tabindex="1">Заказать</button></p>
+<p class="order"><button onclick="orderprogrambutton.click()">Заказать</button></p>
 					</div>
-					<button aria-label="Подробнее про консалтинг" class="readmorebutton" onclick="readmorePreview(this)" tabindex="1"><span></span><span></span></button>
+					<button aria-label="Подробнее про консалтинг" class="readmorebutton" onclick="readmorePreview(this)"><span></span><span></span></button>
 				</div>
 			</div>
 		</div>
 	</main>
 	<footer>
-		<button id="orderprogrambutton" tabindex="1">Заказать программу</button>
+		<button id="orderprogrambutton">Заказать программу</button>
 		<div class="hidden modal" id="orderprogram">
 			<form id="orderform" method="post">
 				<div id="ordermain">
-					<input id="service" name="ordertype" placeholder="Выберите услуги ≫" readonly tabindex="-1" type="text">
-					<input id="fio" maxlength="256" name="fio" placeholder="Имя*" required tabindex="3" type="text">
-					<input id="tel" maxlength="12" minlength="12" name="tel" pattern="[0-9+]{12}" placeholder="Телефон*" required tabindex="3" type="tel">
-					<input id="email" maxlength="256" name="email" pattern="[^@\s]+@[^@\s]+\.[^@\s]{2,}" placeholder="E-mail*" required tabindex="3" type="email">
-					<input id="coupon" maxlength="32" name="coupon" placeholder="Промокод" tabindex="3" type="text">
-					<button id="submitbutton" tabindex="3">Заказать</button>
+					<input id="service" name="ordertype" placeholder="Выберите услуги ≫" readonly type="text">
+					<input id="fio" maxlength="256" name="fio" placeholder="Имя*" required type="text">
+					<input id="tel" maxlength="12" minlength="12" name="tel" pattern="[0-9+]{12}" placeholder="Телефон*" required type="tel">
+					<input id="email" maxlength="256" name="email" pattern="[^@\s]+@[^@\s]+\.[^@\s]{2,}" placeholder="E-mail*" required type="email">
+					<input id="coupon" maxlength="32" name="coupon" placeholder="Промокод" type="text">
+					<button id="submitbutton">Заказать</button>
 				</div>
 				<div class="hidden" id="services">
-					<label><input data-price="3900" id="service1" name="servicecheckbox[0]" tabindex="2" type="checkbox" value="Программа спортивного питания, 3900 ₽"><span></span><span>Программа спортивного питания, 3900&nbsp;<span class="rub">₽</span></span></label>
-					<label><input data-price="800" id="service2" name="servicecheckbox[1]" tabindex="2" type="checkbox" value="Устная консультация по телефону/WhatsApp, 800 ₽"><span></span><span>Устная консультация, 800&nbsp;<span class="rub">₽</span></span></label>
-					<label><input data-price="2100" id="service3" name="servicecheckbox[2]" tabindex="2" type="checkbox" value="Письменная консультация, 2100 ₽"><span></span><span>Письменная консультация, 2100&nbsp;<span class="rub">₽</span></span></label>
-					<label><input data-price="2400" id="service4" name="servicecheckbox[3]" tabindex="2" type="checkbox" value="Устная и письменная консультация, 2400 ₽"><span></span><span>Устная и письменная консультация, 2400&nbsp;<span class="rub">₽</span></span></label>
-					<label><input data-price="3500" id="service5" name="servicecheckbox[4]" tabindex="2" type="checkbox" value="Личная встреча, 3500 ₽"><span></span><span>Личная встреча, 3500&nbsp;<span class="rub">₽</span></span></label>
-					<label><input data-price="4800" id="service6" name="servicecheckbox[5]" tabindex="2" type="checkbox" value="Личная встреча и письменная консультация, 4800 ₽"><span></span><span>Личная встреча и письменная консультация, 4800&nbsp;<span class="rub">₽</span></span></label>
-					<button disabled id="servicesbutton" tabindex="2" type="button">Продолжить</button>
+					<label><input data-price="3900" id="service1" name="servicecheckbox[0]" type="checkbox" value="Программа спортивного питания, 3900 ₽"><span></span><span>Программа спортивного питания, 3900&nbsp;<span class="rub">₽</span></span></label>
+					<label><input data-price="800" id="service2" name="servicecheckbox[1]" type="checkbox" value="Устная консультация по телефону/WhatsApp, 800 ₽"><span></span><span>Устная консультация, 800&nbsp;<span class="rub">₽</span></span></label>
+					<label><input data-price="2100" id="service3" name="servicecheckbox[2]" type="checkbox" value="Письменная консультация, 2100 ₽"><span></span><span>Письменная консультация, 2100&nbsp;<span class="rub">₽</span></span></label>
+					<label><input data-price="2400" id="service4" name="servicecheckbox[3]" type="checkbox" value="Устная и письменная консультация, 2400 ₽"><span></span><span>Устная и письменная консультация, 2400&nbsp;<span class="rub">₽</span></span></label>
+					<label><input data-price="3500" id="service5" name="servicecheckbox[4]" type="checkbox" value="Личная встреча, 3500 ₽"><span></span><span>Личная встреча, 3500&nbsp;<span class="rub">₽</span></span></label>
+					<label><input data-price="4800" id="service6" name="servicecheckbox[5]" type="checkbox" value="Личная встреча и письменная консультация, 4800 ₽"><span></span><span>Личная встреча и письменная консультация, 4800&nbsp;<span class="rub">₽</span></span></label>
+					<button disabled id="servicesbutton" type="button">Продолжить</button>
 				</div>
 			</form>
 		</div>
 		<div class="hidden modal" id="ordered"></div>
 		<div id="contacts">
 			<span>Контакты:</span>
-			<a href="tel:+79600433479" id="phone" tabindex="1" title="+7 960 043-34-79"></a>
-			<a href="https://wa.me/79600433479" id="whatsapp" tabindex="1" title="WhatsApp"></a>
-			<a href="https://t.me/atletpit" id="telegram" tabindex="1" title="Telegram"></a>
+			<a href="tel:+79600433479" id="phone" title="+7 960 043-34-79"></a>
+			<a href="https://wa.me/79600433479" id="whatsapp" title="WhatsApp"></a>
+			<a href="https://t.me/atletpit" id="telegram" title="Telegram"></a>
 		</div>
 	</footer>
-	<button class="hidden" id="closemodal" tabindex="2"><span></span><span></span></button>
-
-	<!-- import the webpage's javascript file -->
-	<!--script src="/script.js" defer></script-->
-
+	<button class="hidden" id="closemodal"><span></span><span></span></button>
+	<!--script src="../script.js" defer></script-->
 	<script>
 let servicesCount = 0,
 	servicesPrice = 0,
