@@ -157,7 +157,7 @@ footer button {background: #e4dcda;border: 0;border-radius: 5px;color: #2a221f;f
 #telegram:focus {filter: drop-shadow(0 0 2px #0ff);}
 div.readmore p.order button:focus, .modal button:focus {box-shadow: inset 0 0 4px 1px #574640;}
 footer button:focus {box-shadow: inset 0 0 4px 1px #2a221f, 0 0 5px #e4dcda;}
-#closemodal {background: #dbd2ce;border: 0;border-radius: 50%;height: 30px;outline: none;padding: 0;position: fixed;right: 10px;top: 15px;width: 30px;}
+#closemodal {background: #dbd2ce;border: 0;border-radius: 50%;height: 30px;outline: none;padding: 0;position: fixed;right: 10px;top: 15px;transition: .3s linear;width: 30px;}
 #closemodal:focus {box-shadow: 0 0 4px 1px #e4dcda;}
 #closemodal.hidden {display: none;}
 #closemodal span {border: 0 solid #4c3d38;border-width: 0 1px 1px 0;display: block;height: 7px;margin: auto;transform: rotate(45deg);transition: .3s linear;width: 7px;}
@@ -217,6 +217,11 @@ footer button:focus {box-shadow: inset 0 0 4px 1px #2a221f, 0 0 5px #e4dcda;}
 	div.preview.hidden, div.readmore.hidden {max-height: none !important;}
 	div.preview strong {font-weight: 300;}
 	button.previewbutton, button.readmorebutton {display: none;}
+}
+@media (min-width: 1000px) {
+	#closemodal {height: 48px;right: 15px;width: 48px;}
+	#closemodal span {height: 12px;width: 12px;}
+	#closemodal span:last-child {margin-top: 4px;}
 }
 @media (min-width: 1200px) {
 	main {font-size: 17px;}
@@ -308,7 +313,7 @@ footer button:focus {box-shadow: inset 0 0 4px 1px #2a221f, 0 0 5px #e4dcda;}
 				<div id="ordermain">
 					<input id="service" name="ordertype" placeholder="Выберите услуги ≫" readonly type="text">
 					<input id="fio" maxlength="256" name="fio" placeholder="Имя*" required type="text">
-					<input id="tel" maxlength="12" minlength="12" name="tel" pattern="[0-9+]{12}" placeholder="Телефон*" required type="tel">
+					<input autocomplete="off" id="tel" maxlength="12" minlength="12" name="tel" pattern="[0-9+]{12}" placeholder="Телефон*" required type="tel">
 					<input id="email" maxlength="256" name="email" pattern="[^@\s]+@[^@\s]+\.[^@\s]{2,}" placeholder="E-mail*" required type="email">
 					<input id="coupon" maxlength="32" name="coupon" placeholder="Промокод" type="text">
 					<button id="submitbutton">Заказать</button>
