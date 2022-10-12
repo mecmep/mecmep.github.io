@@ -93,25 +93,6 @@ header {
 	margin-left: -165px;
 	position: absolute;
 }
-#headertop nav ul {
-	list-style: none;
-	margin: 0;
-	padding: 0;
-}
-#headertop nav a {
-	color: #333;
-	display: block;
-	font: 14px 'Ubuntu Light';
-	padding: 7px 15px;
-	text-decoration: none;
-}
-#headertop nav a:focus,
-#headertop nav li:hover > a {
-	background: rgba(0,0,0,.3);
-	color: #fff;
-	outline: none;
-	text-shadow: 0 0 5px #000;
-}
 #headertop nav > button {
 	background: none;
 	border: 0;
@@ -158,63 +139,92 @@ header {
 	transform: matrix(1, -1, 1, 1, 0, -14);
 	width: 30px;
 }
-#headertop nav > ul {
+#headernavlist,
+#headernavlist ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+#headernavlist {
 	display: grid;
 	grid-auto-flow: column;
 	margin-left: 15px;
 }
-#headertop nav > ul > li > a {
+#headernavlist a {
+	color: #333;
+	display: block;
+	font: 14px 'Ubuntu Light';
+	padding: 7px 15px;
+	text-decoration: none;
+}
+#headernavlist a:focus,
+#headernavlist li:hover > a {
+	background: rgba(0,0,0,.3);
+	color: #fff;
+	outline: none;
+	text-shadow: 0 0 5px #000;
+}
+#headernavlist > li > a {
 	color: #fff;
 	line-height: 107px;
 	padding: 0 15px;
 	text-align: center;
 	text-transform: uppercase;
 }
-#headertop nav > ul > li.current > a {
+#headernavlist > li.current > a {
 	color: #ffa73b;
 }
-#headertop nav > ul > li > button {
-	background: none;
-	border: 0 solid #fff;
-	border-width: 0 1px 1px 0;
-	bottom: 20px;
+#headernavlist > li > button {
+	background: transparent;
+	border: 0;
+	bottom: 9px;
 	display: none;
-	height: 10px;
-	left: calc(50% - 7px);
+	height: 30px;
 	padding: 0;
 	position: absolute;
-	transform: rotate(45deg);
-	width: 10px;
+	right: calc(50% - 15px);
+	width: 30px;
 }
-#headertop nav > ul > li > button.closesubnav {
-	border-width: 1px 0 0 1px;
-	bottom: 14px;
-}
-#headertop nav > ul > li > button:focus {
-	filter: drop-shadow(-2px -2px 1px #f4511e) drop-shadow(2px 2px 1px #f4511e);
+#headernavlist > li > button:focus {
 	outline: none;
 }
-#headertop nav > ul ul {
+#headernavlist > li > button span {
+	border: 0 solid #fff;
+	border-width: 0 1px 1px 0;
+	display: block;
+	height: 9px;
+	margin: 0 auto 6px;
+	transform: rotate(45deg);
+	width: 9px;
+}
+#headernavlist > li > button:focus span {
+	filter: drop-shadow(-2px -2px 1px #f4511e) drop-shadow(2px 2px 1px #f4511e);
+}
+#headernavlist > li > button.closesubnav span {
+	border-width: 1px 0 0 1px;
+	margin: 6px auto 0;
+}
+#headernavlist ul {
 	background: rgba(255,255,255,.8);
 	box-shadow: 0 7px 7px rgba(0,0,0,.4);
 	display: none;
 	position: absolute;
 }
-#headertop nav > ul > li:last-child > ul {
+#headernavlist > li:last-child > ul {
 	right: 0;
 }
-#headertop nav > ul li:hover > ul,
-#headertop nav > ul li:focus-within > ul, /* Есть проблемы с поддержкой focus-within */
-#headertop nav > ul > li > button.closesubnav + ul {
+#headernavlist li:hover > ul,
+#headernavlist li:focus-within > ul, /* Есть проблемы с поддержкой focus-within */
+#headernavlist > li > button.closesubnav + ul {
 	display: block;
 }
-#headertop nav > ul li:focus-within > ul {
+#headernavlist li:focus-within > ul {
 	z-index: 1;
 }
-#headertop nav > ul li:hover > ul {
+#headernavlist li:hover > ul {
 	z-index: 2;
 }
-#headertop nav > ul ul > li.current > a {
+#headernavlist ul > li.current > a {
 	background: rgba(24,47,66,.2);
 	color: #000;
 	text-shadow: 0 0 5px #fff;
@@ -259,13 +269,13 @@ header {
 		margin: 0;
 		position: static;
 	}
-	#headertop nav > ul {
+	#headernavlist {
 		margin: 0;
 	}
-	#headertop nav > ul > li {
+	#headernavlist > li {
 		position: relative;
 	}
-	#headertop nav > ul > li > a {
+	#headernavlist > li > a {
 		line-height: 73px;
 	}
 	#vvs {
@@ -297,47 +307,50 @@ header {
 	#headertop nav > button {
 		display: inline-block;
 	}
-	#headertop nav > ul {
+	#headernavlist {
 		grid-auto-flow: row;
 	}
-	#headertop nav > button[aria-expanded="false"] + ul {
+	#headertop nav > button[aria-expanded="false"] + #headernavlist {
 		display: none;
 	}
-	#headertop nav > ul > li {
+	#headernavlist > li {
 		border-top: 1px dashed #fff;
 	}
-	#headertop nav > ul > li > a {
+	#headernavlist > li > a {
 		line-height: 56px;
 		padding: 0;
 	}
-	#headertop nav > ul > li:hover > a {
+	#headernavlist > li:hover > a {
 		background: none;
 		text-shadow: none;
 	}
-	#headertop nav > ul > li > a:hover {
+	#headernavlist > li > a:hover {
 		background: rgba(0,0,0,.3);
 		text-shadow: 0 0 5px #000;
 	}
-	#headertop nav > ul > li > button {
+	#headernavlist > li > button {
 		bottom: unset;
 		display: block;
-		height: 12px;
-		left: unset;
-		right: 23px;
-		top: 18px;
-		width: 12px;
+		right: 14px;
+		top: 13px;
 	}
-	#headertop nav > ul > li > button.closesubnav {
-		top: 26px;
+	#headernavlist > li > button span {
+		height: 11px;
+		margin: 0 auto 8px;
+		width: 11px;
 	}
-	#headertop nav > ul ul {
+	#headernavlist > li > button.closesubnav span {
+		margin: 8px auto 0;
+	}
+	#headernavlist ul {
 		background: #fff;
 		position: static;
 	}
-	#headertop nav > ul li:hover > ul {
+	#headernavlist li:hover > ul,
+	#headernavlist li:focus-within > ul {
 		display: none;
 	}
-	#headertop nav > ul ul > li > a {
+	#headernavlist ul > li > a {
 		font-size: 15px;
 		padding: 15px;
 	}
@@ -416,17 +429,19 @@ header {
 		right: 10px;
 	}
 }
-@media (hover: none) {
-	#headertop nav > ul li:hover > ul {
+@media (hover: none) and (max-width: 1200px) and (min-width: 621px) {
+	#headernavlist > li > a {
+		line-height: 51px;
+		padding-bottom: 27px;
+	}
+	#headernavlist > li > button {
+		display: block;
+	}
+	#headernavlist li:hover > ul,
+	#headernavlist li:focus-within > ul {
 		display: none;
 	}
-}
-@media (hover: none) and (max-width: 1200px) and (min-width: 621px) {
-	#headertop nav > ul > li > a {
-		line-height: 48px;
-		padding-bottom: 25px;
-	}
-	#headertop nav > ul > li > button {
+	#headernavlist > li > button.closesubnav + ul {
 		display: block;
 	}
 }
