@@ -644,7 +644,6 @@ h1 + .newspromo {
 	display: block;
 	margin: 0 auto;
 	max-width: 100%;
-	width: 520px;
 }
 p.newstitle {
 	font: bold 16px/18px Ubuntu;
@@ -884,6 +883,14 @@ a:hover .magread {
 		left: 0;
 		opacity: 0;
 	}
+	#contentpartnerslist img,
+	#contentpartnerslist p.active.prev img {
+		transform: scale(0);
+		transition: 1s linear;
+	}
+	#contentpartnerslist p.active img {
+		transform: scale(1);
+	}
 }
 @media (max-width: 600px) {
 	#daytheme > div {
@@ -893,7 +900,8 @@ a:hover .magread {
 		grid-column: 1;
 	}
 	.newsdate + p {
-		margin-right: 0;
+		margin: 10px auto 0;
+		max-width: 520px;
 	}
 }
 @media (max-width: 525px) {
