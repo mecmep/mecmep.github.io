@@ -30,8 +30,7 @@
 	font-style: normal;
 	font-weight: 400;
 	src: url(fonts/ubuntu-v20-cyrillic-ext-regular.eot);
-	src: local(Ubuntu),
-		local('Ubuntu Regular'),
+	src: local('Ubuntu Regular'),
 		url(fonts/ubuntu-v20-cyrillic-ext-regular.eot?#iefix) format('embedded-opentype'),
 		url(fonts/ubuntu-v20-cyrillic-ext-regular.woff2) format('woff2'),
 		url(fonts/ubuntu-v20-cyrillic-ext-regular.woff) format('woff'),
@@ -681,6 +680,7 @@ h1 + .newspromo {
 }
 .newsdate + p img {
 	display: block;
+	height: auto;
 	margin: 0 auto;
 	max-width: 100%;
 }
@@ -1127,7 +1127,7 @@ footer > div {
 	padding: 20px 0;
 }
 #mecmep {
-	background: url(img/mecmep.png);
+	background: url(img/mecmep.png) 50%/cover;
 	height: 23px;
 	margin-left: 20px;
 	width: 179px;
