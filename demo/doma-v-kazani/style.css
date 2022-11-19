@@ -1,4 +1,5 @@
 @font-face {
+	font-display: swap;
 	font-family: 'Myriad Pro';
 	font-style: normal;
 	font-weight: 400;
@@ -6,6 +7,7 @@
 		url(fonts/MyriadPro-Regular.ttf);
 }
 @font-face {
+	font-display: swap;
 	font-family: 'Myriad Pro';
 	font-style: normal;
 	font-weight: 700;
@@ -13,6 +15,7 @@
 		url(fonts/MyriadPro-Bold.ttf);
 }
 @font-face {
+	font-display: swap;
 	font-family: Roboto;
 	font-style: normal;
 	font-weight: 300;
@@ -25,6 +28,7 @@
 		url(fonts/roboto-v30-cyrillic-ext-300.svg#Roboto) format('svg'); /* Legacy iOS */
 }
 @font-face {
+	font-display: swap;
 	font-family: Roboto;
 	font-style: normal;
 	font-weight: 400;
@@ -37,6 +41,7 @@
 		url(fonts/roboto-v30-cyrillic-ext-regular.svg#Roboto) format('svg');
 }
 @font-face {
+	font-display: swap;
 	font-family: Roboto;
 	font-style: normal;
 	font-weight: 500;
@@ -49,6 +54,7 @@
 		url(fonts/roboto-v30-cyrillic-ext-500.svg#Roboto) format('svg');
 }
 @font-face {
+	font-display: swap;
 	font-family: Roboto;
 	font-style: normal;
 	font-weight: 700;
@@ -61,6 +67,7 @@
 		url(fonts/roboto-v30-cyrillic-ext-700.svg#Roboto) format('svg');
 }
 @font-face {
+	font-display: swap;
 	font-family: 'Trebuchet MS';
 	font-style: normal;
 	font-weight: 400;
@@ -290,7 +297,7 @@ header {
 #headerphones {
 	float: right;
 	font: bold 26px/32px Roboto, sans-serif;
-	margin-top: 22px;
+	margin-top: 17px;
 	text-align: right;
 }
 #headerphones a {
@@ -308,7 +315,7 @@ header {
 	color: #fff;
 	float: right;
 	font: 14px/15px Roboto, sans-serif;
-	margin-top: 4px;
+	margin-top: 11px;
 	outline: none;
 	padding: 0 0 0 20px;
 	text-transform: lowercase;
@@ -1023,8 +1030,9 @@ footer {
 	text-transform: uppercase;
 	width: 320px;
 }
-#footermiddle h4,
+#footermiddle h2,
 #footermiddle span {
+	color: #fff;
 	display: inline;
 	font: 500 18px/18px Roboto, sans-serif;
 }
