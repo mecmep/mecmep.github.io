@@ -1,33 +1,36 @@
+const contentPartners = document.querySelectorAll('#contentpartnerslist > p')
+const contentPartnersList = document.getElementById('contentpartnerslist')
+const guestbookPreviewList = document.getElementById('guestbookpreviewlist')
+const guestbookPreviews = document.querySelectorAll('#guestbookpreviewlist > li')
 const navs = document.querySelectorAll('nav')
 const navToggleButtons = document.querySelectorAll('nav > button')
 const subNavToggleButtons = document.querySelectorAll('nav > ul > li > button')
-const guestbookPreviewList = document.getElementById('guestbookpreviewlist')
-const guestbookPreviews = document.querySelectorAll('#guestbookpreviewlist > li')
-const contentPartners = document.querySelectorAll('#contentpartnerslist > p')
 const upButton = document.getElementById('up')
 
-navToggleButtons.forEach(function (navToggleButton) {
-	navToggleButton.addEventListener('click', e => {
-		const isOpen = navToggleButton.getAttribute('aria-expanded') === "false"
+navToggleButtons.forEach(e => {
+	e.addEventListener('click', function () {
+		const isOpen = this.getAttribute('aria-expanded') === 'false'
 
-		navToggleButton.setAttribute('aria-expanded', isOpen)
+		this.setAttribute('aria-expanded', isOpen)
 	})
 })
 
-subNavToggleButtons.forEach(function (subNavToggleButton) {
-	subNavToggleButton.addEventListener('click', e => {
-		if ( subNavToggleButton.classList.contains('closesubnav') ) {
-			subNavToggleButton.classList.remove('closesubnav')
-			subNavToggleButton.blur()
+subNavToggleButtons.forEach(e => {
+	e.addEventListener('click', function () {
+		if (this.classList.contains('closesubnav')) {
+			this.classList.remove('closesubnav')
+			this.blur()
 		} else {
-			subNavToggleButton.classList.add('closesubnav')
+			this.classList.add('closesubnav')
 		}
 	})
 })
 
-navs.forEach(function (nav) {
-	nav.addEventListener('keyup', e => {
-		const navToggleButton = nav.querySelector('nav > button')
+// Скрытие навигационного меню по клавише Escape
+navs.forEach(e => {
+	e.addEventListener('keyup', function (e) {
+		const navToggleButton = this.querySelector('nav > button')
+
 		if (e.code === 'Escape') {
 			navToggleButton.setAttribute('aria-expanded', false)
 			navToggleButton.focus()
@@ -49,7 +52,7 @@ function gbPreviewsSlide() {
 			guestbookPreviews[i].classList.add('prev')
 
 			// Удаление устаревших настроек предыдущего слайда после завершения анимации
-			setTimeout(function () {
+			setTimeout(() => {
 				guestbookPreviews[i].classList.remove('active')
 				guestbookPreviews[i].classList.remove('prev')
 			}, 1000)
@@ -58,29 +61,29 @@ function gbPreviewsSlide() {
 		}
 	}
 }
-let guestbookSliderTimer = setInterval(gbPreviewsSlide, 10000),
+let guestbookSliderFocused = false,
 	guestbookSliderHovered = false,
-	guestbookSliderFocused = false
+	guestbookSliderTimer = setInterval(gbPreviewsSlide, 10000)
 
-guestbookPreviewList.onmouseenter = function () {
+guestbookPreviewList.onmouseenter = () => {
 	guestbookSliderHovered = true
 	if (!guestbookSliderFocused) {
 		clearInterval(guestbookSliderTimer)
 	}
 }
-guestbookPreviewList.onmouseleave = function () {
+guestbookPreviewList.onmouseleave = () => {
 	guestbookSliderHovered = false
 	if (!guestbookSliderFocused) {
 		guestbookSliderTimer = setInterval(gbPreviewsSlide, 10000)
 	}
 }
-guestbookPreviewList.addEventListener('focusin', function () {
+guestbookPreviewList.addEventListener('focusin', () => {
 	guestbookSliderFocused = true
 	if (!guestbookSliderHovered) {
 		clearInterval(guestbookSliderTimer)
 	}
 })
-guestbookPreviewList.addEventListener('focusout', function () {
+guestbookPreviewList.addEventListener('focusout', () => {
 	guestbookSliderFocused = false
 	if (!guestbookSliderHovered) {
 		guestbookSliderTimer = setInterval(gbPreviewsSlide, 10000)
@@ -92,7 +95,7 @@ for (let i = 0; i < contentPartners.length; i++) {
 	if (contentPartners[i].offsetHeight > contentPartnersMinHeight)
 		contentPartnersMinHeight = contentPartners[i].offsetHeight
 }
-document.getElementById('contentpartnerslist').style.minHeight = contentPartnersMinHeight + 'px'
+contentPartnersList.style.minHeight = contentPartnersMinHeight + 'px'
 
 function contentPartnersSlide() {
 	for (let i = 0, next = 1; i < contentPartners.length; i++, next++) {
@@ -153,7 +156,7 @@ for (let cp = 0; cp < contentPartners.length; cp++) {
 
 // Отображение/скрытие кнопки прокрутки страницы вверх при прокрутке экрана на высоту видимой области окна
 let scrollTicking = false
-window.onscroll = function () {
+window.onscroll = () => {
 	if (document.documentElement.scrollTop > document.documentElement.clientHeight) {
 		if (!scrollTicking) {
 			scrollTicking = true
@@ -163,7 +166,7 @@ window.onscroll = function () {
 				this.classList.remove('hidden')
 			})
 			upButton.classList.remove('hidden')
-			setTimeout(function () {
+			setTimeout(() => {
 				upButton.classList.add('active')
 			})
 		}

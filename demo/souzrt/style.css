@@ -96,8 +96,8 @@ header {
 	position: absolute;
 }
 #headertop {
-	background: rgba(24,47,66,.94);
-	box-shadow: 0 8px 20px rgba(0,0,0,.4);
+	background: rgba(24, 47, 66, .94);
+	box-shadow: 0 8px 20px rgba(0, 0, 0, .4);
 	height: 107px;
 	margin-top: calc(-1 * var(--header-height));
 	position: sticky;
@@ -197,7 +197,7 @@ header {
 }
 #headernavlist a:focus,
 #headernavlist li:hover > a {
-	background: rgba(0,0,0,.3);
+	background: rgba(0, 0, 0, .3);
 	color: #fff;
 	outline: none;
 	text-shadow: 0 0 5px #000;
@@ -243,8 +243,8 @@ header {
 	margin: 6px auto 0;
 }
 #headernavlist ul {
-	background: rgba(255,255,255,.8);
-	box-shadow: 0 7px 7px rgba(0,0,0,.4);
+	background: rgba(255, 255, 255, .8);
+	box-shadow: 0 7px 7px rgba(0, 0, 0, .4);
 	display: none;
 	position: absolute;
 }
@@ -252,18 +252,18 @@ header {
 	right: 0;
 }
 #headernavlist li:hover > ul,
-#headernavlist li:focus-within > ul, /* Есть проблемы с поддержкой focus-within */
 #headernavlist > li > button.closesubnav + ul {
 	display: block;
 }
-#headernavlist li:focus-within > ul {
+#headernavlist li:focus-within > ul { /* Есть проблемы с поддержкой focus-within */
+	display: block;
 	z-index: 1;
 }
 #headernavlist li:hover > ul {
 	z-index: 2;
 }
 #headernavlist ul > li.current > a {
-	background: rgba(24,47,66,.2);
+	background: rgba(24, 47, 66, .2);
 	color: #000;
 	text-shadow: 0 0 5px #fff;
 }
@@ -322,7 +322,7 @@ header {
 }
 @media (max-width: 620px) {
 	#headertext {
-		background: rgba(0,0,0,.4);
+		background: rgba(0, 0, 0, .4);
 		font-size: 5vw;
 		line-height: normal;
 		text-shadow: 0 0 9px #000;
@@ -363,7 +363,7 @@ header {
 		text-shadow: none;
 	}
 	#headernavlist > li > a:hover {
-		background: rgba(0,0,0,.3);
+		background: rgba(0, 0, 0, .3);
 		text-shadow: 0 0 5px #000;
 	}
 	#headernavlist > li > button {
@@ -577,7 +577,7 @@ header {
 }
 .newspreviewblock h2 a:focus,
 .newspreviewblock h2 a:hover {
-	background: rgba(0,0,0,.3);
+	background: rgba(0, 0, 0, .3);
 	outline: none;
 	text-shadow: 0 0 3px #f4511e;
 }
@@ -594,7 +594,7 @@ header {
 	font: 300 12px Ubuntu, sans-serif;
 	padding: 25px 19px 25px 28px;
 }
-.newspreviewblock li span {
+.newspreviewblock li time {
 	display: block;
 	margin: 6px 0 10px 33px;
 }
@@ -627,7 +627,7 @@ main > h2 {
 	min-height: 174px;
 	padding: 30px 30px 60px 100px;
 }
-#daytheme > div > span {
+#daytheme > div > time {
 	background: url(img/calendred.png) no-repeat;
 	color: #546e7a;
 	display: block;
@@ -684,9 +684,10 @@ h1 + .newspromo {
 	margin: 0 auto;
 	max-width: 100%;
 }
-p.newstitle {
+.newstitle {
+	color: #333;
 	font: bold 16px/18px Ubuntu, sans-serif;
-	margin-top: 10px;
+	margin: 10px 0 0;
 }
 .newstitle a {
 	color: #333;
@@ -855,12 +856,12 @@ a:hover .magread {
 		width: 100%;
 	}
 	#daytheme > div {
-		background: rgba(24,47,66,.7);
+		background: rgba(24, 47, 66, .7);
 	}
-	#daytheme > div > span {
+	#daytheme > div > time {
 		background-image: url(img/calend.png);
 	}
-	#daytheme > div > span,
+	#daytheme > div > time,
 	#daytheme > div > a,
 	#daytheme > div > p,
 	#daytheme > div > * a {
@@ -1028,9 +1029,13 @@ footer > div {
 	color: #fff;
 	text-decoration: none;
 }
-#footertop a:focus, #footertop a:hover {
+#footertop a:focus,
+#footertop a:hover {
 	color: #ffa73b;
 	outline: none;
+}
+footer address {
+	font: inherit;
 }
 #footercontactsstprt {
 	font: 21px Ubuntu, sans-serif;
@@ -1080,7 +1085,7 @@ footer > div {
 	height: 100%;
 	position: absolute;
 	transition: .3s linear;
-	transform: scale(0,0);
+	transform: scale(0, 0);
 	width: 100%;
 	z-index: -1;
 }
@@ -1101,7 +1106,7 @@ footer > div {
 }
 #footercontactssocial a:focus:before,
 #footercontactssocial a:hover:before {
-	transform: scale(1,1);
+	transform: scale(1, 1);
 }
 .footernavlist {
 	list-style: none;
@@ -1168,9 +1173,10 @@ footer > div {
 #up.hidden {
 	display: none;
 }
-#up span {
+#up:after {
 	border: 0 solid #fff;
 	border-width: 1px 0 0 1px;
+	content: '';
 	display: block;
 	height: 16px;
 	margin: 10px auto 0;
@@ -1199,7 +1205,7 @@ footer > div {
 		grid-template-columns: 1fr 1fr 1fr;
 		padding-top: 50px;
 	}
-	#footercontacts {
+	footer address {
 		align-items: center;
 		/*display: grid;*/
 		grid-column: 1/4;
@@ -1235,7 +1241,7 @@ footer > div {
 		grid-gap: 0;
 		grid-template-columns: auto;
 	}
-	#footercontacts {
+	footer address {
 		display: block;
 		grid-column: 1/3;
 	}
@@ -1247,7 +1253,7 @@ footer > div {
 	}
 }
 @media (max-width: 400px) {
-	#footercontacts,
+	footer address,
 	#footertop nav:last-child {
 		grid-column: 1/2;
 	}
