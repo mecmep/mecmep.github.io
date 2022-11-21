@@ -984,6 +984,9 @@ header {
 footer {
 	position: relative;
 }
+footer iframe {
+	dislay: block;
+}
 #footertop {
 	background: #f8f8f8;
 	padding: 18px 0;
@@ -1184,18 +1187,21 @@ footer nav button {
 	max-height: 100%;
 	max-width: calc(100% - 60px);
 	overflow: auto;
-	padding: 35px 30px;
+	padding: 0;
 	position: fixed;
 	text-shadow: 1px 2px 3px #fff;
-	top: 50%;
+	top: -50%;
 	transform: translate(-50%, -50%);
 	transition: 1s linear;
 	width: 70%;
 	z-index: 3;
 }
+.modal.active {
+	padding: 35px 30px;
+	top: 50%;
+}
 .modal.hidden {
-	padding: 0;
-	top: -50%;
+	display: none;
 }
 .modal input {
 	background: #fff;

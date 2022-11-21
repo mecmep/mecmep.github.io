@@ -54,6 +54,9 @@ function openModal(modalId) {
 	modalOverlay.classList.remove('hidden')
 	closeModalButton.classList.remove('hidden')
 	modal.classList.remove('hidden')
+	setTimeout(() => {
+		modal.classList.add('active')
+	})
 }
 function openCallback() {
 	openModal('callback')
@@ -66,9 +69,10 @@ function closeModal() {
 
 	for (let i = 0, modal; i < modalsVisible.length; i++) {
 		modal = modalsVisible[i]
-		modal.classList.add('hidden')
+		modal.classList.remove('active')
 		modal.addEventListener('transitionend', function handler() {
 			this.removeEventListener('transitionend', handler)
+			modal.classList.add('hidden')
 			closeModalButton.classList.add('hidden')
 			modalOverlay.classList.add('hidden')
 		})
