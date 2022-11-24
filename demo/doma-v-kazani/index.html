@@ -23,19 +23,19 @@
 			<div id="headerlight">
 				<a aria-label="Ссылка на главную страницу компании «Строй Дом»" href="./" id="logo"></a>
 				<nav aria-label="Меню навигации по сайту">
-					<button aria-controls="headernavlist" aria-expanded="false" aria-label="Переключение навигации">
+					<button aria-controls="headernavlist" aria-expanded="false" aria-label="Открыть меню навигации">
 						<span aria-hidden="true"></span>
 					</button>
 					<ul id="headernavlist">
-						<li class="current">
-							<a href="#">О компании</a>
+						<li>
+							<a aria-current="page" href="#">О компании</a>
 						</li>
 						<li>
 							<a href="#">Фотогалерея</a>
 						</li>
 						<li>
 							<a href="#">Проекты деревянных домов</a>
-							<button aria-label="Переход на выпадающее меню"></button>
+							<button aria-label="Открыть подменю"></button>
 							<ul>
 								<li><a href="#">Коттеджи</a></li>
 								<li><a href="#">Одноэтажные дома</a></li>
@@ -44,7 +44,7 @@
 						</li>
 						<li>
 							<a href="#">Проекты кирпичных домов</a>
-							<button aria-label="Переход на выпадающее меню"></button>
+							<button aria-label="Открыть подменю"></button>
 							<ul>
 								<li><a href="#">Проекты до 100&nbsp;м&sup2;</a></li>
 								<li><a href="#">Дома из кирпича</a></li>
@@ -139,26 +139,26 @@
 	<div id="wall">
 		<div class="wrapper">
 			<nav aria-label="Меню выбора полезной информации" id="wallmenu">
-				<button aria-controls="wallerselect" aria-expanded="false" aria-label="Переключение превью полезной информации">
+				<button aria-controls="wallerselect" aria-expanded="false" aria-label="Открыть превью полезной информации">
 					<span aria-hidden="true"></span>
 				</button>
 				<ul class="menu">
 					<li>
 						<a href="#">Полезная информация</a>
 						<ul id="wallerselect">
-							<li><button data-href="waller1">Типы деревянных домов</button></li>
-							<li><button data-href="waller2">Преимущества деревянных домов</button></li>
-							<li><button data-href="waller3">Выбор фундамента</button></li>
-							<li><button data-href="waller4">Отделка деревянного дома</button></li>
-							<li><button data-href="waller5">Отопление деревянного дома</button></li>
-							<li><button data-href="waller6">Деревянные бани</button></li>
-							<li><button data-href="waller7">Словарь терминов</button></li>
-							<li><button data-href="waller8">Дом из клееного бруса</button></li>
-							<li><button data-href="waller9">Производство клееного бруса</button></li>
-							<li><button data-href="waller10">Клееный брус из кедра</button></li>
-							<li><button data-href="waller11">Преимущество домов из бруса</button></li>
-							<li><button data-href="waller12">Технология производства</button></li>
-							<li><button data-href="waller13">Свойства клееного бруса из кедра</button></li>
+							<li><button aria-controls="waller1" aria-selected="true">Типы деревянных домов</button></li>
+							<li><button aria-controls="waller2">Преимущества деревянных домов</button></li>
+							<li><button aria-controls="waller3">Выбор фундамента</button></li>
+							<li><button aria-controls="waller4">Отделка деревянного дома</button></li>
+							<li><button aria-controls="waller5">Отопление деревянного дома</button></li>
+							<li><button aria-controls="waller6">Деревянные бани</button></li>
+							<li><button aria-controls="waller7">Словарь терминов</button></li>
+							<li><button aria-controls="waller8">Дом из клееного бруса</button></li>
+							<li><button aria-controls="waller9">Производство клееного бруса</button></li>
+							<li><button aria-controls="waller10">Клееный брус из кедра</button></li>
+							<li><button aria-controls="waller11">Преимущество домов из бруса</button></li>
+							<li><button aria-controls="waller12">Технология производства</button></li>
+							<li><button aria-controls="waller13">Свойства клееного бруса из кедра</button></li>
 						</ul>
 					</li>
 				</ul>
@@ -180,7 +180,7 @@
 				</div>
 				<div id="waller3">
 					<h3>Выбор фундамента</h3>
-					<p>Фундамент (латин. fundamentum &mdash; основание) &mdash; подземная часть постройки, служащая опорой всех конструкционных элементов возведения. Домов без фундамента не существует.</p>
+					<p>Фундамент (латин. <span lang="la">fundamentum</span> &mdash; основание) &mdash; подземная часть постройки, служащая опорой всех конструкционных элементов возведения. Домов без фундамента не существует.</p>
 					<p>Прочный, надежный фундамент &mdash; залог долголетия конструкции. Правильно подобранный под тип строения, качественный фундамент воспрепятствует перекосу стен, возникновению на них трещин и оседанию.</p>
 					<p><a href="#" class="readmore">читать далее...</a></p>
 				</div>
@@ -268,19 +268,19 @@
 		<div class="wrapper" id="footermiddle">
 			<div>
 				<nav aria-label="Меню навигации по сайту">
-					<button aria-controls="headernavlist" aria-expanded="false" aria-label="Переключение навигации">
+					<button aria-controls="footernavlist" aria-expanded="false" aria-label="Открыть меню навигации">
 						<span aria-hidden="true"></span>
 					</button>
 					<ul id="footernavlist">
-						<li class="current">
-							<a href="#">О компании</a>
+						<li>
+							<a aria-current="page" href="#">О компании</a>
 						</li>
 						<li>
 							<a href="#">Фотогалерея</a>
 						</li>
 						<li>
 							<a href="#">Проекты деревянных домов</a>
-							<button aria-label="Переход на выпадающее меню"></button>
+							<button aria-label="Открыть подменю"></button>
 							<ul>
 								<li><a href="#">Коттеджи</a></li>
 								<li><a href="#">Одноэтажные дома</a></li>
@@ -289,7 +289,7 @@
 						</li>
 						<li>
 							<a href="#">Проекты кирпичных домов</a>
-							<button aria-label="Переход на выпадающее меню"></button>
+							<button aria-label="Открыть подменю"></button>
 							<ul>
 								<li><a href="#">Проекты до 100&nbsp;м&sup2;</a></li>
 								<li><a href="#">Дома из кирпича</a></li>
@@ -337,7 +337,7 @@
 			<b>5&nbsp;минут</b>
 			<input id="fio" maxlength="256" name="fio" placeholder="Имя*" required type="text">
 			<input autocomplete="off" id="tel" maxlength="12" minlength="12" name="tel" pattern="\+\d{11}" placeholder="Телефон*" required type="tel">
-			<input id="email" maxlength="256" name="email" pattern="[^@\s]+@[^@\s]+\.[^@\s]{2,}" placeholder="E-mail" type="email">
+			<input id="email" maxlength="256" name="email" pattern="[^@\s]+@[^@\s]+\.[^@\s]{2,}" placeholder="Имейл" type="email">
 			<button id="callbacksubmit">Заказать звонок</button>
 		</form>
 	</div>

@@ -18,9 +18,18 @@ const waller = document.getElementById('waller')
 // Раскрытие/скрытие навигационного меню по клику на кнопке
 for (let i = 0; i < navToggleButtons.length; i++) {
 	navToggleButtons[i].addEventListener('click', function () {
+		const ariaControls = this.getAttribute('aria-controls')
 		const isOpen = this.getAttribute('aria-expanded') === 'false'
 
 		this.setAttribute('aria-expanded', isOpen)
+		if (ariaControls === 'wallerselect' && isOpen)
+			this.setAttribute('aria-label', 'Закрыть превью полезной информации')
+		else if (ariaControls === 'wallerselect')
+			this.setAttribute('aria-label', 'Открыть превью полезной информации')
+		else if (isOpen)
+			this.setAttribute('aria-label', 'Закрыть меню навигации')
+		else
+			this.setAttribute('aria-label', 'Открыть меню навигации')
 	})
 }
 
@@ -29,9 +38,10 @@ for (let i = 0; i < subNavToggleButtons.length; i++) {
 	subNavToggleButtons[i].addEventListener('click', function () {
 		if (this.classList.contains('closesubnav')) {
 			this.classList.remove('closesubnav')
-			this.blur()
+			this.setAttribute('aria-label', 'Открыть подменю')
 		} else {
 			this.classList.add('closesubnav')
+			this.setAttribute('aria-label', 'Закрыть подменю')
 		}
 	})
 }
@@ -43,6 +53,10 @@ for (let i = 0; i < navs.length; i++) {
 
 		if (e.keyCode === 27) {
 			navToggleButton.setAttribute('aria-expanded', false)
+			if (navToggleButton.getAttribute('aria-controls') === 'wallerselect')
+				navToggleButton.setAttribute('aria-label', 'Открыть превью полезной информации')
+			else
+				navToggleButton.setAttribute('aria-label', 'Открыть меню навигации')
 			navToggleButton.focus()
 		}
 	})
@@ -84,9 +98,13 @@ closeModalButton.addEventListener('click', closeModal)
 // Переключение превью полезной информации
 for (let i = 0; i < infoButtons.length; i++) {
 	infoButtons[i].addEventListener('click', function () {
-		const infoPromo = document.getElementById(this.dataset.href)
+		const infoButtonSelected = document.querySelector('#wallerselect button[aria-selected="true"]')
+		const infoPromo = document.getElementById(this.getAttribute('aria-controls'))
+		const infoPromoPrevious = document.querySelector('#waller .visible')
 
-		document.querySelector('#waller .visible').classList.remove('visible')
+		infoButtonSelected.removeAttribute('aria-selected')
+		this.setAttribute('aria-selected', true)
+		infoPromoPrevious.classList.remove('visible')
 		infoPromo.classList.add('visible')
 		waller.scrollIntoView({behavior:'smooth'})
 	})
@@ -96,34 +114,30 @@ for (let i = 0; i < infoButtons.length; i++) {
 fio.setCustomValidity('Пожалуйста, заполните поле с именем')
 tel.setCustomValidity('Пожалуйста, заполните поле с номером телефона')
 fio.addEventListener('input', function () {
-	if (fio.validity.valueMissing) {
+	if (fio.validity.valueMissing)
 		fio.setCustomValidity('Пожалуйста, заполните поле с именем')
-	} else {
+	else
 		fio.setCustomValidity('')
-	}
 })
 tel.addEventListener('input', function () {
 	const phoneNumber = this.value.replace(/[^0-9]/g,'')
 
-	if (phoneNumber == '') {
+	if (phoneNumber == '')
 		this.value = ''
-	} else {
+	else
 		this.value = '+' + phoneNumber
-	}
-	if (tel.validity.valueMissing) {
+	if (tel.validity.valueMissing)
 		tel.setCustomValidity('Пожалуйста, заполните поле с номером телефона')
-	} else if (tel.validity.patternMismatch) {
+	else if (tel.validity.patternMismatch)
 		tel.setCustomValidity('Номер телефона заполнен в неправильном формате')
-	} else {
+	else
 		tel.setCustomValidity('')
-	}
 })
 email.addEventListener('input', function () {
-	if (email.validity.patternMismatch) {
+	if (email.validity.patternMismatch)
 		email.setCustomValidity('Введён не адрес электронной почты')
-	} else {
+	else
 		email.setCustomValidity('')
-	}
 })
 
 function openModalResponse() {
@@ -153,11 +167,10 @@ function submitForm(event) {
 			if (response.ok) {
 				const json = await response.json()
 
-				if (json.error) {
+				if (json.error)
 					modalResponse.classList.add('error')
-				} else {
+				else
 					modalResponse.classList.remove('error')
-				}
 				modalResponse.innerHTML = json.message
 				openModalResponse()
 			} else {

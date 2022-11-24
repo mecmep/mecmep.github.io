@@ -224,6 +224,9 @@ header {
 	text-decoration: none;
 	text-transform: uppercase;
 }
+#headernavlist a[aria-current="page"] {
+	color: #000;
+}
 #headernavlist li:first-child a {
 	margin-top: 0;
 }
@@ -232,9 +235,6 @@ header {
 	background: rgba(255, 255, 255, .35);
 	border-right: 8px solid #005b80;
 	padding-right: 20px;
-}
-#headernavlist li.current > a {
-	color: #000;
 }
 #headernavlist > li > button {
 	background: transparent;
@@ -383,7 +383,7 @@ header {
 		padding-right: 40px;
 		text-shadow: 0 0 8px rgb(0, 0, 0, .5);
 	}
-	#headernavlist > li.current > a {
+	#headernavlist > li > a[aria-current="page"] {
 		text-shadow: 0 0 8px #fff;
 	}
 	#headernavlist a:focus,
@@ -401,8 +401,8 @@ header {
 		background: rgba(0, 0, 0, .2);
 		text-shadow: none;
 	}
-	#headernavlist > li.current > a:focus,
-	#headernavlist > li.current > a:hover {
+	#headernavlist > li > a[aria-current="page"]:focus,
+	#headernavlist > li > a[aria-current="page"]:hover {
 		background: rgba(255, 255, 255, .35);
 	}
 	#headernavlist > li > button {
@@ -417,10 +417,10 @@ header {
 	#headernavlist > li > button:focus:after {
 		filter: drop-shadow(-1px -1px 1px #724c20) drop-shadow(1px 1px 1px #724c20);
 	}
-	#headernavlist > li.current > button:after {
+	#headernavlist > li > a[aria-current="page"] + button:after {
 		border-color: #000;
 	}
-	#headernavlist > li.current > button:focus:after {
+	#headernavlist > li > a[aria-current="page"] + button:focus:after {
 		filter: drop-shadow(-1px -1px 1px #fff) drop-shadow(1px 1px 1px #fff);
 	}
 	#headernavlist > li > button.closesubnav:after {
@@ -675,6 +675,10 @@ header {
 	text-align: right;
 	text-decoration: none;
 	text-transform: uppercase;
+}
+#wallerselect button[aria-selected="true"] {
+	color: #044e6c;
+	font-weight: 500;
 }
 #wallmenu a:focus,
 #wallmenu a:hover,
@@ -1065,6 +1069,10 @@ footer nav button {
 #footernavlist li:first-child {
 	margin-top: 0;
 }
+#footernavlist a[aria-current="page"] {
+	color: #000;
+	text-shadow: none;
+}
 #footernavlist ul {
 	display: none;
 }
@@ -1169,6 +1177,7 @@ footer nav button {
 #modaloverlay {
 	background: rgba(0, 0, 0, .6);
 	bottom: 0;
+	cursor: pointer;
 	left: 0;
 	position: fixed;
 	right: 0;
