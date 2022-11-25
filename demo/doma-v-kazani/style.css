@@ -370,7 +370,7 @@ header {
 		padding: 12px 0;
 		width: 100%;
 	}
-	#headerlight nav > button[aria-expanded="false"] + #headernavlist {
+	button[aria-expanded="false"] + #headernavlist {
 		display: none;
 	}
 	#headernavlist a {
@@ -943,10 +943,10 @@ header {
 		border-width: 1px 5px;
 		padding: 6px 5px;
 	}
-	#wallmenu #wallerselect {
+	#wallerselect {
 		margin-top: 10px;
 	}
-	#wallmenu > button[aria-expanded="false"] + a + #wallerselect {
+	button[aria-expanded="false"] + a + #wallerselect {
 		display: none;
 	}
 	#wallerselect button {
