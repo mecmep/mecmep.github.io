@@ -653,28 +653,25 @@ header {
 #wallmenu > button {
 	display: none;
 }
-#wallmenu ul {
-	list-style: none;
-	margin: 0;
-	padding: 0;
-}
-#wallmenu a {
-	display: block;
-}
-#wallerselect button {
-	width: 100%;
-}
 #wallmenu a,
 #wallerselect button {
 	background: transparent;
 	border: 0;
-	color: #303030;
-	font: 14px/30px Roboto, sans-serif;
 	outline: none;
 	padding: 1px 28px 1px 21px;
 	text-align: right;
 	text-decoration: none;
 	text-transform: uppercase;
+}
+#wallmenu a {
+	color: #92c632;
+	display: block;
+	font: 500 20px/36px Roboto, sans-serif;
+}
+#wallerselect button {
+	color: #303030;
+	font: 14px/30px Roboto, sans-serif;
+	width: 100%;
 }
 #wallerselect button[aria-selected="true"] {
 	color: #044e6c;
@@ -687,10 +684,6 @@ header {
 	border: 1px solid #818181;
 	border-right: 8px solid #92c632;
 	padding: 0 20px;
-}
-#wallmenu > ul > li > a {
-	color: #92c632;
-	font: 500 20px/36px Roboto, sans-serif;
 }
 #waller {
 	float: left;
@@ -794,9 +787,6 @@ header {
 		text-align: center;
 		width: 100%;
 	}
-	#wallmenu li {
-		display: inline-block;
-	}
 	#wallmenu a {
 		display: inline-block;
 		padding: 1px 28px;
@@ -809,6 +799,7 @@ header {
 	#wallerselect button {
 		line-height: 18px;
 		padding: 7px 28px;
+		width: auto;
 	}
 	#wallerselect button:focus,
 	#wallerselect button:hover {
@@ -936,30 +927,30 @@ header {
 		transform: matrix(1, -1, 1, 1, 0, -14);
 		width: 30px;
 	}
-	#wallmenu li {
-		display: block;
-	}
 	#wallmenu a,
 	#wallerselect button {
 		padding: 7px 15px;
 		text-align: left;
 	}
-	#wallmenu > ul > li > a {
+	#wallmenu a {
 		font-size: 18px;
 		line-height: 16px;
 		padding: 7px 10px;
 		width: calc(100% - 75px);
 	}
-	#wallmenu > ul > li > a:focus,
-	#wallmenu > ul > li > a:hover {
+	#wallmenu a:focus,
+	#wallmenu a:hover {
 		border-width: 1px 5px;
 		padding: 6px 5px;
 	}
-	#wallmenu > button[aria-expanded="false"] + ul #wallerselect {
-		display: none;
-	}
 	#wallmenu #wallerselect {
 		margin-top: 10px;
+	}
+	#wallmenu > button[aria-expanded="false"] + a + #wallerselect {
+		display: none;
+	}
+	#wallerselect button {
+		width: 100%;
 	}
 	#wallerselect button:focus,
 	#wallerselect button:hover {

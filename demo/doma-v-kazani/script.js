@@ -23,9 +23,9 @@ for (let i = 0; i < navToggleButtons.length; i++) {
 
 		this.setAttribute('aria-expanded', isOpen)
 		if (ariaControls === 'wallerselect' && isOpen)
-			this.setAttribute('aria-label', 'Закрыть превью полезной информации')
+			this.setAttribute('aria-label', 'Закрыть выбор полезной информации')
 		else if (ariaControls === 'wallerselect')
-			this.setAttribute('aria-label', 'Открыть превью полезной информации')
+			this.setAttribute('aria-label', 'Открыть выбор полезной информации')
 		else if (isOpen)
 			this.setAttribute('aria-label', 'Закрыть меню навигации')
 		else
@@ -54,7 +54,7 @@ for (let i = 0; i < navs.length; i++) {
 		if (e.keyCode === 27) {
 			navToggleButton.setAttribute('aria-expanded', false)
 			if (navToggleButton.getAttribute('aria-controls') === 'wallerselect')
-				navToggleButton.setAttribute('aria-label', 'Открыть превью полезной информации')
+				navToggleButton.setAttribute('aria-label', 'Открыть выбор полезной информации')
 			else
 				navToggleButton.setAttribute('aria-label', 'Открыть меню навигации')
 			navToggleButton.focus()
