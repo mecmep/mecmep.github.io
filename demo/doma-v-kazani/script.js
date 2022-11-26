@@ -100,12 +100,12 @@ for (let i = 0; i < infoButtons.length; i++) {
 	infoButtons[i].addEventListener('click', function () {
 		const infoButtonSelected = document.querySelector('#wallerselect button[aria-selected="true"]')
 		const infoPromo = document.getElementById(this.getAttribute('aria-controls'))
-		const infoPromoPrevious = document.querySelector('#waller .visible')
+		const infoPromoPrevious = document.querySelector('#waller > div:not([hidden])')
 
-		infoButtonSelected.removeAttribute('aria-selected')
+		infoButtonSelected.setAttribute('aria-selected', false)
 		this.setAttribute('aria-selected', true)
-		infoPromoPrevious.classList.remove('visible')
-		infoPromo.classList.add('visible')
+		infoPromoPrevious.hidden = true
+		infoPromo.hidden = false
 		waller.scrollIntoView({behavior:'smooth'})
 	})
 }

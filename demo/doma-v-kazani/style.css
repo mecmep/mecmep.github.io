@@ -690,12 +690,6 @@ header {
 	margin-left: 40px;
 	width: 580px;
 }
-#waller > div {
-	display: none;
-}
-#waller > div.visible {
-	display: block;
-}
 #waller .readmore {
 	background: #f0f0f0;
 	border: 1px solid #000;
