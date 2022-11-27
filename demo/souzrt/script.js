@@ -12,6 +12,10 @@ navToggleButtons.forEach(e => {
 		const isOpen = this.getAttribute('aria-expanded') === 'false'
 
 		this.setAttribute('aria-expanded', isOpen)
+		if (isOpen)
+			this.setAttribute('aria-label', 'Закрыть меню навигации')
+		else
+			this.setAttribute('aria-label', 'Открыть меню навигации')
 	})
 })
 
@@ -19,9 +23,10 @@ subNavToggleButtons.forEach(e => {
 	e.addEventListener('click', function () {
 		if (this.classList.contains('closesubnav')) {
 			this.classList.remove('closesubnav')
-			this.blur()
+			this.setAttribute('aria-label', 'Открыть подменю')
 		} else {
 			this.classList.add('closesubnav')
+			this.setAttribute('aria-label', 'Закрыть подменю')
 		}
 	})
 })
@@ -33,6 +38,7 @@ navs.forEach(e => {
 
 		if (e.code === 'Escape') {
 			navToggleButton.setAttribute('aria-expanded', false)
+			navToggleButton.setAttribute('aria-label', 'Открыть меню навигации')
 			navToggleButton.focus()
 		}
 	})
@@ -41,9 +47,8 @@ navs.forEach(e => {
 function gbPreviewsSlide() {
 	for (let i = 0, next = 1; i < guestbookPreviews.length; i++, next++) {
 		if (guestbookPreviews[i].classList.contains('active')) {
-			if (next === guestbookPreviews.length) {
+			if (next === guestbookPreviews.length)
 				next = 0
-			}
 
 			// Подготовка следующего слайда перед использованием анимации
 			guestbookPreviews[next].classList.add('active')
@@ -52,10 +57,11 @@ function gbPreviewsSlide() {
 			guestbookPreviews[i].classList.add('prev')
 
 			// Удаление устаревших настроек предыдущего слайда после завершения анимации
-			setTimeout(() => {
+			guestbookPreviews[i].addEventListener('transitionend', function hideGuestbookPreview() {
+				this.removeEventListener('transitionend', hideGuestbookPreview)
 				guestbookPreviews[i].classList.remove('active')
 				guestbookPreviews[i].classList.remove('prev')
-			}, 1000)
+			})
 
 			break
 		}
@@ -67,27 +73,23 @@ let guestbookSliderFocused = false,
 
 guestbookPreviewList.onmouseenter = () => {
 	guestbookSliderHovered = true
-	if (!guestbookSliderFocused) {
+	if (!guestbookSliderFocused)
 		clearInterval(guestbookSliderTimer)
-	}
 }
 guestbookPreviewList.onmouseleave = () => {
 	guestbookSliderHovered = false
-	if (!guestbookSliderFocused) {
+	if (!guestbookSliderFocused)
 		guestbookSliderTimer = setInterval(gbPreviewsSlide, 10000)
-	}
 }
 guestbookPreviewList.addEventListener('focusin', () => {
 	guestbookSliderFocused = true
-	if (!guestbookSliderHovered) {
+	if (!guestbookSliderHovered)
 		clearInterval(guestbookSliderTimer)
-	}
 })
 guestbookPreviewList.addEventListener('focusout', () => {
 	guestbookSliderFocused = false
-	if (!guestbookSliderHovered) {
+	if (!guestbookSliderHovered)
 		guestbookSliderTimer = setInterval(gbPreviewsSlide, 10000)
-	}
 })
 
 let contentPartnersMinHeight = 0
@@ -100,9 +102,8 @@ contentPartnersList.style.minHeight = contentPartnersMinHeight + 'px'
 function contentPartnersSlide() {
 	for (let i = 0, next = 1; i < contentPartners.length; i++, next++) {
 		if (contentPartners[i].classList.contains('active')) {
-			if (next === contentPartners.length) {
+			if (next === contentPartners.length)
 				next = 0
-			}
 
 			// Подготовка следующего слайда перед использованием анимации
 			contentPartners[next].classList.add('active')

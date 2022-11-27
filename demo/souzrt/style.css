@@ -152,7 +152,7 @@ header {
 	display: block;
 	height: 2px;
 	margin: 0 auto;
-	transition: .2s linear;
+	transition: background .2s linear .2s, margin .2s linear .2s, transform .2s linear;
 }
 #headertop nav > button:focus span,
 #headertop nav > button:hover span {
@@ -160,13 +160,16 @@ header {
 }
 #headertop nav > button[aria-expanded="true"] span {
 	background: none;
+	transition: background .2s linear;
 }
 #headertop nav > button:before {
 	content: '';
 	margin-bottom: 12px;
 }
 #headertop nav > button[aria-expanded="true"]:before {
-	transform: matrix(1, 1, -1, 1, 0, 14);
+	margin: 14px auto -2px;
+	transform: matrix(1, 1, -1, 1, 0, 0);
+	transition: margin .2s linear, transform .2s linear .2s;
 	width: 30px;
 }
 #headertop nav > button:after {
@@ -174,7 +177,9 @@ header {
 	margin-top: 12px;
 }
 #headertop nav > button[aria-expanded="true"]:after {
-	transform: matrix(1, -1, 1, 1, 0, -14);
+	margin: -2px auto 14px;
+	transform: matrix(1, -1, 1, 1, 0, 0);
+	transition: margin .2s linear, transform .2s linear .2s;
 	width: 30px;
 }
 #headernavlist,
@@ -209,7 +214,7 @@ header {
 	text-align: center;
 	text-transform: uppercase;
 }
-#headernavlist > li.current > a {
+#headernavlist > li > a[aria-current="page"] {
 	color: #ffa73b;
 }
 #headernavlist > li > button {
@@ -223,24 +228,25 @@ header {
 	right: calc(50% - 15px);
 	width: 30px;
 }
-#headernavlist > li > button:focus {
-	outline: none;
-}
-#headernavlist > li > button span {
+#headernavlist > li > button:after {
 	border: 0 solid #fff;
 	border-width: 0 1px 1px 0;
+	content: '';
 	display: block;
 	height: 9px;
 	margin: 0 auto 6px;
 	transform: rotate(45deg);
 	width: 9px;
 }
-#headernavlist > li > button:focus span {
-	filter: drop-shadow(-2px -2px 1px #f4511e) drop-shadow(2px 2px 1px #f4511e);
-}
-#headernavlist > li > button.closesubnav span {
+#headernavlist > li > button.closesubnav:after {
 	border-width: 1px 0 0 1px;
 	margin: 6px auto 0;
+}
+#headernavlist > li > button:focus {
+	outline: none;
+}
+#headernavlist > li > button:focus:after {
+	filter: drop-shadow(-2px -2px 1px #f4511e) drop-shadow(2px 2px 1px #f4511e);
 }
 #headernavlist ul {
 	background: rgba(255, 255, 255, .8);
@@ -262,7 +268,7 @@ header {
 #headernavlist li:hover > ul {
 	z-index: 2;
 }
-#headernavlist ul > li.current > a {
+#headernavlist ul > li > a[aria-current="page"] {
 	background: rgba(24, 47, 66, .2);
 	color: #000;
 	text-shadow: 0 0 5px #fff;
@@ -348,7 +354,7 @@ header {
 	#headernavlist {
 		grid-auto-flow: row;
 	}
-	#headertop nav > button[aria-expanded="false"] + #headernavlist {
+	button[aria-expanded="false"] + #headernavlist {
 		display: none;
 	}
 	#headernavlist > li {
@@ -372,12 +378,12 @@ header {
 		right: 14px;
 		top: 13px;
 	}
-	#headernavlist > li > button span {
+	#headernavlist > li > button:after {
 		height: 11px;
 		margin: 0 auto 8px;
 		width: 11px;
 	}
-	#headernavlist > li > button.closesubnav span {
+	#headernavlist > li > button.closesubnav:after {
 		margin: 8px auto 0;
 	}
 	#headernavlist ul {
