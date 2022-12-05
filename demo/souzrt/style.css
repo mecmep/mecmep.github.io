@@ -72,6 +72,9 @@ body {
 	margin: 0;
 	padding: 0;
 }
+button:not([disabled]) {
+	cursor: pointer;
+}
 
 /* Header BEGIN */
 header {
@@ -134,7 +137,6 @@ header {
 #headertop nav > button {
 	background: none;
 	border: 0;
-	cursor: pointer;
 	display: none;
 	margin: 21px 20px 22px;
 	padding: 0;
@@ -1154,12 +1156,11 @@ footer address {
 	background: #f4511e;
 	border: 0;
 	bottom: 80px;
-	cursor: pointer;
 	height: 50px;
 	opacity: 0;
 	padding: 0;
 	position: fixed;
-	right: calc(50% - 590px);
+	right: max(10px, calc(50% - 590px));
 	transition: .5s linear;
 	width: 50px;
 	z-index: 2;
@@ -1198,11 +1199,6 @@ footer address {
 	}
 	100% {
 		filter: drop-shadow(0 0 0px #c30);
-	}
-}
-@media (max-width: 1220px) {
-	#up {
-		right: 10px;
 	}
 }
 @media (max-width: 1000px) {
