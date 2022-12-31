@@ -59,8 +59,8 @@ function gbPreviewsSlide() {
 			// Удаление устаревших настроек предыдущего слайда после завершения анимации
 			guestbookPreviews[i].addEventListener('transitionend', function hideGuestbookPreview() {
 				this.removeEventListener('transitionend', hideGuestbookPreview)
-				guestbookPreviews[i].classList.remove('active')
-				guestbookPreviews[i].classList.remove('prev')
+				this.classList.remove('active')
+				this.classList.remove('prev')
 			})
 
 			break
