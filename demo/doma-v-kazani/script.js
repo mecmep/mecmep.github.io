@@ -68,7 +68,7 @@ function openModal(modalId) {
 	modalOverlay.classList.remove('hidden')
 	closeModalButton.classList.remove('hidden')
 	modal.classList.remove('hidden')
-	setTimeout(() => {
+	setTimeout(function () {
 		modal.classList.add('active')
 	})
 }
@@ -83,13 +83,13 @@ function closeModal() {
 
 	for (let i = 0, modal; i < modalsVisible.length; i++) {
 		modal = modalsVisible[i]
-		modal.classList.remove('active')
 		modal.addEventListener('transitionend', function handler() {
 			this.removeEventListener('transitionend', handler)
-			modal.classList.add('hidden')
+			this.classList.add('hidden')
 			closeModalButton.classList.add('hidden')
 			modalOverlay.classList.add('hidden')
 		})
+		modal.classList.remove('active')
 	}
 }
 modalOverlay.addEventListener('click', closeModal)
@@ -114,10 +114,10 @@ for (let i = 0; i < infoButtons.length; i++) {
 fio.setCustomValidity('Пожалуйста, заполните поле с именем')
 tel.setCustomValidity('Пожалуйста, заполните поле с номером телефона')
 fio.addEventListener('input', function () {
-	if (fio.validity.valueMissing)
-		fio.setCustomValidity('Пожалуйста, заполните поле с именем')
+	if (this.validity.valueMissing)
+		this.setCustomValidity('Пожалуйста, заполните поле с именем')
 	else
-		fio.setCustomValidity('')
+		this.setCustomValidity('')
 })
 tel.addEventListener('input', function () {
 	const phoneNumber = this.value.replace(/[^0-9]/g,'')
@@ -126,18 +126,18 @@ tel.addEventListener('input', function () {
 		this.value = ''
 	else
 		this.value = '+' + phoneNumber
-	if (tel.validity.valueMissing)
-		tel.setCustomValidity('Пожалуйста, заполните поле с номером телефона')
-	else if (tel.validity.patternMismatch)
-		tel.setCustomValidity('Номер телефона заполнен в неправильном формате')
+	if (this.validity.valueMissing)
+		this.setCustomValidity('Пожалуйста, заполните поле с номером телефона')
+	else if (this.validity.patternMismatch)
+		this.setCustomValidity('Номер телефона заполнен в неправильном формате')
 	else
-		tel.setCustomValidity('')
+		this.setCustomValidity('')
 })
 email.addEventListener('input', function () {
-	if (email.validity.patternMismatch)
-		email.setCustomValidity('Введён не адрес электронной почты')
+	if (this.validity.patternMismatch)
+		this.setCustomValidity('Введён не адрес электронной почты')
 	else
-		email.setCustomValidity('')
+		this.setCustomValidity('')
 })
 
 function openModalResponse() {
