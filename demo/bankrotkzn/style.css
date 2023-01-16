@@ -752,7 +752,9 @@ main ul {
 	width: calc(100% - 44px);
 }
 #nextreview,
-#prevreview {
+#prevreview,
+#reviewscontrols.nextdisabled::after,
+#reviewscontrols.prevdisabled::before {
 	background: 0;
 	height: 22px;
 	position: absolute;
@@ -760,7 +762,13 @@ main ul {
 	transform: translate(0, -50%);
 	width: 32px;
 }
-#prevreview {
+#reviewscontrols.nextdisabled::after,
+#reviewscontrols.prevdisabled::before {
+	content: '';
+	z-index: 1;
+}
+#prevreview,
+#reviewscontrols.prevdisabled::before {
 	left: 0;
 }
 #nextreview::after,
@@ -886,12 +894,14 @@ main ul {
 		position: relative;
 		width: 100%;
 	}
-	#prevreview {
-		left: calc(50% - 51px);
-		transform: none;
-	}
+	#reviewscontrols.nextdisabled::after,
 	#nextreview {
 		right: calc(50% - 51px);
+		transform: none;
+	}
+	#reviewscontrols.prevdisabled::before,
+	#prevreview {
+		left: calc(50% - 51px);
 		transform: none;
 	}
 }

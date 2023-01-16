@@ -16,6 +16,7 @@ const requestForm = document.getElementById('requestform')
 const requestPhone = document.getElementById('requestphone')
 const reviews = document.querySelectorAll('#reviewslist > li')
 const reviewsButtons = document.querySelectorAll('#reviewslist button')
+const reviewsControls = document.getElementById('reviewscontrols')
 const reviewsModal = document.getElementById('reviewsmodal')
 const solutions = document.getElementById('solutions')
 const upButton = document.getElementById('up')
@@ -242,15 +243,23 @@ function reviewsCarousel() {
 				this.classList.remove('active0')
 				nextReviewButton.disabled = false
 				prevReviewButton.disabled = false
-				if (nextReviewButtonFocusedClone) {
+				if (nextReviewButtonFocusedClone)
 					nextReviewButton.focus({preventScroll: true})
-				}
-				if (prevReviewButtonFocusedClone) {
+				if (prevReviewButtonFocusedClone)
 					prevReviewButton.focus({preventScroll: true})
-				}
+				reviewsControls.classList.remove('nextdisabled')
+				reviewsControls.classList.remove('prevdisabled')
 			})
 
 			// Подготовка карусели перед использованием анимации
+			if (nextReviewButtonFocused)
+				reviewsControls.classList.add('prevdisabled')
+			else if (prevReviewButtonFocused)
+				reviewsControls.classList.add('nextdisabled')
+			else {
+				reviewsControls.classList.add('nextdisabled')
+				reviewsControls.classList.add('prevdisabled')
+			}
 			nextReviewButtonFocusedClone = nextReviewButtonFocused
 			prevReviewButtonFocusedClone = prevReviewButtonFocused
 			nextReviewButton.disabled = true
@@ -319,13 +328,14 @@ function reviewsCarouselBack() {
 				reviews[prev2].classList.remove('visible')
 				nextReviewButton.disabled = false
 				prevReviewButton.disabled = false
-				if (prevReviewButtonFocusedClone) {
+				if (prevReviewButtonFocusedClone)
 					prevReviewButton.focus({preventScroll: true})
-				}
+				reviewsControls.classList.remove('nextdisabled')
 			})
 
 			// Подготовка карусели перед использованием анимации
-			prevReviewButtonFocusedClone = prevReviewButtonFocused
+			reviewsControls.classList.add('nextdisabled')
+			prevReviewButtonFocusedClone = true
 			nextReviewButton.disabled = true
 			prevReviewButton.disabled = true
 			reviews[prev1].classList.add('active0')
@@ -365,15 +375,23 @@ prevReviewButton.addEventListener('focus', () => {
 	prevReviewButtonFocused = true
 })
 
+// Изменение вспомогательных переменных при нажатии вне кнопок во время анимации, чтобы фокус не возвращался на кнопки
+document.addEventListener('click', e => {
+	if (animationIsActive) {
+		if (e.target !== nextReviewButton)
+			nextReviewButtonFocusedClone = false
+		if (e.target !== prevReviewButton)
+			prevReviewButtonFocusedClone = false
+	}
+})
+
 // Изменение вспомогательных переменных при смене фокуса во время анимации, чтобы фокус не возвращался на кнопки
 document.addEventListener('focusin', e => {
 	if (animationIsActive) {
-		if (e.target !== nextReviewButton) {
+		if (e.target !== nextReviewButton)
 			nextReviewButtonFocusedClone = false
-		}
-		if (e.target !== prevReviewButton) {
+		if (e.target !== prevReviewButton)
 			prevReviewButtonFocusedClone = false
-		}
 	}
 })
 
