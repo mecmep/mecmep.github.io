@@ -120,6 +120,10 @@ function closeModal() {
 		document.documentElement.classList.remove('noscroll')
 	})
 	modalVisible.classList.remove('active')
+
+	// Запуск остановленной при увеличении отзыва карусели отзывов
+	if (modalVisible === reviewsModal)
+		reviewsCarouselTimer = setInterval(reviewsCarousel, 15000)
 }
 modalOverlay.addEventListener('click', closeModal)
 closeModalButton.addEventListener('click', closeModal)
@@ -397,6 +401,7 @@ document.addEventListener('focusin', e => {
 
 reviewsButtons.forEach(e => {
 	e.addEventListener('click', () => {
+		clearInterval(reviewsCarouselTimer)
 		reviewsModal.innerHTML = '<img alt="" src="'+ e.dataset.href + '">'
 		openModal('reviewsmodal')
 	})

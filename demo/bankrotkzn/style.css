@@ -1023,6 +1023,7 @@ footer h2 {
 	position: fixed;
 	right: max(22px, calc(50% - 578px));
 	width: 70px;
+	z-index: 1;
 }
 #up::after,
 #up::before {
@@ -1061,6 +1062,7 @@ footer h2 {
 	cursor: pointer;
 	inset: 0;
 	position: fixed;
+	z-index: 1;
 }
 .modal {
 	background: #191919e6 url(img/modal.webp);
@@ -1077,6 +1079,7 @@ footer h2 {
 	transform: translate(-50%, -50%);
 	transition: .2s linear;
 	width: 70%;
+	z-index: 1;
 }
 .modal.active {
 	opacity: 1;
@@ -1183,6 +1186,7 @@ footer h2 {
 	top: 15px;
 	transition: .3s linear;
 	width: 44px;
+	z-index: 1;
 }
 #closemodal:focus {
 	box-shadow: 0 0 4px 1px #000;
