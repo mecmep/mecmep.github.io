@@ -88,6 +88,7 @@ function openModal(modalId) {
 	modal.hidden = false
 	setTimeout(() => {
 		modal.classList.add('active')
+		document.addEventListener('keyup', closeModalByEscape)
 	})
 }
 function openCallback() {
@@ -112,6 +113,7 @@ adviceButton.addEventListener('click', openRequestModal)
 function closeModal() {
 	const modalVisible = document.querySelector('.modal:not([hidden])')
 
+	document.removeEventListener('keyup', closeModalByEscape)
 	modalVisible.addEventListener('transitionend', function handler() {
 		this.removeEventListener('transitionend', handler)
 		this.hidden = true
@@ -127,6 +129,11 @@ function closeModal() {
 }
 modalOverlay.addEventListener('click', closeModal)
 closeModalButton.addEventListener('click', closeModal)
+
+function closeModalByEscape(event) {
+	if (event.code === 'Escape')
+		closeModal()
+}
 
 // Валидация формы заказа обратного звонка
 function fioListener(inputElement) {
