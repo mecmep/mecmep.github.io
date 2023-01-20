@@ -13,7 +13,7 @@ const navToggleButtons = document.querySelectorAll('nav > button')
 const subNavToggleButtons = document.querySelectorAll('nav > ul > li > button')
 const tel = document.getElementById('tel')
 const upButton = document.getElementById('up')
-const waller = document.getElementById('waller')
+const wallerAnchor = document.getElementById('walleranchor')
 
 // Раскрытие/скрытие навигационного меню по клику на кнопке
 for (let i = 0; i < navToggleButtons.length; i++) {
@@ -26,10 +26,13 @@ for (let i = 0; i < navToggleButtons.length; i++) {
 			this.setAttribute('aria-label', 'Закрыть выбор полезной информации')
 		else if (ariaControls === 'wallerselect')
 			this.setAttribute('aria-label', 'Открыть выбор полезной информации')
-		else if (isOpen)
+		else if (isOpen) {
+			document.documentElement.classList.add('headernavisopen')
 			this.setAttribute('aria-label', 'Закрыть меню навигации')
-		else
+		} else {
 			this.setAttribute('aria-label', 'Открыть меню навигации')
+			document.documentElement.classList.remove('headernavisopen')
+		}
 	})
 }
 
@@ -55,8 +58,10 @@ for (let i = 0; i < navs.length; i++) {
 			navToggleButton.setAttribute('aria-expanded', false)
 			if (navToggleButton.getAttribute('aria-controls') === 'wallerselect')
 				navToggleButton.setAttribute('aria-label', 'Открыть выбор полезной информации')
-			else
+			else {
 				navToggleButton.setAttribute('aria-label', 'Открыть меню навигации')
+				document.documentElement.classList.remove('headernavisopen')
+			}
 			navToggleButton.focus()
 		}
 	})
@@ -65,11 +70,13 @@ for (let i = 0; i < navs.length; i++) {
 function openModal(modalId) {
 	const modal = document.getElementById(modalId)
 
+	document.documentElement.classList.add('noscroll')
 	modalOverlay.classList.remove('hidden')
 	closeModalButton.classList.remove('hidden')
 	modal.classList.remove('hidden')
 	setTimeout(function () {
 		modal.classList.add('active')
+		document.addEventListener('keyup', closeModalByEscape)
 	})
 }
 function openCallback() {
@@ -81,6 +88,7 @@ footerCallbackButton.addEventListener('click', openCallback)
 function closeModal() {
 	const modalsVisible = document.querySelectorAll('.modal:not(.hidden)')
 
+	document.removeEventListener('keyup', closeModalByEscape)
 	for (let i = 0, modal; i < modalsVisible.length; i++) {
 		modal = modalsVisible[i]
 		modal.addEventListener('transitionend', function handler() {
@@ -88,12 +96,18 @@ function closeModal() {
 			this.classList.add('hidden')
 			closeModalButton.classList.add('hidden')
 			modalOverlay.classList.add('hidden')
+			document.documentElement.classList.remove('noscroll')
 		})
 		modal.classList.remove('active')
 	}
 }
 modalOverlay.addEventListener('click', closeModal)
 closeModalButton.addEventListener('click', closeModal)
+
+function closeModalByEscape(event) {
+	if (event.keyCode === 27)
+		closeModal()
+}
 
 // Переключение превью полезной информации
 for (let i = 0; i < infoButtons.length; i++) {
@@ -106,7 +120,7 @@ for (let i = 0; i < infoButtons.length; i++) {
 		this.setAttribute('aria-selected', true)
 		infoPromoPrevious.hidden = true
 		infoPromo.hidden = false
-		waller.scrollIntoView({behavior:'smooth'})
+		wallerAnchor.scrollIntoView({behavior:'smooth'})
 	})
 }
 

@@ -108,6 +108,9 @@ img {
 	height: auto;
 	max-width: 100%;
 }
+.noscroll {
+	overflow: hidden;
+}
 .wrapper {
 	margin: 0 auto;
 	max-width: 940px;
@@ -508,6 +511,31 @@ header {
 		top: 90px;
 	}
 }
+@media (min-height: 496px) and (max-width: 800px), (min-height: 432px) and (max-width: 310px), (min-height: 360px) and (max-width: 260px) {
+	.headernavisopen {
+		overflow: hidden;
+	}
+	#headerlight {
+		position: fixed;
+		z-index: 2;
+	}
+	#headernavlist {
+		bottom: 0;
+		overflow: auto;
+		position: fixed;
+		top: 124px;
+	}
+}
+@media (min-height: 432px) and (max-width: 310px) {
+	#headernavlist {
+		top: 108px;
+	}
+}
+@media (min-height: 360px) and (max-width: 260px) {
+	#headernavlist {
+		top: 90px;
+	}
+}
 @media (hover: none) and (min-width: 801px) {
 	#headernavlist a {
 		font: 17px/20px Roboto, sans-serif;
@@ -685,6 +713,9 @@ header {
 	border-right: 8px solid #92c632;
 	padding: 0 20px;
 }
+#walleranchor {
+	float: left;
+}
 #waller {
 	float: left;
 	margin-left: 40px;
@@ -799,6 +830,9 @@ header {
 	#wallerselect button:hover {
 		border-left: 8px solid #92c632;
 		padding: 6px 20px;
+	}
+	#walleranchor {
+		clear: left;
 	}
 	#waller {
 		margin: 20px 0 0;
@@ -965,6 +999,21 @@ header {
 @media (max-width: 450px) {
 	#underwall {
 		padding-bottom: 10vw;
+	}
+}
+@media (min-height: 496px) and (max-width: 800px) {
+	#walleranchor {
+		margin-top: -124px;
+	}
+}
+@media (min-height: 432px) and (max-width: 310px) {
+	#walleranchor {
+		margin-top: -108px;
+	}
+}
+@media (min-height: 360px) and (max-width: 260px) {
+	#walleranchor {
+		margin-top: -90px;
 	}
 }
 /* Content END */
@@ -1167,7 +1216,7 @@ footer nav button {
 	position: fixed;
 	right: 0;
 	top: 0;
-	z-index: 3;
+	z-index: 2;
 }
 #modaloverlay.hidden {
 	display: none;
@@ -1188,7 +1237,7 @@ footer nav button {
 	transform: translate(-50%, -50%);
 	transition: 1s linear;
 	width: 70%;
-	z-index: 3;
+	z-index: 2;
 }
 .modal.active {
 	padding: 35px 30px;
@@ -1294,7 +1343,7 @@ footer nav button {
 	top: 15px;
 	transition: .3s linear;
 	width: 44px;
-	z-index: 3;
+	z-index: 2;
 }
 #closemodal:focus {
 	box-shadow: 0 0 4px 1px #fff;
@@ -1395,7 +1444,7 @@ footer nav button {
 	right: calc(50% - 470px);
 	transition: .5s linear;
 	width: 50px;
-	z-index: 2;
+	z-index: 1;
 }
 #up.active {
 	opacity: .6;
