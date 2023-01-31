@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<title>mecmep / Портфолио сайтов</title>
+	<meta charset="utf-8">
+	<meta name="color-scheme" content="light dark">
+	<meta name="description" content="mecmep / Портфолио сайтов">
+	<meta name="keywords" content="портфолио верстальщика, портфолио веб-программиста, портфолио веб-разработчика, портфолио айтишника, портфолио сайты, портфолио вёрстка">
+	<meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
+	<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<script>
+		if (matchMedia('(prefers-color-scheme: dark)').media === 'not all') {
+			document.documentElement.style.display = 'none'
+			document.head.insertAdjacentHTML(
+				'beforeend',
+				'<link href="light.css" onload="document.documentElement.style.display=\'\'" rel="stylesheet">'
+			)
+		}
+	</script>
+
+	<link href="dark.css" media="(prefers-color-scheme: dark)" rel="stylesheet">
+	<link href="light.css" media="(prefers-color-scheme: light)" rel="stylesheet">
+	<link href="style.css" rel="stylesheet">
+</head>
+<body>
+	<h1>Портфолио веб-мастера</h1>
+	<div id="sky"></div>
+	<fieldset id="switcher">
+		<legend>Цветовая схема</legend>
+		<input aria-label="Светлая" id="switcherlight" name="colorscheme" type="radio" value="light">
+		<input aria-label="Системная" checked id="switcherauto" name="colorscheme" type="radio" value="auto">
+		<input aria-label="Тёмная" id="switcherdark" name="colorscheme" type="radio" value="dark">
+		<div id="switcherstatus"></div>
+	</fieldset>
+	<ul id="portfoliolist">
+		<li>
+			<a href="portfolio/bankrotkzn/" target="_blank">
+				<picture>
+					<source srcset="img/bankrotkznmob.webp" type="image/webp">
+					<img alt="" src="img/bankrotkznmob.jpg">
+				</picture>
+				<picture>
+					<source srcset="img/bankrotkzndesk.webp" type="image/webp">
+					<img alt="" src="img/bankrotkzndesk.jpg">
+				</picture>
+				<span>Акра и Партнеры</span>
+			</a>
+		</li>
+		<li>
+			<a href="portfolio/doma-v-kazani/" target="_blank">
+				<picture>
+					<source srcset="img/dvkmob.webp" type="image/webp">
+					<img alt="" src="img/dvkmob.jpg">
+				</picture>
+				<picture>
+					<source srcset="img/dvkdesk.webp" type="image/webp">
+					<img alt="" src="img/dvkdesk.jpg">
+				</picture>
+				<span>Строй Дом</span>
+			</a>
+		</li>
+		<li>
+			<a href="portfolio/souzrt/" target="_blank">
+				<picture>
+					<source srcset="img/souzrtmob.webp" type="image/webp">
+					<img alt="" loading="lazy" src="img/souzrtmob.jpg">
+				</picture>
+				<picture>
+					<source srcset="img/souzrtdesk.webp" type="image/webp">
+					<img alt="" loading="lazy" src="img/souzrtdesk.jpg">
+				</picture>
+				<span>Союз торговых предприятий Республики Татарстан</span>
+			</a>
+		</li>
+		<li>
+			<a href="portfolio/atletpit/" target="_blank">
+				<picture>
+					<source srcset="img/atletpitmob.webp" type="image/webp">
+					<img alt="" loading="lazy" src="img/atletpitmob.jpg">
+				</picture>
+				<picture>
+					<source srcset="img/atletpitdesk.webp" type="image/webp">
+					<img alt="" loading="lazy" src="img/atletpitdesk.jpg">
+				</picture>
+				<span>Спортивное питание</span>
+			</a>
+		</li>
+	</ul>
+	<script defer src="script.js"></script>
+</body>
+</html>

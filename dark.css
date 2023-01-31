@@ -1,0 +1,35 @@
+h1 {
+	background: #0009;
+	color: #fff;
+	text-shadow: 0 0 10px #000;
+}
+
+/* Небо */
+#sky {
+	background: #000 url(img/bodydark.webp) 50% / cover;
+}
+
+/* Переключатель цветовой схемы */
+#switcher input {
+	filter: invert(1);
+}
+#switcher input:checked {
+	filter: invert(0);
+}
+#switcherstatus {
+	filter: invert(1);
+}
+
+/* Портфолио */
+#portfoliolist a {
+	background: #fff2;
+	color: #fff;
+}
+#portfoliolist a:focus,
+#portfoliolist a:hover {
+	background: #0006;
+	box-shadow: 0 0 10px #fff;
+}
+#portfoliolist span {
+	background: #000c;
+}

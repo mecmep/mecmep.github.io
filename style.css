@@ -1,0 +1,181 @@
+@font-face {
+	font-display: swap;
+	font-family: Jura;
+	font-style: normal;
+	font-weight: 400;
+	src: url(fonts/jura-v24-cyrillic-regular.woff2) format('woff2'),
+		url(fonts/jura-v24-cyrillic-regular.woff) format('woff'),
+		local('Jura Light Regular'),
+		local('Jura Light'),
+		local('Jura Regular');
+}
+@font-face {
+	font-display: swap;
+	font-family: Jura;
+	font-style: normal;
+	font-weight: 700;
+	src: url(fonts/jura-v24-cyrillic-700.woff2) format('woff2'),
+		url(fonts/jura-v24-cyrillic-700.woff) format('woff'),
+		local('Jura Light Bold'),
+		local('Jura Bold');
+}
+
+:root {
+	color-scheme: light dark;
+}
+
+* {
+	border: 0;
+	margin: 0;
+	padding: 0;
+}
+body::after,
+body::before {
+	content: '';
+	display: block;
+	height: 100px;
+}
+body::before {
+	height: 120px;
+}
+h1 {
+	align-content: center;
+	display: grid;
+	font: 700 32px/32px Jura, sans-serif;
+	height: auto;
+	left: 0;
+	min-height: 100px;
+	padding: 0 10px;
+	position: fixed;
+	right: 0;
+	text-align: center;
+	top: 0;
+}
+img {
+	height: auto;
+	max-width: 100%;
+	vertical-align: top;
+}
+
+/* Небо */
+#sky {
+	inset: 0;
+	position: fixed;
+	z-index: -1;
+}
+
+/* Переключатель цветовой схемы BEGIN */
+#switcher {
+	bottom: 25px;
+	display: grid;
+	gap: 5px;
+	grid-template-columns: 1fr 1fr 1fr;
+	left: 50%;
+	padding: 5px;
+	position: fixed;
+	transform: translateX(-50%);
+}
+#switcher legend {/* Легенда остаётся доступной только для скринридеров */
+	opacity: 0;
+	pointer-events: none;
+	position: absolute;
+}
+#switcher input {
+	appearance: none;
+	-webkit-appearance: none;
+	background: url(img/auto.svg) 50% / 36px no-repeat;
+	cursor: pointer;
+	height: 40px;
+	outline: none;
+	transition: filter .1s linear;
+	width: 40px;
+}
+#switcher #switcherlight {
+	background-image: url(img/light.svg);
+}
+#switcher #switcherdark {
+	background-image: url(img/dark.svg);
+}
+#switcherstatus {
+	background: #fff9 url(img/status.svg) 50% / 40px no-repeat;
+	border-radius: 25px;
+	box-shadow: 0 0 0 2px #0003;
+	inset: 0;
+	position: absolute;
+	transition: background-position .1s linear;
+	z-index: -1;
+}
+#switcher input:focus-visible ~ #switcherstatus {
+	box-shadow: 0 0 0 2px #000;
+}
+#switcherlight:checked ~ #switcherstatus {
+	background-position: 5px;
+}
+#switcherdark:checked ~ #switcherstatus {
+	background-position: right 5px center;
+}
+/* Переключатель цветовой схемы END */
+
+/* Портфолио BEGIN */
+#portfoliolist {
+	display: flex;
+	flex-wrap: wrap;
+	font: 26px/26px Jura, sans-serif;
+	gap: 20px;
+	justify-content: center;
+	list-style: none;
+}
+#portfoliolist a {
+	display: grid;
+	gap: 5px;
+	grid-auto-columns: 14fr 25fr;
+	grid-auto-rows: auto 1fr;
+	outline: none;
+	padding: 10px;
+}
+#portfoliolist :first-child {
+	grid-row: 1/3;
+}
+#portfoliolist span {
+	align-content: center;
+	display: grid;
+	grid-row: 2;
+	max-width: 480px;
+	padding: 0 10px;
+	text-align: center;
+}
+/* Портфолио END */
+
+@media (max-height: 700px), (max-width: 700px) {
+	body::after {
+		height: 80px;
+	}
+	#switcher {
+		bottom: 15px;
+	}
+}
+@media (max-width: 700px) {
+	body::before {
+		height: 115px;
+	}
+	#portfoliolist {
+		font: 22px/24px Jura, sans-serif;
+		gap: 15px;
+	}
+	#portfoliolist a {
+		grid-auto-columns: 812fr 2075fr;
+	}
+	#portfoliolist :first-child {
+		grid-row: 1;
+	}
+	#portfoliolist span {
+		grid-column: 1/3;
+		max-width: unset;
+		padding: 5px 10px 10px;
+	}
+}
+@media (max-width: 500px) {
+	h1 {
+		font: 700 30px/30px Jura, sans-serif;
+	}
+}
