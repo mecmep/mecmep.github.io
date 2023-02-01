@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<title>Игра на HTML и CSS №1</title>
+	<link href="style.css" rel="stylesheet">
+	<meta charset="utf-8">
+	<meta name="description" content="Игра на html и css">
+	<meta name="keywords" content="игра на html и css">
+	<meta name="viewport" content="width=device-width">
+</head>
+<body>
+	<div id="start"><a href="#game">СТАРТ</a></div>
+	<div id="info">
+		<a href="#info" id="infoicon" title="Правила игры">?</a>
+		<div id="infotext">
+			<p>Продержись минуту, не касаясь курсором движущихся фигур.</p>
+			<p>В игре есть несколько зон безопасности. Если разместить в них курсор, касания не будут учитываться. Старайся играть без использования зон безопасности.</p>
+			<p>При выходе за пределы поля игра сбросится.</p>
+			<a href="#" id="infoclose">&#10006;</a>
+		</div>
+	</div>
+	<div id="game">
+		<div id="gamerestart">Верните курсор в игровое поле<br>для перезапуска игры</div>
+		<div id="gamebody">
+			<div id="gameitems">
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+			</div>
+			<div id="gamecounter"></div>
+			<div id="gamewin">ПОБЕДА!</div>
+			<div id="gameresult">
+				<div>Вы продержались <span></span></div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
