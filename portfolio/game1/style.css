@@ -1,0 +1,244 @@
+/* Сброс BEGIN */
+*, *:after, *:before {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+html, body {
+	background: #333;
+	color: #fff;
+	font: 16px consolas, monospace;
+	height: 100%;
+}
+a {
+	color: #fff;
+	text-decoration: none;
+}
+/* Сброс END */
+
+/* Анимация BEGIN */
+@keyframes destroy {
+	0% {}
+	100% {visibility: hidden;}
+}
+@keyframes fly1 {
+	0%, 100% {background: red; transform: translate(0, 0); z-index: 4;}
+	25% {background: blue; transform: translate(66.667vw, 0); z-index: 3;}
+	50% {background: red; transform: translate(66.667vw, 66.667vh); z-index: 2;}
+	75% {background: blue; transform: translate(0, 66.667vh); z-index: 1;}
+}
+@keyframes fly2 {
+	0%, 100% {background: yellow; transform: translate(0, 0); z-index: 3;}
+	25% {background: green; transform: translate(0, 66.667vh); z-index: 2;}
+	50% {background: green; transform: translate(66.667vw, 0); z-index: 4;}
+	75% {background: yellow; transform: translate(66.667vw, 66.667vh); z-index: 1;}
+}
+@keyframes fly3 {
+	0%, 100% {background: blue; transform: translate(0, 0); z-index: 2;}
+	25% {background: red; transform: translate(66.667vw, 0); z-index: 1;}
+	50% {background: red; transform: translate(0, 66.667vh); z-index: 3;}
+	75% {background: blue; transform: translate(66.667vw, 66.667vh); z-index: 4;}
+}
+@keyframes fly4 {
+	0%, 100% {background: green; transform: translate(0, 0); z-index: 1;}
+	25% {background: yellow; transform: translate(66.667vw, 0); z-index: 2;}
+	50% {background: yellow; transform: translate(0, 66.667vh); z-index: 4;}
+	75% {background: green; transform: translate(66.667vw, 66.667vh); z-index: 3;}
+}
+@keyframes timer1 {
+	0% {text-indent: 0;}
+	50% {color: yellow;}
+	100% {color: lime; text-indent: -300ch;}
+}
+@keyframes timer2 {
+	0% {text-indent: -300ch;}
+	100% {text-indent: 0;}
+}
+@keyframes win {
+	0% {}
+	100% {visibility: visible;}
+}
+/* Анимация END */
+
+/* Старт BEGIN */
+#start {
+	align-items: center;
+	display: flex;
+	font-size: 40px;
+	height: 100%;
+	justify-content: center;
+}
+#start a {
+	background: #228b22;
+	box-shadow: 0 2px 4px #000;
+	line-height: 60px;
+	padding: 0 20px;
+}
+/* Старт END */
+
+/* Информация BEGIN */
+#info {
+	position: fixed;
+	right: 20px;
+	top: 20px;
+}
+#infoicon {
+	background: crimson;
+	border: 1px solid #fff;
+	border-radius: 50%;
+	box-shadow: 0 0 1px #fff, 0 2px 2px #000;
+	display: block;
+	font-size: 20px;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+	width: 30px;
+}
+#infotext {
+	background: #000;
+	display: none;
+	padding: 25px 30px;
+	position: absolute;
+	right: -6px;
+	top: -7px;
+	width: 240px;
+}
+#info:target #infotext {
+	display: block;
+}
+#infotext p {
+	margin-top: 10px;
+}
+#infotext p:first-child {
+	margin: 0;
+}
+#infoclose {
+	font-size: 26px;
+	line-height: 26px;
+	position: absolute;
+	right: 10px;
+	top: 10px;
+}
+/* Информация END */
+
+/* Игровое поле BEGIN */
+#game {
+	cursor: crosshair;
+	display: none;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	width: 100%;
+}
+#game:target {
+	display: block;
+}
+#gamerestart {
+	align-items: center;
+	background: peru;
+	display: none;
+	font-size: 5vmin;
+	height: 100%;
+	justify-content: center;
+	text-align: center;
+	text-shadow: 0 2px 4px #000;
+}
+body:not(:hover) #gamerestart {
+	display: flex;
+}
+#gamebody {
+	background: #8fbc8f;
+	height: 100%;
+	pointer-events: none;
+}
+body:not(:hover) #gamebody {
+	display: none;
+}
+#gameitems div {
+	height: 33.333vh;
+	pointer-events: all;
+	position: fixed;
+	width: 33.333vw;
+}
+body:hover #gameitems div:first-child {
+	animation: 3s linear 20 fly1, 60s steps(1) forwards destroy;
+}
+body:hover #gameitems div:nth-child(2) {
+	animation: 7s linear 9 fly2, 60s steps(1) forwards destroy;
+}
+body:hover #gameitems div:nth-child(3) {
+	animation: 5s linear 12 fly3, 60s steps(1) forwards destroy;
+}
+body:hover #gameitems div:last-child {
+	animation: 11s linear 6 fly4, 60s steps(1) forwards destroy;
+}
+body:hover #gameitems div:hover {
+	animation-play-state: paused;
+	height: 100%;
+	transform: translate(0, 0) !important;
+	width: 100%;
+}
+#gamecounter {
+	bottom: 20px;
+	font-size: 26px;
+	left: 20px;
+	line-height: 20px;
+	overflow: hidden;
+	position: fixed;
+	text-shadow: 0 2px #000;
+	width: 72px;
+	z-index: 5;
+}
+#game:hover #gamecounter:after {
+	animation: 60s steps(60) timer1;
+}
+#gamewin {
+	align-items: center;
+	background: crimson;
+	display: flex;
+	font-size: 6vmin;
+	height: 100%;
+	justify-content: center;
+	position: fixed;
+	text-shadow: 0 2px 4px #000;
+	visibility: hidden;
+	width: 100%;
+	z-index: 5;
+}
+#game:hover #gamewin {
+	animation: 60s steps(1) forwards win;
+}
+#gameresult {
+	align-items: center;
+	background: #b22222;
+	display: flex;
+	font-size: 40px;
+	height: 100%;
+	justify-content: center;
+	text-align: center;
+	text-shadow: 0 2px 4px #000;
+	position: fixed;
+	visibility: hidden;
+	width: 100%;
+	z-index: 5;
+}
+#gamebody:hover #gameresult {
+	visibility: visible;
+}
+#gameresult span {
+	display: inline-block;
+	overflow: hidden;
+	vertical-align: top;
+	width: 110px;
+}
+#game:hover #gameresult span:after {
+	animation: 60s steps(60) timer2;
+}
+#gamecounter:after, #gameresult span:after {
+	content: '01:0000:5900:5800:5700:5600:5500:5400:5300:5200:5100:5000:4900:4800:4700:4600:4500:4400:4300:4200:4100:4000:3900:3800:3700:3600:3500:3400:3300:3200:3100:3000:2900:2800:2700:2600:2500:2400:2300:2200:2100:2000:1900:1800:1700:1600:1500:1400:1300:1200:1100:1000:0900:0800:0700:0600:0500:0400:0300:0200:0100:00';
+	display: block;
+}
+#gamebody:hover #gamecounter:after, #gamebody:hover #gameresult span:after {
+	animation-play-state: paused;
+}
+/* Игровое поле END */
