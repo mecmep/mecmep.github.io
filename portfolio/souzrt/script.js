@@ -36,7 +36,7 @@ navs.forEach(e => {
 	e.addEventListener('keyup', function (e) {
 		const navToggleButton = this.querySelector('nav > button')
 
-		if (e.code === 'Escape') {
+		if (e.code === 'Escape' && navToggleButton !== null) {
 			navToggleButton.setAttribute('aria-expanded', false)
 			navToggleButton.setAttribute('aria-label', 'Открыть меню навигации')
 			navToggleButton.focus()
