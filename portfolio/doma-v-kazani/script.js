@@ -69,15 +69,26 @@ for (let i = 0; i < navs.length; i++) {
 
 function openModal(modalId) {
 	const modal = document.getElementById(modalId)
+	const modalPrev = document.querySelector('.modal.active')
 
-	document.documentElement.classList.add('noscroll')
-	modalOverlay.classList.remove('hidden')
-	closeModalButton.classList.remove('hidden')
-	modal.classList.remove('hidden')
-	setTimeout(function () {
-		modal.classList.add('active')
-		document.addEventListener('keyup', closeModalByEscape)
-	})
+	// В зависимости от наличия открытого модального окна, разный порядок действий
+	if (!modalPrev) {
+		document.documentElement.classList.add('noscroll')
+		modalOverlay.classList.remove('hidden')
+		closeModalButton.classList.remove('hidden')
+		modal.classList.remove('hidden')
+		setTimeout(function () {
+			modal.classList.add('active')
+			document.addEventListener('keyup', closeModalByEscape)
+		})
+	} else {
+		modalPrev.classList.add('hidden')
+		modalPrev.classList.remove('active')
+		modal.classList.remove('hidden')
+		setTimeout(function () {
+			modal.classList.add('active')
+		})
+	}
 }
 function openCallback() {
 	openModal('callback')
@@ -86,20 +97,17 @@ headerCallbackButton.addEventListener('click', openCallback)
 footerCallbackButton.addEventListener('click', openCallback)
 
 function closeModal() {
-	const modalsVisible = document.querySelectorAll('.modal:not(.hidden)')
+	const modal = document.querySelector('.modal.active')
 
 	document.removeEventListener('keyup', closeModalByEscape)
-	for (let i = 0, modal; i < modalsVisible.length; i++) {
-		modal = modalsVisible[i]
-		modal.addEventListener('transitionend', function handler() {
-			this.removeEventListener('transitionend', handler)
-			this.classList.add('hidden')
-			closeModalButton.classList.add('hidden')
-			modalOverlay.classList.add('hidden')
-			document.documentElement.classList.remove('noscroll')
-		})
-		modal.classList.remove('active')
-	}
+	modal.addEventListener('transitionend', function handler() {
+		this.removeEventListener('transitionend', handler)
+		this.classList.add('hidden')
+		closeModalButton.classList.add('hidden')
+		modalOverlay.classList.add('hidden')
+		document.documentElement.classList.remove('noscroll')
+	})
+	modal.classList.remove('active')
 }
 modalOverlay.addEventListener('click', closeModal)
 closeModalButton.addEventListener('click', closeModal)
@@ -154,49 +162,13 @@ email.addEventListener('input', function () {
 		this.setCustomValidity('')
 })
 
-function openModalResponse() {
-	callback.classList.add('hidden')
-	modalResponse.classList.remove('hidden')
-}
 function submitForm(event) {
-	(async function () {
-		event.preventDefault()
+	event.preventDefault()
 
-		const formData = new FormData(event.target)
+	modalResponse.classList.add('error')
+	modalResponse.innerHTML = 'При отправке запроса возникла ошибка (GitHub Pages не работает с PHP)'
 
-		let data = {}
-		for (let [key, value] of formData) {
-			data[key] = value
-		}
-
-		try {
-			const response = await fetch('ajax.php', {
-				method: 'POST',
-				body: JSON.stringify(data),
-				headers: {
-					'Content-Type': 'application/json; charset=utf-8'
-				}
-			})
-
-			if (response.ok) {
-				const json = await response.json()
-
-				if (json.error)
-					modalResponse.classList.add('error')
-				else
-					modalResponse.classList.remove('error')
-				modalResponse.innerHTML = json.message
-				openModalResponse()
-			} else {
-				throw new Error(`Ошибка HTTP! Статус: ${response.status}`)
-			}
-		} catch (error) {
-			modalResponse.classList.add('error')
-			modalResponse.innerHTML = 'При отправке запроса возникла ошибка (GitHub Pages не работает с PHP)'
-			openModalResponse()
-			console.error('Ошибка:', error)
-		}
-	})()
+	openModal('modalresponse')
 }
 callbackForm.addEventListener('submit', submitForm)
 
