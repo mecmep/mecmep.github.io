@@ -389,12 +389,14 @@ function openOrderProgram() {
 	modaloverlay.classList.remove('hidden');
 	closemodal.classList.remove('hidden');
 	orderprogram.classList.remove('hidden');
+	document.addEventListener('keyup', closeModalByEscape);
 }
 orderprogrambutton.addEventListener('click', function () {
 	openOrderProgram();
 });
 
 function closeModal() {
+	document.removeEventListener('keyup', closeModalByEscape);
 	document.querySelectorAll('.modal:not(.hidden)').forEach(function (element) {
 		element.addEventListener('transitionend', function handler() {
 			element.removeEventListener('transitionend', handler);
@@ -406,6 +408,11 @@ function closeModal() {
 }
 modaloverlay.addEventListener('click', closeModal);
 closemodal.addEventListener('click', closeModal);
+
+function closeModalByEscape(event) {
+	if (event.code === 'Escape')
+		closeModal();
+}
 
 function openServices() {
 	ordermain.classList.add('hidden');
