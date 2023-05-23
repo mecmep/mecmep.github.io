@@ -71,24 +71,19 @@ function openModal(modalId) {
 	const modal = document.getElementById(modalId)
 	const modalPrev = document.querySelector('.modal.active')
 
-	// В зависимости от наличия открытого модального окна, разный порядок действий
-	if (!modalPrev) {
+	if (modalPrev === null) {
 		document.documentElement.classList.add('noscroll')
 		modalOverlay.classList.remove('hidden')
 		closeModalButton.classList.remove('hidden')
-		modal.classList.remove('hidden')
-		setTimeout(function () {
-			modal.classList.add('active')
-			document.addEventListener('keyup', closeModalByEscape)
-		})
 	} else {
 		modalPrev.classList.add('hidden')
 		modalPrev.classList.remove('active')
-		modal.classList.remove('hidden')
-		setTimeout(function () {
-			modal.classList.add('active')
-		})
 	}
+	modal.classList.remove('hidden')
+	setTimeout(function () {
+		modal.classList.add('active')
+		document.addEventListener('keyup', closeModalByEscape)
+	})
 }
 function openCallback() {
 	openModal('callback')
