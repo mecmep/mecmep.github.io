@@ -136,8 +136,17 @@ footer button {background: #e4dcda;border: 0;border-radius: 5px;color: #2a221f;f
 .modal form > div {max-height: 420px;overflow: hidden;position: relative;transition: 1s linear;}
 .modal form > #ordermain, .modal form > #services {transition: none;}
 .modal form > div > *:first-child {margin-top: 0;}
-.modal input {background: #e4dcda;border: 0;color: #130f0e;display: block;font: 200 16px/30px Oswald, 'Fira Sans Condensed', sans-serif;margin: 10px 0 0;padding: 0 10px;text-align: center;width: calc(100% - 20px);}
-.modal input:focus {box-shadow: inset 0 0 4px 1px #574640;outline: none;}
+.modal fieldset {border: 0;margin: 9px 0 0;padding: 0;}
+.modal fieldset:has(.hidden) {margin-top: 10px;}
+.modal fieldset:has(:not(.hidden) + :invalid) {border: 1px solid #c00;}
+.modal legend {font: 200 14px/3px Oswald, 'Fira Sans Condensed', sans-serif;margin-left: 10px;text-align: left;}
+.modal legend:has(+ :invalid) {margin-left: 9px;}
+.modal legend.hidden {display: none;}
+.modal input {background: #e4dcda;border: 0;color: #130f0e;display: block;font: 200 16px/30px Oswald, 'Fira Sans Condensed', sans-serif;padding: 0 10px;text-align: center;width: calc(100% - 20px);}
+.modal input:focus {box-shadow: inset 0 -4px 4px -3px #090;outline: none;}
+.modal input:focus:invalid {box-shadow: inset 0 -4px 4px -4px #c00;}
+.modal :not(.hidden) + input {margin-top: -2px;}
+.modal :not(.hidden) + input:invalid {line-height: 28px;margin-top: -1px;}
 #service {cursor: pointer;}
 .modal label {align-items: flex-start;display: flex;line-height: 20px;margin-top: 20px;text-align: justify;}
 .modal input[type="checkbox"] {clip: rect(0 0 0 0);height: 1px;margin: 0;overflow: hidden;position: absolute;width: 1px;}
@@ -198,8 +207,11 @@ footer button:focus {box-shadow: inset 0 0 4px 1px #2a221f, 0 0 5px #e4dcda;}
 	#services button {font-size: 15px;line-height: 16px;margin-top: 14px;padding: 6px 12px;}
 }
 @media (min-height: 280px) and (min-width: 280px) {
-	.modal input {line-height: 40px;margin: 20px 0 0;}
-	.modal input[name="coupon"] {float: left;margin-right: 20px;width: calc(100% - 137px);}
+	.modal fieldset {margin-top: 19px;}
+	.modal fieldset:has(.hidden) {margin-top: 20px;}
+	.modal #couponfieldset {float: left;margin-right: 20px;width: calc(100% - 117px);}
+	.modal input {line-height: 40px;}
+	.modal :not(.hidden) + input:invalid {line-height: 38px;}
 	.modal button {margin: 20px 0 0;}
 	#submitbutton {width: 97px;}
 }
@@ -221,8 +233,14 @@ footer button:focus {box-shadow: inset 0 0 4px 1px #2a221f, 0 0 5px #e4dcda;}
 }
 @media (min-width: 1000px) {
 	.modal {font-size: 20px;width: 400px;}
+	.modal fieldset:has(.hidden) {margin-top: 20px;}
+	.modal fieldset:has(:not(.hidden) + :invalid) {border-width: 2px;}
+	.modal #couponfieldset {width: calc(100% - 133px);}
+	.modal legend {font-size: 17px;line-height: 4px;}
+	.modal legend:has(+ :invalid) {margin-left: 8px;}
 	.modal input {font-size: 20px;line-height: 50px;}
-	.modal input[name="coupon"] {width: calc(100% - 153px);}
+	.modal :not(.hidden) + input {margin-top: -3px;}
+	.modal :not(.hidden) + input:invalid {line-height: 46px;}
 	.modal label {line-height: 25px;}
 	.modal input[type="checkbox"] + span {height: 25px;min-width: 25px;}
 	.modal input[type="checkbox"]:checked + span:before {margin-left: 5.5px;}
@@ -321,10 +339,22 @@ footer button:focus {box-shadow: inset 0 0 4px 1px #2a221f, 0 0 5px #e4dcda;}
 			<form id="orderform" method="post">
 				<div id="ordermain">
 					<input id="service" name="ordertype" placeholder="Выберите услуги ≫" readonly type="text">
-					<input id="fio" maxlength="256" name="fio" placeholder="Имя*" required type="text">
-					<input autocomplete="off" id="tel" maxlength="12" minlength="12" name="tel" pattern="[0-9+]{12}" placeholder="Телефон*" required type="tel">
-					<input id="email" maxlength="256" name="email" pattern="[^@\s]+@[^@\s]+\.[^@\s]{2,}" placeholder="E-mail*" required type="email">
-					<input id="coupon" maxlength="32" name="coupon" placeholder="Промокод" type="text">
+					<fieldset>
+						<legend class="hidden" id="fiolegend">Имя*</legend>
+						<input id="fio" maxlength="256" name="fio" placeholder="Имя*" required type="text">
+					</fieldset>
+					<fieldset>
+						<legend class="hidden" id="tellegend">Телефон*</legend>
+						<input autocomplete="off" id="tel" maxlength="12" minlength="12" name="tel" pattern="[0-9+]{12}" placeholder="Телефон*" required type="tel">
+					</fieldset>
+					<fieldset>
+						<legend class="hidden" id="emaillegend">E-mail*</legend>
+						<input id="email" maxlength="256" name="email" pattern="[^@\s]+@[^@\s]+\.[^@\s]{2,}" placeholder="E-mail*" required type="email">
+					</fieldset>
+					<fieldset id="couponfieldset">
+						<legend class="hidden" id="couponlegend">Промокод</legend>
+						<input id="coupon" maxlength="32" name="coupon" placeholder="Промокод" type="text">
+					</fieldset>
 					<button id="submitbutton">Заказать</button>
 				</div>
 				<div class="hidden" id="services">
@@ -354,10 +384,10 @@ let servicesCount = 0,
 	firstTime = true;
 
 function setHeight() {
-	document.querySelectorAll('.preview').forEach(function (item) {
+	document.querySelectorAll('.preview').forEach(item => {
 		item.style.maxHeight = `${item.scrollHeight + 50}px`;
 	});
-	document.querySelectorAll('.readmore').forEach(function (item) {
+	document.querySelectorAll('.readmore').forEach(item => {
 		item.style.maxHeight = `${item.scrollHeight + 100}px`;
 	});
 }
@@ -391,13 +421,13 @@ function openOrderProgram() {
 	orderprogram.classList.remove('hidden');
 	document.addEventListener('keyup', closeModalByEscape);
 }
-orderprogrambutton.addEventListener('click', function () {
+orderprogrambutton.addEventListener('click', () => {
 	openOrderProgram();
 });
 
 function closeModal() {
 	document.removeEventListener('keyup', closeModalByEscape);
-	document.querySelectorAll('.modal:not(.hidden)').forEach(function (element) {
+	document.querySelectorAll('.modal:not(.hidden)').forEach(element => {
 		element.addEventListener('transitionend', function handler() {
 			element.removeEventListener('transitionend', handler);
 			closemodal.classList.add('hidden');
@@ -409,7 +439,7 @@ function closeModal() {
 modaloverlay.addEventListener('click', closeModal);
 closemodal.addEventListener('click', closeModal);
 
-function closeModalByEscape(event) {
+function closeModalByEscape() {
 	if (event.code === 'Escape')
 		closeModal();
 }
@@ -446,26 +476,30 @@ function checkServices() {
 	}
 	this.blur();
 }
-services.querySelectorAll('label input[type="checkbox"]').forEach(function (item) {
+services.querySelectorAll('label input[type="checkbox"]').forEach(item => {
 	item.addEventListener('click', checkServices);
 });
 
 fio.setCustomValidity('Пожалуйста, заполните поле с именем');
 tel.setCustomValidity('Пожалуйста, заполните поле с номером телефона');
 email.setCustomValidity('Пожалуйста, заполните поле с имейлом');
-fio.addEventListener('input', function (event) {
+fio.addEventListener('input', () => {
 	if (fio.validity.valueMissing) {
 		fio.setCustomValidity('Пожалуйста, заполните поле с именем');
+		fiolegend.classList.add('hidden');
 	} else {
 		fio.setCustomValidity('');
+		fiolegend.classList.remove('hidden');
 	}
 });
-tel.addEventListener('input', function (event) {
+tel.addEventListener('input', function () {
 	let phoneNumber = this.value.replace(/[^0-9]/g,'');
 	if (phoneNumber == '') {
 		this.value = '';
+		tellegend.classList.add('hidden');
 	} else {
 		this.value = '+' + phoneNumber;
+		tellegend.classList.remove('hidden');
 	}
 	if (tel.validity.valueMissing) {
 		tel.setCustomValidity('Пожалуйста, заполните поле с номером телефона');
@@ -475,13 +509,16 @@ tel.addEventListener('input', function (event) {
 		tel.setCustomValidity('');
 	}
 });
-email.addEventListener('input', function (event) {
+email.addEventListener('input', () => {
 	if (email.validity.valueMissing) {
 		email.setCustomValidity('Пожалуйста, заполните поле с имейлом');
+		emaillegend.classList.add('hidden');
 	} else if (email.validity.patternMismatch) {
 		email.setCustomValidity('Введён не адрес электронной почты');
+		emaillegend.classList.remove('hidden');
 	} else {
 		email.setCustomValidity('');
+		emaillegend.classList.remove('hidden');
 	}
 });
 
@@ -519,12 +556,19 @@ function couponCheck() {
 	})()
 }
 coupon.addEventListener('keyup', couponCheck);
+coupon.addEventListener('input', () => {
+	if (coupon.value == '') {
+		couponlegend.classList.add('hidden');
+	} else {
+		couponlegend.classList.remove('hidden');
+	}
+});
 
 function openOrdered() {
 	orderprogram.classList.add('hidden');
 	ordered.classList.remove('hidden');
 }
-function submitForm(event) {
+function submitForm() {
 	(async () => {
 		event.preventDefault();
 
