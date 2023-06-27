@@ -9,7 +9,21 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link href="img/favicon.svg" rel="icon">
 	<link href="img/apple-touch-icon.png" rel="apple-touch-icon">
-	<!--link href="manifest.json" rel="manifest"-->
+	<link href="manifest.json" rel="manifest">
+	<script>
+if ('serviceWorker' in navigator) {
+	window.addEventListener('load', function () {
+		navigator.serviceWorker.register('js/sw.js').then(
+			function (registration) {
+				console.log('ServiceWorker registration successful with scope: ', registration.scope);
+			},
+			function (err) {
+				console.log('ServiceWorker registration failed: ', err);
+			}
+		);
+	});
+}
+	</script>
 	<style>
 @font-face {
 	font-display: swap;
