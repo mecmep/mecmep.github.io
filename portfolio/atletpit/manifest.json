@@ -3,7 +3,7 @@
 	"short_name": "Atletpit",
 	"description": "Индивидуальная программа спортивного питания",
 	"lang": "ru-RU",
-	"start_url": "?source=pwa",
+	"start_url": "./?source=pwa",
 	"display": "standalone",
 	"theme_color": "#574640",
 	"background_color": "#574640",
