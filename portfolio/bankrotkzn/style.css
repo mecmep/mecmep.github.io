@@ -236,6 +236,7 @@ header p {
 	display: block;
 	font: 300 13px/62px Ubuntu, sans-serif;
 	padding: 0 25px;
+	position: relative;
 	text-align: center;
 	text-decoration: none;
 	text-transform: uppercase;
@@ -244,6 +245,20 @@ header p {
 #headernavlist a:hover {
 	background: #0006;
 	color: #f2ae05;
+}
+#headernavlist a::after {
+	background: #f2ae05;
+	bottom: 20px;
+	content: '';
+	height: 1px;
+	left: 50%;
+	position: absolute;
+	transform: translateX(-50%);
+	width: 0;
+}
+#headernavlist a:focus::after, #headernavlist a:hover::after {
+	transition: .2s;
+	width: calc(100% - 50px);
 }
 @media (max-width: 1200px) {
 	header {
@@ -324,6 +339,9 @@ header p {
 	}
 	#headernavlist li {
 		margin: 0;
+	}
+	#headernavlist a::after {
+		height: 0;
 	}
 }
 @media (max-width: 300px) {
